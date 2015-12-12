@@ -16,12 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        let vc = UIViewController()
-        vc.view.backgroundColor = UIColor.redColor()
         
-        window?.rootViewController = vc
+        window?.rootViewController = HMZTabBarController()
         window?.makeKeyAndVisible()
+        //设置主题颜色
+        setThemeColor()
         return true
+    }
+    
+    func setThemeColor() {
+        //一定要提前设置
+        UINavigationBar.appearance().tintColor = HMZThemeColor
+        UITabBar.appearance().tintColor = HMZThemeColor
+    
     }
 
     func applicationWillResignActive(application: UIApplication) {
