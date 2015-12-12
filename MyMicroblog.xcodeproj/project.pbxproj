@@ -275,6 +275,7 @@
 				DA9932601C1BC65300FD69F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
