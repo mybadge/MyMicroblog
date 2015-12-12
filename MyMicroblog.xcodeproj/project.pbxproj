@@ -87,6 +87,7 @@
 		DA9932441C1BC65300FD69F6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = HMZ;
 				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "赵志丹";
