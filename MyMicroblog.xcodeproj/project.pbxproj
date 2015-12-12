@@ -8,16 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		DA9932501C1BC65300FD69F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99324F1C1BC65300FD69F6 /* AppDelegate.swift */; };
-		DA9932521C1BC65300FD69F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9932511C1BC65300FD69F6 /* ViewController.swift */; };
-		DA9932551C1BC65300FD69F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA9932531C1BC65300FD69F6 /* Main.storyboard */; };
 		DA9932621C1BC77800FD69F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA9932611C1BC77800FD69F6 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DA99324C1C1BC65300FD69F6 /* MyMicroblog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMicroblog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA99324F1C1BC65300FD69F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DA9932511C1BC65300FD69F6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DA9932541C1BC65300FD69F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DA99325B1C1BC65300FD69F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA9932611C1BC77800FD69F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -53,8 +49,6 @@
 			isa = PBXGroup;
 			children = (
 				DA99324F1C1BC65300FD69F6 /* AppDelegate.swift */,
-				DA9932511C1BC65300FD69F6 /* ViewController.swift */,
-				DA9932531C1BC65300FD69F6 /* Main.storyboard */,
 				DA99325B1C1BC65300FD69F6 /* Info.plist */,
 				DA9932611C1BC77800FD69F6 /* Assets.xcassets */,
 			);
@@ -122,7 +116,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA9932621C1BC77800FD69F6 /* Assets.xcassets in Resources */,
-				DA9932551C1BC65300FD69F6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,23 +126,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA9932521C1BC65300FD69F6 /* ViewController.swift in Sources */,
 				DA9932501C1BC65300FD69F6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		DA9932531C1BC65300FD69F6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DA9932541C1BC65300FD69F6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		DA99325C1C1BC65300FD69F6 /* Debug */ = {
