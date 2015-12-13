@@ -38,6 +38,11 @@ class HMZBaseTableViewController: UITableViewController,HMZVisitorLoginViewDeleg
     
     func userWillLogin() {
         print(__FUNCTION__)
+        
+        let nav = UINavigationController(rootViewController: HMZOAuthViewController())
+        
+        presentViewController(nav, animated: true, completion: nil)
+        //navigationController?.pushViewController(HMZOAuthViewController(), animated: true)
     }
     
     func userWillRegister() {

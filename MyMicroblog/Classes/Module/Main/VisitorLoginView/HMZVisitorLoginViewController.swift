@@ -89,7 +89,7 @@ class HMZVisitorLoginView: UIView {
     private lazy var registerBtn: UIButton = {
         let btn = UIButton()
         //stretchableImageWithLeftCapWidth(11, topCapHeight: 0) 拉伸方式11 为宽度的一半
-        btn.setBackgroundImage(UIImage(named: "common_button_white_disable")?.stretchableImageWithLeftCapWidth(11, topCapHeight: 0), forState: .Normal)
+        btn.setBackgroundImage(UIImage(named: "common_button_white_disable2")?.stretchableImageWithLeftCapWidth(11, topCapHeight: 20), forState: .Normal)
         btn.setTitle("注册", forState: .Normal)
         btn.titleLabel?.font = UIFont.systemFontOfSize(15)
         btn.setTitleColor(HMZThemeColor, forState: .Normal)

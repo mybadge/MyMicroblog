@@ -10,6 +10,8 @@
 		4FF0AB4A1DB9324A2F9123CF /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538A39FE6BE18E7BFF0308D6 /* Pods.framework */; };
 		DA02821E1C1D0135000416A4 /* HMZNetWorkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02821D1C1D0135000416A4 /* HMZNetWorkTool.swift */; };
 		DA0282211C1D0C93000416A4 /* HMZOAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0282201C1D0C93000416A4 /* HMZOAuthViewController.swift */; };
+		DA0282231C1D1E63000416A4 /* HMZUserAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0282221C1D1E63000416A4 /* HMZUserAccountViewModel.swift */; };
+		DA0282251C1D405E000416A4 /* HMZAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0282241C1D405E000416A4 /* HMZAccount.swift */; };
 		DA6B00DA1C1C068000D362C9 /* HMZTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6B00D91C1C068000D362C9 /* HMZTabBarController.swift */; };
 		DA6B00DE1C1C08C100D362C9 /* HMZMainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6B00DD1C1C08C100D362C9 /* HMZMainTabBar.swift */; };
 		DA6B00E01C1C4AA300D362C9 /* HMZDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6B00DF1C1C4AA300D362C9 /* HMZDiscoverViewController.swift */; };
@@ -29,6 +31,8 @@
 		90FA620B0D6587D6FCA06E3E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		DA02821D1C1D0135000416A4 /* HMZNetWorkTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZNetWorkTool.swift; sourceTree = "<group>"; };
 		DA0282201C1D0C93000416A4 /* HMZOAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZOAuthViewController.swift; sourceTree = "<group>"; };
+		DA0282221C1D1E63000416A4 /* HMZUserAccountViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZUserAccountViewModel.swift; sourceTree = "<group>"; };
+		DA0282241C1D405E000416A4 /* HMZAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZAccount.swift; sourceTree = "<group>"; };
 		DA6B00D91C1C068000D362C9 /* HMZTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZTabBarController.swift; sourceTree = "<group>"; };
 		DA6B00DD1C1C08C100D362C9 /* HMZMainTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZMainTabBar.swift; sourceTree = "<group>"; };
 		DA6B00DF1C1C4AA300D362C9 /* HMZDiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZDiscoverViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 		DA6B00D61C1C060E00D362C9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DA0282241C1D405E000416A4 /* HMZAccount.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 		DA6B00D81C1C060E00D362C9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				DA0282221C1D1E63000416A4 /* HMZUserAccountViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -341,6 +347,7 @@
 			files = (
 				DA6B00E91C1C4B5300D362C9 /* HMZProfileViewController.swift in Sources */,
 				DA9932501C1BC65300FD69F6 /* AppDelegate.swift in Sources */,
+				DA0282231C1D1E63000416A4 /* HMZUserAccountViewModel.swift in Sources */,
 				DA0282211C1D0C93000416A4 /* HMZOAuthViewController.swift in Sources */,
 				DA6B00EB1C1C5ABD00D362C9 /* HMZCommon.swift in Sources */,
 				DA6B00DE1C1C08C100D362C9 /* HMZMainTabBar.swift in Sources */,
@@ -351,6 +358,7 @@
 				DA6B00F01C1C691200D362C9 /* HMZVisitorLoginViewController.swift in Sources */,
 				DA6B00E71C1C4B3D00D362C9 /* HMZMessageViewController.swift in Sources */,
 				DA6B00E01C1C4AA300D362C9 /* HMZDiscoverViewController.swift in Sources */,
+				DA0282251C1D405E000416A4 /* HMZAccount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

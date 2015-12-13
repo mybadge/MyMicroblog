@@ -18,11 +18,20 @@ let HMZThemeColor = UIColor.orangeColor()
 let HMZApiClient_id = "2492369838"
 let HMZApiClient_secret = "47731e717d9338fbe53f46518f150eb1"
 let HMZApiRedirect_uri = "http://www.baidu.com"
+let HMZAppErrorTip = "哥正忙着呢.....一边玩去"
 
 
 func HMZRandomColor() ->UIColor{
     return UIColor(red: (CGFloat)(random() % 256) / 256.0, green: (CGFloat)(random() % 256) / 256.0, blue: (CGFloat)(random() % 256) / 256.0, alpha: 1)
 }
+
+///  获取沙盒中文件绝对路径 根据相对路径
+///  - parameter path: 在沙盒中的相对路径
+///  - returns: 沙盒中的绝对路径
+func getDocumentDicrectoryPathWith(path:String) ->String {
+    return (NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last! as NSString).stringByAppendingPathComponent(path)
+}
+
 
 
 
