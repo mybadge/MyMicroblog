@@ -16,6 +16,10 @@ class HMZBaseTableViewController: UITableViewController,HMZVisitorLoginViewDeleg
     var visitorLoginView: HMZVisitorLoginView?
     
     override func loadView() {
+        if let _ = HMZAccount.account() {
+            userLoginState = true
+        }
+        
         if userLoginState {
             //登录成功 跳到首页
             super.loadView()

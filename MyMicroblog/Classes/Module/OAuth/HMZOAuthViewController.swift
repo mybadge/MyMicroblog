@@ -54,12 +54,17 @@ extension HMZOAuthViewController: UIWebViewDelegate {
         
         //print(urlString)
         
+        //屏蔽掉不希望加载的页面
         if urlString.hasPrefix("https://api.weibo.com/") {
             return true
         }
-        if !urlString.hasPrefix("http://www.baidu.com/") {
+        
+        if !urlString.hasPrefix(HMZApiRedirect_uri) {
+            //如果url没有包含回调地址,则返回, 因为他不是授权成功回调的..
             return false
         }
+
+        
         
         //获取授权码  query 是请求参数列表
         guard let query = request.URL?.query else {

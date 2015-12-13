@@ -28,7 +28,7 @@ func HMZRandomColor() ->UIColor{
 ///  获取沙盒中文件绝对路径 根据相对路径
 ///  - parameter path: 在沙盒中的相对路径
 ///  - returns: 沙盒中的绝对路径
-func getDocumentDicrectoryPathWith(path:String) ->String {
+func HMZGetDocumentDicrectoryPathWith(path:String) ->String {
     return (NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last! as NSString).stringByAppendingPathComponent(path)
 }
 

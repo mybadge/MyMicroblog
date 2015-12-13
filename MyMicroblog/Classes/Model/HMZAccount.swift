@@ -48,11 +48,30 @@ class HMZAccount: NSObject, NSCoding {
         let keys = ["access_token", "expires_date", "uid", "name", "avatar_large"]
         return dictionaryWithValuesForKeys(keys).description
     }
-
+    
+    ///  获取账号信息,由于这个模型整个程序要经常使用,最好放到内存中,以减少IO操作
+    class func account() ->HMZAccount? {
+        let path = HMZGetDocumentDicrectoryPathWith("account.plist")
+        if let account = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? HMZAccount {
+            //判断账号是否过期
+            
+            /**
+            case OrderedAscending 上升
+            case OrderedSame 相等
+            case OrderedDescending 下降
+            */
+            print("判断日期expires_date与当前日期的判断 =\(account.expires_date?.compare(NSDate()) == NSComparisonResult.OrderedDescending)")
+            if account.expires_date?.compare(NSDate()) == NSComparisonResult.OrderedDescending {
+                return account
+            }
+        }
+        
+        return nil
+    }
     
     ///  保存到沙盒
     func saveAccount() {
-        let path = getDocumentDicrectoryPathWith("account.plist")
+        let path = HMZGetDocumentDicrectoryPathWith("account.plist")
         printLog(path)
         NSKeyedArchiver.archiveRootObject(self, toFile: path)
     }
