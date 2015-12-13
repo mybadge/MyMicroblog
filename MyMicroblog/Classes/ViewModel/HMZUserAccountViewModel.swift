@@ -9,21 +9,37 @@
 import UIKit
 
 class HMZUserAccountViewModel: NSObject {
-//    var userAccount: 
     
-    //获取taken_Id
+    override init() {
+        super.init()
+        account = HMZAccount.account()
+    }
     
+    var account: HMZAccount?
+    
+    /// 用户是否登录过
+    var userLoginState: Bool {
+        return account?.access_token != nil
+    }
+    /// 用户姓名
+    var userName: String? {
+        return account?.name
+    }
+    /// tokenID
+    var token: String? {
+        return account?.access_token
+    }
+    /// 头像Image
+    var headImageURL: NSURL? {
+        return NSURL(string: account?.avatar_large ?? "")
+    }
+   
+}
+
+extension HMZUserAccountViewModel {
+    ///获取taken_Id
     func getAccessToken(code: String, finish: (error: NSError?) ->()){
         var param: [String: String] = [String: String]()
-        //        client_id	true	string	申请应用时分配的AppKey。
-        //        client_secret	true	string	申请应用时分配的AppSecret。
-        //        grant_type	true	string	请求的类型，填写authorization_code
-        //
-        //        grant_type为authorization_code时
-        //        必选	类型及范围	说明
-        //        code	true	string	调用authorize获得的code值。
-        //        redirect_uri	true	string	回调地址，需需与注册应用里的回调地址一致。
-        
         param["client_id"] = HMZApiClient_id
         param["client_secret"] = HMZApiClient_secret
         param["grant_type"] = "authorization_code"
@@ -38,7 +54,7 @@ class HMZUserAccountViewModel: NSObject {
             print(result)
             let account = HMZAccount(dict: result!)
             self.loadUserInfo(account, finished: { (error) -> () in
-                
+                finish(error: error)
             })
             //Optional(["access_token": 2.00qcxPXFWPjfiC9eefed557816UaRC, "remind_in": 157679999, "uid": 5072087372, "expires_in": 157679999])
             

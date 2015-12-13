@@ -11,15 +11,11 @@ import UIKit
 class HMZBaseTableViewController: UITableViewController,HMZVisitorLoginViewDelegate {
     
     /// 用户登录标识
-    var userLoginState = false
+    var userLoginState = HMZUserAccountViewModel().userLoginState
     
     var visitorLoginView: HMZVisitorLoginView?
     
     override func loadView() {
-        if let _ = HMZAccount.account() {
-            userLoginState = true
-        }
-        
         if userLoginState {
             //登录成功 跳到首页
             super.loadView()
@@ -44,9 +40,8 @@ class HMZBaseTableViewController: UITableViewController,HMZVisitorLoginViewDeleg
         print(__FUNCTION__)
         
         let nav = UINavigationController(rootViewController: HMZOAuthViewController())
-        
+        //一般像登录,注册这类的和程序的主题框架不同的控制器,要Modal出来.
         presentViewController(nav, animated: true, completion: nil)
-        //navigationController?.pushViewController(HMZOAuthViewController(), animated: true)
     }
     
     func userWillRegister() {
