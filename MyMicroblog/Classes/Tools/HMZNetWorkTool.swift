@@ -21,7 +21,8 @@ private let dataErrorDomain = "com.baidu.data.error"
 
 class HMZNetWorkTool: AFHTTPSessionManager {
     static let sharedTools: HMZNetWorkTool = {
-        let instence = HMZNetWorkTool(baseURL: nil)
+        let url = NSURL(string: hostName)!
+        let instence = HMZNetWorkTool(baseURL: url)
         instence.responseSerializer.acceptableContentTypes?.insert("text/html")
         return instence
     }()

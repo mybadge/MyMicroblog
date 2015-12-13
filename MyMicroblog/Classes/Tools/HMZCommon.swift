@@ -8,9 +8,44 @@
 
 import UIKit
 
+//swift 在同一个命名空间 下 所有的文件 和方法 以及属性 全局共享
+//和OC中 pch文件类似  定义程序中 非常常用的方法 常量
+let screenW = UIScreen.mainScreen().bounds.width
+let screenH = UIScreen.mainScreen().bounds.height
+
 let HMZThemeColor = UIColor.orangeColor()
+
+let HMZApiClient_id = "2492369838"
+let HMZApiClient_secret = "47731e717d9338fbe53f46518f150eb1"
+let HMZApiRedirect_uri = "http://www.baidu.com"
 
 
 func HMZRandomColor() ->UIColor{
     return UIColor(red: (CGFloat)(random() % 256) / 256.0, green: (CGFloat)(random() % 256) / 256.0, blue: (CGFloat)(random() % 256) / 256.0, alpha: 1)
+}
+
+
+
+
+
+/// 输出日志
+///
+/// - parameter message:  日志消息
+/// - parameter logError: 错误标记，默认是 false，如果是 true，发布时仍然会输出
+/// - parameter file:     文件名
+/// - parameter method:   方法名
+/// - parameter line:     代码行数
+func printLog<T>(message: T,
+    logError: Bool = false,
+    file: String = __FILE__,
+    method: String = __FUNCTION__,
+    line: Int = __LINE__)
+{
+    if logError {
+        print("\((file as NSString).lastPathComponent)[\(line)], \(method): \(message)")
+    } else {
+        #if DEBUG
+            print("\((file as NSString).lastPathComponent)[\(line)], \(method): \(message)")
+        #endif
+    }
 }
