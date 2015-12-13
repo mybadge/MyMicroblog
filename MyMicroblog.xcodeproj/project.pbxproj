@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4FF0AB4A1DB9324A2F9123CF /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538A39FE6BE18E7BFF0308D6 /* Pods.framework */; };
+		DA02821E1C1D0135000416A4 /* HMZNetWorkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02821D1C1D0135000416A4 /* HMZNetWorkTool.swift */; };
 		DA6B00DA1C1C068000D362C9 /* HMZTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6B00D91C1C068000D362C9 /* HMZTabBarController.swift */; };
 		DA6B00DE1C1C08C100D362C9 /* HMZMainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6B00DD1C1C08C100D362C9 /* HMZMainTabBar.swift */; };
 		DA6B00E01C1C4AA300D362C9 /* HMZDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6B00DF1C1C4AA300D362C9 /* HMZDiscoverViewController.swift */; };
@@ -21,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		538A39FE6BE18E7BFF0308D6 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		719CF3A230C0F12D07071A75 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		90FA620B0D6587D6FCA06E3E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		DA02821D1C1D0135000416A4 /* HMZNetWorkTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZNetWorkTool.swift; sourceTree = "<group>"; };
 		DA6B00D91C1C068000D362C9 /* HMZTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZTabBarController.swift; sourceTree = "<group>"; };
 		DA6B00DD1C1C08C100D362C9 /* HMZMainTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZMainTabBar.swift; sourceTree = "<group>"; };
 		DA6B00DF1C1C4AA300D362C9 /* HMZDiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZDiscoverViewController.swift; sourceTree = "<group>"; };
@@ -41,12 +47,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FF0AB4A1DB9324A2F9123CF /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		726A1CB7EC91F82E5AD79919 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				538A39FE6BE18E7BFF0308D6 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DA6B00CF1C1C059F00D362C9 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				DA6B00EA1C1C5ABD00D362C9 /* HMZCommon.swift */,
+				DA02821D1C1D0135000416A4 /* HMZNetWorkTool.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -157,6 +173,8 @@
 			children = (
 				DA99324E1C1BC65300FD69F6 /* MyMicroblog */,
 				DA99324D1C1BC65300FD69F6 /* Products */,
+				EA02D35503E28CDD0D3F7DDE /* Pods */,
+				726A1CB7EC91F82E5AD79919 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -179,6 +197,15 @@
 			path = MyMicroblog;
 			sourceTree = "<group>";
 		};
+		EA02D35503E28CDD0D3F7DDE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				90FA620B0D6587D6FCA06E3E /* Pods.debug.xcconfig */,
+				719CF3A230C0F12D07071A75 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -186,9 +213,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA99325E1C1BC65300FD69F6 /* Build configuration list for PBXNativeTarget "MyMicroblog" */;
 			buildPhases = (
+				10039398EE72A8DCD5954669 /* Check Pods Manifest.lock */,
 				DA9932481C1BC65300FD69F6 /* Sources */,
 				DA9932491C1BC65300FD69F6 /* Frameworks */,
 				DA99324A1C1BC65300FD69F6 /* Resources */,
+				26C408B880A14104FDA5A216 /* Embed Pods Frameworks */,
+				2EF3EFDC369CC1363CF29A7B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -245,6 +275,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		10039398EE72A8DCD5954669 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		26C408B880A14104FDA5A216 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2EF3EFDC369CC1363CF29A7B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DA9932481C1BC65300FD69F6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -254,6 +332,7 @@
 				DA9932501C1BC65300FD69F6 /* AppDelegate.swift in Sources */,
 				DA6B00EB1C1C5ABD00D362C9 /* HMZCommon.swift in Sources */,
 				DA6B00DE1C1C08C100D362C9 /* HMZMainTabBar.swift in Sources */,
+				DA02821E1C1D0135000416A4 /* HMZNetWorkTool.swift in Sources */,
 				DA6B00DA1C1C068000D362C9 /* HMZTabBarController.swift in Sources */,
 				DA6B00E21C1C4AB500D362C9 /* HMZHomeViewController.swift in Sources */,
 				DA6B00E51C1C4AF400D362C9 /* HMZBaseTableViewController.swift in Sources */,
@@ -349,6 +428,7 @@
 		};
 		DA99325F1C1BC65300FD69F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90FA620B0D6587D6FCA06E3E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
@@ -361,6 +441,7 @@
 		};
 		DA9932601C1BC65300FD69F6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 719CF3A230C0F12D07071A75 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
