@@ -8,10 +8,12 @@
 
 import UIKit
 
-class HMZBaseTableViewController: UITableViewController {
-
+class HMZBaseTableViewController: UITableViewController,HMZVisitorLoginViewDelegate {
+    
     /// 用户登录标识
     var userLoginState = false
+    
+    var visitorLoginView: HMZVisitorLoginView?
     
     override func loadView() {
         if userLoginState {
@@ -19,9 +21,26 @@ class HMZBaseTableViewController: UITableViewController {
             super.loadView()
         }else{
             //未登录  跳到访客视图
-            
+            setupVisitorLoginView()
         }
     }
-   
-
+    
+    func setupVisitorLoginView(){
+        visitorLoginView = HMZVisitorLoginView()
+        
+        view = visitorLoginView
+        
+        //设置代理
+        visitorLoginView?.delegate = self
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "登录", style: .Plain, target: self, action: "userWillLogin")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "注册", style: .Plain, target: self, action: "userWillRegister")
+    }
+    
+    func userWillLogin() {
+        print(__FUNCTION__)
+    }
+    
+    func userWillRegister() {
+        print(__FUNCTION__)
+    }
 }

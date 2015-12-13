@@ -12,6 +12,8 @@ class HMZProfileViewController: HMZBaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        visitorLoginView?.setupInfo("登录后，你的微博、相册、个人资料会显示在这里，展示给别人", imageName: "visitordiscover_image_profile")
+
 
         // Do any additional setup after loading the view.
     }

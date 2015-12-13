@@ -39,6 +39,6 @@ extension HMZTabBarController{
         vc.tabBarItem.image = UIImage(named: imageName)
         addChildViewController(nav)
         //设置随机颜色
-        vc.view.backgroundColor = HMZRandomColor()
+        //vc.view.backgroundColor = HMZRandomColor()
     }
 }

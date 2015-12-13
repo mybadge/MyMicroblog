@@ -15,6 +15,7 @@
 		DA6B00E71C1C4B3D00D362C9 /* HMZMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6B00E61C1C4B3D00D362C9 /* HMZMessageViewController.swift */; };
 		DA6B00E91C1C4B5300D362C9 /* HMZProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6B00E81C1C4B5300D362C9 /* HMZProfileViewController.swift */; };
 		DA6B00EB1C1C5ABD00D362C9 /* HMZCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6B00EA1C1C5ABD00D362C9 /* HMZCommon.swift */; };
+		DA6B00F01C1C691200D362C9 /* HMZVisitorLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6B00EF1C1C691200D362C9 /* HMZVisitorLoginViewController.swift */; };
 		DA9932501C1BC65300FD69F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99324F1C1BC65300FD69F6 /* AppDelegate.swift */; };
 		DA9932621C1BC77800FD69F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA9932611C1BC77800FD69F6 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -28,6 +29,7 @@
 		DA6B00E61C1C4B3D00D362C9 /* HMZMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZMessageViewController.swift; sourceTree = "<group>"; };
 		DA6B00E81C1C4B5300D362C9 /* HMZProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZProfileViewController.swift; sourceTree = "<group>"; };
 		DA6B00EA1C1C5ABD00D362C9 /* HMZCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZCommon.swift; sourceTree = "<group>"; };
+		DA6B00EF1C1C691200D362C9 /* HMZVisitorLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZVisitorLoginViewController.swift; sourceTree = "<group>"; };
 		DA99324C1C1BC65300FD69F6 /* MyMicroblog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMicroblog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA99324F1C1BC65300FD69F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA99325B1C1BC65300FD69F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,7 +61,6 @@
 		DA6B00D01C1C059F00D362C9 /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				DA6B00E31C1C4AD700D362C9 /* Base */,
 				DA6B00D11C1C059F00D362C9 /* Discover */,
 				DA6B00D21C1C059F00D362C9 /* Home */,
 				DA6B00D31C1C059F00D362C9 /* Main */,
@@ -88,6 +89,8 @@
 		DA6B00D31C1C059F00D362C9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				DA6B00E31C1C4AD700D362C9 /* Base */,
+				DA6B00EC1C1C687600D362C9 /* VisitorLoginView */,
 				DA6B00D91C1C068000D362C9 /* HMZTabBarController.swift */,
 				DA6B00DD1C1C08C100D362C9 /* HMZMainTabBar.swift */,
 			);
@@ -138,6 +141,15 @@
 				DA6B00E41C1C4AF400D362C9 /* HMZBaseTableViewController.swift */,
 			);
 			name = Base;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		DA6B00EC1C1C687600D362C9 /* VisitorLoginView */ = {
+			isa = PBXGroup;
+			children = (
+				DA6B00EF1C1C691200D362C9 /* HMZVisitorLoginViewController.swift */,
+			);
+			path = VisitorLoginView;
 			sourceTree = "<group>";
 		};
 		DA9932431C1BC65300FD69F6 = {
@@ -245,6 +257,7 @@
 				DA6B00DA1C1C068000D362C9 /* HMZTabBarController.swift in Sources */,
 				DA6B00E21C1C4AB500D362C9 /* HMZHomeViewController.swift in Sources */,
 				DA6B00E51C1C4AF400D362C9 /* HMZBaseTableViewController.swift in Sources */,
+				DA6B00F01C1C691200D362C9 /* HMZVisitorLoginViewController.swift in Sources */,
 				DA6B00E71C1C4B3D00D362C9 /* HMZMessageViewController.swift in Sources */,
 				DA6B00E01C1C4AA300D362C9 /* HMZDiscoverViewController.swift in Sources */,
 			);

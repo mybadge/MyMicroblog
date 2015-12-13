@@ -8,11 +8,13 @@
 
 import UIKit
 
-class HMZDiscoverViewController: UITableViewController {
+class HMZDiscoverViewController: HMZBaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        visitorLoginView?.setupInfo("登录后，最新、最热微博尽在掌握，不再会与实事潮流擦肩而过", imageName: "visitordiscover_image_message")
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
