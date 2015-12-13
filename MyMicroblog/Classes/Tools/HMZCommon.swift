@@ -19,6 +19,8 @@ let HMZApiClient_id = "2492369838"
 let HMZApiClient_secret = "47731e717d9338fbe53f46518f150eb1"
 let HMZApiRedirect_uri = "http://www.baidu.com"
 let HMZAppErrorTip = "哥正忙着呢.....一边玩去"
+let HMZSwitchRootVCNotificationKey = "HMZSwitchRootVCNotificationKey"
+
 
 
 func HMZRandomColor() ->UIColor{

@@ -10,12 +10,13 @@ import UIKit
 import SVProgressHUD
 
 class HMZOAuthViewController: UIViewController {
+    
     private let webView = UIWebView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = HMZRandomColor()
-        
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "关闭", style: .Plain, target: self, action: "close")
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "自动填充", style: .Plain, target: self, action: "defaultAccount")
         
@@ -27,15 +28,14 @@ class HMZOAuthViewController: UIViewController {
         webView.delegate = self
     }
     
+    //MARK: 加载授权网页
     private func loadOAuthPage() {
         let URLString = NSURL(string: "https://api.weibo.com/oauth2/authorize?client_id=\(HMZApiClient_id)&redirect_uri=\(HMZApiRedirect_uri)")
         if let url = URLString {
             let request = NSURLRequest(URL: url)
             webView.loadRequest(request)
-            
         }
     }
-    
 }
 
 extension HMZOAuthViewController: UIWebViewDelegate {
@@ -64,8 +64,6 @@ extension HMZOAuthViewController: UIWebViewDelegate {
             return false
         }
 
-        
-        
         //获取授权码  query 是请求参数列表
         guard let query = request.URL?.query else {
             //获取不到参数列表
@@ -84,6 +82,9 @@ extension HMZOAuthViewController: UIWebViewDelegate {
             
             self.dismissViewControllerAnimated(false, completion: { () -> Void in
                 print("登陆成功")
+                //发出切换页面消息
+                // dismissViewControllerAnimated 页面并不会立即被回收
+                NSNotificationCenter.defaultCenter().postNotificationName(HMZSwitchRootVCNotificationKey, object: "welcome")
             })
         }
         
@@ -91,17 +92,10 @@ extension HMZOAuthViewController: UIWebViewDelegate {
     }
     
     func webViewDidStartLoad(webView: UIWebView) {
-        //SVProgressHUD.show()
+        SVProgressHUD.show()
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
-        //SVProgressHUD.dismiss()
+        SVProgressHUD.dismiss()
     }
-    
-    
-    
-    
-    
-    
-    
 }
