@@ -55,8 +55,8 @@ func printLog<T>(message: T,
     if logError {
         print("\((file as NSString).lastPathComponent)[\(line)], \(method): \(message)")
     } else {
-        #if DEBUG
+        //#if DEBUG
             print("\((file as NSString).lastPathComponent)[\(line)], \(method): \(message)")
-        #endif
+        //#endif
     }
 }
