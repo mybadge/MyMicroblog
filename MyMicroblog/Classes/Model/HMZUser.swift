@@ -21,6 +21,8 @@ enum HMZUserVerifiedType: Int{
     case OrgWebsite = 5
     /// 微博达人
     case Daren = 220
+    
+    case Other = 330
 }
 
 class HMZUser: NSObject {
@@ -39,15 +41,15 @@ class HMZUser: NSObject {
     var verified_type: HMZUserVerifiedType = .None
     ///认真类型图片
     var verified_type_image: UIImage?
-  //      {
-//        switch verified_type {
-//        case -1 : return nil
-//        case 0 : return UIImage(named: "avatar_vip")
-//        case 2,3,5: return UIImage(named: "avatar_enterprise_vip")
-//        case 220: return UIImage(named: "avatar_grassroot")
-//        default : return nil
-//        }
- //   }
+        {
+        switch verified_type {
+        case .None : return nil
+        case .Personal : return UIImage(named: "avatar_vip")
+        case .OrgEnterprice, .OrgMedia, .OrgWebsite: return UIImage(named: "avatar_enterprise_vip")
+        case .Daren: return UIImage(named: "avatar_grassroot")
+        default : return nil
+        }
+    }
     
     /// 会员等级 0-6
     var mbrank: Int = 0
