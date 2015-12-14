@@ -43,8 +43,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func isNewVersion() ->Bool {
         //待实现判断版本
+        //当前版本
+        let dict = NSBundle.mainBundle().infoDictionary
+        let currentVersion = dict!["CFBundleShortVersionString"]!.doubleValue
         
-        return true
+        //获取上一个版本
+        let CFBundleVersionKey = "CFBundleShortVersionString"
+        let userDefault = NSUserDefaults.standardUserDefaults()
+        let lastVersion = userDefault.doubleForKey(CFBundleVersionKey)
+        userDefault.setDouble(currentVersion, forKey: CFBundleVersionKey)
+        userDefault.synchronize()
+
+        return currentVersion > lastVersion
     }
     
     

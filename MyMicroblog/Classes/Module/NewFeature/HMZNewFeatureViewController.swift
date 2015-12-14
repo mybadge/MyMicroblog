@@ -144,7 +144,7 @@ class HMZNewFeatureViewCell: UICollectionViewCell {
     }
     
     @objc private func startBtnDidClick() {
-        NSNotificationCenter.defaultCenter().postNotificationName(HMZSwitchRootVCNotificationKey, object: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName(HMZSwitchRootVCNotificationKey, object: "Welcome")
     }
     
     @objc private func shareBtnDidClick(sender: UIButton) {
