@@ -82,6 +82,7 @@ extension HMZOAuthViewController: UIWebViewDelegate {
             
             self.dismissViewControllerAnimated(false, completion: { () -> Void in
                 print("登陆成功")
+                SVProgressHUD.dismiss()
                 //发出切换页面消息
                 // dismissViewControllerAnimated 页面并不会立即被回收
                 NSNotificationCenter.defaultCenter().postNotificationName(HMZSwitchRootVCNotificationKey, object: "welcome")

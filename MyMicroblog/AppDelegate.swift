@@ -21,6 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         //设置主题颜色
         setThemeColor()
+        
+        //注册通知
+        registerNotification()
+        
         return true
     }
     
@@ -49,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func registerNotification() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "switchRootVC", name: HMZSwitchRootVCNotificationKey, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "switchRootVC:", name: HMZSwitchRootVCNotificationKey, object: nil)
     }
     //移除通知  析构方法移除通知
     deinit {

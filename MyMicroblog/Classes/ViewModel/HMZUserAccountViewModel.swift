@@ -83,12 +83,14 @@ extension HMZUserAccountViewModel {
         HMZNetWorkTool.sharedTools.requestJSONDict(urlString: urlString, parameters: param) { (result, error) -> () in
             if (error != nil) {
                 finished(error: error)
+                return
             }
             
             account.avatar_large = result!["avatar_large"] as? String
             account.name = result!["name"] as? String
             account.saveAccount()
-            
+            //回调
+            finished(error: nil)
             //print(result)
             /**
             //用户信息
