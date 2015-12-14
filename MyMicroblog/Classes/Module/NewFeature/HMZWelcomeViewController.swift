@@ -31,7 +31,7 @@ class HMZWelcomeViewController: UIViewController {
     func setupUI() {
         view.addSubview(iconView)
         view.addSubview(welcomeLabel)
-        iconView.backgroundColor = HMZRandomColor()
+        
         //自动布局
         iconView.snp_makeConstraints { (make) -> Void in
             make.centerX.equalTo(view.snp_centerX)

@@ -16,7 +16,6 @@ class HMZOAuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = HMZRandomColor()
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "关闭", style: .Plain, target: self, action: "close")
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "自动填充", style: .Plain, target: self, action: "defaultAccount")
         
@@ -63,16 +62,15 @@ extension HMZOAuthViewController: UIWebViewDelegate {
             //如果url没有包含回调地址,则返回, 因为他不是授权成功回调的..
             return false
         }
-
+        
         //获取授权码  query 是请求参数列表
         guard let query = request.URL?.query else {
             //获取不到参数列表
             return false
         }
-        print(query)
+        
         let codeStr = "code="
         let code = query.substringFromIndex(codeStr.endIndex)
-        print("\(code)")
         HMZUserAccountViewModel.shareViewModel.getAccessToken(code) { (error) -> () in
             if error != nil {
                 //网络请求失败
@@ -81,7 +79,6 @@ extension HMZOAuthViewController: UIWebViewDelegate {
             }
             
             self.dismissViewControllerAnimated(false, completion: { () -> Void in
-                print("登陆成功")
                 SVProgressHUD.dismiss()
                 //发出切换页面消息
                 // dismissViewControllerAnimated 页面并不会立即被回收

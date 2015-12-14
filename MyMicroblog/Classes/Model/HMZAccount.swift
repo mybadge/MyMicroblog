@@ -60,7 +60,7 @@ class HMZAccount: NSObject, NSCoding {
             case OrderedSame 相等
             case OrderedDescending 下降
             */
-            print("判断日期expires_date与当前日期的判断 =\(account.expires_date?.compare(NSDate()) == NSComparisonResult.OrderedDescending)")
+            //print("判断日期expires_date与当前日期的判断 =\(account.expires_date?.compare(NSDate()) == NSComparisonResult.OrderedDescending)")
             if account.expires_date?.compare(NSDate()) == NSComparisonResult.OrderedDescending {
                 return account
             }
