@@ -13,16 +13,18 @@ class HMZProfileViewController: HMZBaseTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         visitorLoginView?.setupInfo("登录后，你的微博、相册、个人资料会显示在这里，展示给别人", imageName: "visitordiscover_image_profile")
-
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "注销", style: .Plain, target: self, action: "signOut")
 
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @objc private func signOut() {
+        let account = HMZUserAccountViewModel.shareViewModel.account
+        account?.access_token = nil
+        account?.saveAccount()
+        NSNotificationCenter.defaultCenter().postNotificationName(HMZSwitchRootVCNotificationKey, object: nil)
     }
-    
 
     /*
     // MARK: - Navigation

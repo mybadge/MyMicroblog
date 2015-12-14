@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4FF0AB4A1DB9324A2F9123CF /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538A39FE6BE18E7BFF0308D6 /* Pods.framework */; };
+		DA0152EB1C1EC4AE00F4E5E3 /* HMZNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0152EA1C1EC4AE00F4E5E3 /* HMZNavigationController.swift */; };
 		DA02821E1C1D0135000416A4 /* HMZNetWorkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02821D1C1D0135000416A4 /* HMZNetWorkTool.swift */; };
 		DA0282211C1D0C93000416A4 /* HMZOAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0282201C1D0C93000416A4 /* HMZOAuthViewController.swift */; };
 		DA0282231C1D1E63000416A4 /* HMZUserAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0282221C1D1E63000416A4 /* HMZUserAccountViewModel.swift */; };
@@ -31,6 +32,7 @@
 		538A39FE6BE18E7BFF0308D6 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		719CF3A230C0F12D07071A75 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		90FA620B0D6587D6FCA06E3E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		DA0152EA1C1EC4AE00F4E5E3 /* HMZNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZNavigationController.swift; sourceTree = "<group>"; };
 		DA02821D1C1D0135000416A4 /* HMZNetWorkTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZNetWorkTool.swift; sourceTree = "<group>"; };
 		DA0282201C1D0C93000416A4 /* HMZOAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZOAuthViewController.swift; sourceTree = "<group>"; };
 		DA0282221C1D1E63000416A4 /* HMZUserAccountViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZUserAccountViewModel.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				DA6B00EC1C1C687600D362C9 /* VisitorLoginView */,
 				DA6B00D91C1C068000D362C9 /* HMZMainTabBarController.swift */,
 				DA6B00DD1C1C08C100D362C9 /* HMZMainTabBar.swift */,
+				DA0152EA1C1EC4AE00F4E5E3 /* HMZNavigationController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 			files = (
 				DA6B00E91C1C4B5300D362C9 /* HMZProfileViewController.swift in Sources */,
 				DA9B6C671C1E6653005A910A /* HMZNewFeatureViewController.swift in Sources */,
+				DA0152EB1C1EC4AE00F4E5E3 /* HMZNavigationController.swift in Sources */,
 				DA9932501C1BC65300FD69F6 /* AppDelegate.swift in Sources */,
 				DA9B6C691C1E672B005A910A /* HMZWelcomeViewController.swift in Sources */,
 				DA0282231C1D1E63000416A4 /* HMZUserAccountViewModel.swift in Sources */,

@@ -34,7 +34,7 @@ extension HMZMainTabBarController{
 
     func addChildVC(vc: UIViewController, title: String, imageName: String) {
         //先创建一个导航控制器
-        let nav = UINavigationController(rootViewController: vc)
+        let nav = HMZNavigationController(rootViewController: vc)
         vc.title = title
         vc.tabBarItem.image = UIImage(named: imageName)
         addChildViewController(nav)

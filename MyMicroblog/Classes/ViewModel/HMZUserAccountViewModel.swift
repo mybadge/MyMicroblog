@@ -59,9 +59,9 @@ extension HMZUserAccountViewModel {
                 finish(error: error)
                 return
             }
-            print(result)
-            let account = HMZAccount(dict: result!)
-            self.loadUserInfo(account, finished: { (error) -> () in
+            //print(result)
+            self.account = HMZAccount(dict: result!)
+            self.loadUserInfo(self.account!, finished: { (error) -> () in
                 finish(error: error)
             })
             //Optional(["access_token": 2.00qcxPXFWPjfiC9eefed557816UaRC, "remind_in": 157679999, "uid": 5072087372, "expires_in": 157679999])
