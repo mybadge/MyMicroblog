@@ -8,13 +8,21 @@
 
 import UIKit
 
-class HMZUserAccountViewModel: NSObject {
+class HMZUserAccountViewModel {
     
-    override init() {
-        super.init()
+    /**
+     在 Swift 中，新建类时，可以不继承 NSObject，这样类的量级更轻
+     不继承 NSObject 的对象不能使用 KVC 方法，因此模型数据不适合这种方法
+     但是对于封装业务逻辑的视图模型而言确实非常好事
+     */
+    
+    /// 单例
+    static let shareViewModel = HMZUserAccountViewModel()
+    
+    init() {
         account = HMZAccount.account()
     }
-    
+    /// 用户账号模型
     var account: HMZAccount?
     
     /// 用户是否登录过

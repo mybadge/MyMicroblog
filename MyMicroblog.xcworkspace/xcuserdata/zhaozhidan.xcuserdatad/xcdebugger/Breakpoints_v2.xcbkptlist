@@ -2,4 +2,86 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyMicroblog/Classes/Module/OAuth/HMZOAuthViewController.swift"
+            timestampString = "471755644.167828"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "webView(_:shouldStartLoadWithRequest:navigationType:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyMicroblog/Classes/Module/OAuth/HMZOAuthViewController.swift"
+            timestampString = "471755651.87995"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "webView(_:shouldStartLoadWithRequest:navigationType:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyMicroblog/Classes/Module/OAuth/HMZOAuthViewController.swift"
+            timestampString = "471755694.52049"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "webView(_:shouldStartLoadWithRequest:navigationType:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyMicroblog.HMZOAuthViewController.(webView (MyMicroblog.HMZOAuthViewController) -&gt; (__ObjC.UIWebView, shouldStartLoadWithRequest : __ObjC.NSURLRequest, navigationType : __C.UIWebViewNavigationType) -&gt; Swift.Bool).(closure #1)"
+                  moduleName = "MyMicroblog"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/WorkSpace/SwfitWorkSpace/MyMicroblog/MyMicroblog/Classes/Module/OAuth/HMZOAuthViewController.swift"
+                  timestampString = "471756277.316118"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "324">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyMicroblog.HMZOAuthViewController.(webView (MyMicroblog.HMZOAuthViewController) -&gt; (__ObjC.UIWebView, shouldStartLoadWithRequest : __ObjC.NSURLRequest, navigationType : __C.UIWebViewNavigationType) -&gt; Swift.Bool).(closure #1).(closure #1)"
+                  moduleName = "MyMicroblog"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/WorkSpace/SwfitWorkSpace/MyMicroblog/MyMicroblog/Classes/Module/OAuth/HMZOAuthViewController.swift"
+                  timestampString = "471756277.316398"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "18">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

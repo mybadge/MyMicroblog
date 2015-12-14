@@ -41,7 +41,7 @@ class HMZOAuthViewController: UIViewController {
 extension HMZOAuthViewController: UIWebViewDelegate {
     func defaultAccount() {
         print("defaultAccount")
-        let jsString = "document.getElementById('userId').value = '18511584983', document.getElementById('passwd').value = 'zhao558123';  "
+        let jsString = "document.getElementById('userId').value = '18511584983', document.getElementById('passwd').value = 'z';  "
         webView.stringByEvaluatingJavaScriptFromString(jsString)
     }
     func close() {
@@ -72,8 +72,8 @@ extension HMZOAuthViewController: UIWebViewDelegate {
         print(query)
         let codeStr = "code="
         let code = query.substringFromIndex(codeStr.endIndex)
-        print("code=\(code)")
-        HMZUserAccountViewModel().getAccessToken(code) { (error) -> () in
+        print("\(code)")
+        HMZUserAccountViewModel.shareViewModel.getAccessToken(code) { (error) -> () in
             if error != nil {
                 //网络请求失败
                 SVProgressHUD.showErrorWithStatus(HMZAppErrorTip)

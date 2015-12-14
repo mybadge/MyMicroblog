@@ -1,5 +1,5 @@
 //
-//  HMZTabBarController.swift
+//  HMZMainTabBarController.swift
 //  MyMicroblog
 //
 //  Created by 赵志丹 on 15/12/12.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HMZTabBarController: UITabBarController {
+class HMZMainTabBarController: UITabBarController {
     
     let mainTabBar = HMZMainTabBar()
     
@@ -23,7 +23,7 @@ class HMZTabBarController: UITabBarController {
     }
 }
 
-extension HMZTabBarController{
+extension HMZMainTabBarController{
     ///初始化子控制器
     func setupChildVC(){
         addChildVC(HMZHomeViewController(), title: "首页", imageName: "tabbar_home")

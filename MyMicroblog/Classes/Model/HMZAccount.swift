@@ -17,7 +17,7 @@ class HMZAccount: NSObject, NSCoding {
     var expires_in:NSTimeInterval = 0 {
         didSet {
             expires_date = NSDate(timeIntervalSinceNow: expires_in)
-            print("expires_date=\(expires_date)=======expires_in=\(expires_in)")
+            //print("expires_date=\(expires_date)=======expires_in=\(expires_in)")
         }
     }
     
@@ -72,7 +72,6 @@ class HMZAccount: NSObject, NSCoding {
     ///  保存到沙盒
     func saveAccount() {
         let path = HMZGetDocumentDicrectoryPathWith("account.plist")
-        printLog(path)
         NSKeyedArchiver.archiveRootObject(self, toFile: path)
     }
     
