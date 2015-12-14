@@ -10,19 +10,26 @@ import UIKit
 
 //swift 在同一个命名空间 下 所有的文件 和方法 以及属性 全局共享
 //和OC中 pch文件类似  定义程序中 非常常用的方法 常量
+
+/// 屏幕的宽
 let screenW = UIScreen.mainScreen().bounds.width
+/// 屏幕的高
 let screenH = UIScreen.mainScreen().bounds.height
-
+/// 主题颜色
 let HMZThemeColor = UIColor.orangeColor()
-
+/// appkey
 let HMZApiClient_id = "2492369838"
+/// appSecret
 let HMZApiClient_secret = "47731e717d9338fbe53f46518f150eb1"
+/// 回调地址
 let HMZApiRedirect_uri = "http://www.baidu.com"
+/// 错误提示
 let HMZAppErrorTip = "哥正忙着呢.....一边玩去"
+/// 选择控制器通知的Key
 let HMZSwitchRootVCNotificationKey = "HMZSwitchRootVCNotificationKey"
 
 
-
+///  获取随机颜色
 func HMZRandomColor() ->UIColor{
     return UIColor(red: (CGFloat)(random() % 256) / 256.0, green: (CGFloat)(random() % 256) / 256.0, blue: (CGFloat)(random() % 256) / 256.0, alpha: 1)
 }
