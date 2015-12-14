@@ -12,6 +12,8 @@
 		DA0152EE1C1ECD4200F4E5E3 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0152ED1C1ECD4200F4E5E3 /* UIButton+Extension.swift */; };
 		DA0152F01C1ED69400F4E5E3 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0152EF1C1ED69400F4E5E3 /* UILabel+Extension.swift */; };
 		DA0152F21C1ED8D300F4E5E3 /* UIVIew+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0152F11C1ED8D300F4E5E3 /* UIVIew+ViewController.swift */; };
+		DA0152F41C1EDF9800F4E5E3 /* HMZStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0152F31C1EDF9800F4E5E3 /* HMZStatus.swift */; };
+		DA0152F61C1EE0D200F4E5E3 /* HMZUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0152F51C1EE0D200F4E5E3 /* HMZUser.swift */; };
 		DA02821E1C1D0135000416A4 /* HMZNetWorkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02821D1C1D0135000416A4 /* HMZNetWorkTool.swift */; };
 		DA0282211C1D0C93000416A4 /* HMZOAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0282201C1D0C93000416A4 /* HMZOAuthViewController.swift */; };
 		DA0282231C1D1E63000416A4 /* HMZUserAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0282221C1D1E63000416A4 /* HMZUserAccountViewModel.swift */; };
@@ -39,6 +41,8 @@
 		DA0152ED1C1ECD4200F4E5E3 /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		DA0152EF1C1ED69400F4E5E3 /* UILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		DA0152F11C1ED8D300F4E5E3 /* UIVIew+ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIVIew+ViewController.swift"; sourceTree = "<group>"; };
+		DA0152F31C1EDF9800F4E5E3 /* HMZStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZStatus.swift; sourceTree = "<group>"; };
+		DA0152F51C1EE0D200F4E5E3 /* HMZUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZUser.swift; sourceTree = "<group>"; };
 		DA02821D1C1D0135000416A4 /* HMZNetWorkTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZNetWorkTool.swift; sourceTree = "<group>"; };
 		DA0282201C1D0C93000416A4 /* HMZOAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZOAuthViewController.swift; sourceTree = "<group>"; };
 		DA0282221C1D1E63000416A4 /* HMZUserAccountViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZUserAccountViewModel.swift; sourceTree = "<group>"; };
@@ -171,6 +175,8 @@
 			isa = PBXGroup;
 			children = (
 				DA0282241C1D405E000416A4 /* HMZAccount.swift */,
+				DA0152F31C1EDF9800F4E5E3 /* HMZStatus.swift */,
+				DA0152F51C1EE0D200F4E5E3 /* HMZUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -393,12 +399,14 @@
 				DA0152EE1C1ECD4200F4E5E3 /* UIButton+Extension.swift in Sources */,
 				DA6B00DA1C1C068000D362C9 /* HMZMainTabBarController.swift in Sources */,
 				DA0152F21C1ED8D300F4E5E3 /* UIVIew+ViewController.swift in Sources */,
+				DA0152F61C1EE0D200F4E5E3 /* HMZUser.swift in Sources */,
 				DA6B00E21C1C4AB500D362C9 /* HMZHomeViewController.swift in Sources */,
 				DA6B00E51C1C4AF400D362C9 /* HMZBaseTableViewController.swift in Sources */,
 				DA6B00F01C1C691200D362C9 /* HMZVisitorLoginViewController.swift in Sources */,
 				DA6B00E71C1C4B3D00D362C9 /* HMZMessageViewController.swift in Sources */,
 				DA6B00E01C1C4AA300D362C9 /* HMZDiscoverViewController.swift in Sources */,
 				DA0282251C1D405E000416A4 /* HMZAccount.swift in Sources */,
+				DA0152F41C1EDF9800F4E5E3 /* HMZStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
