@@ -38,6 +38,7 @@ extension UIButton {
             if isNeedHighighted {
                 setImage(UIImage(named: imageName! + "_highlighted"), forState: .Highlighted)
             }
+            titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0)
         }
         
         setTitleColor(color, forState: .Normal)

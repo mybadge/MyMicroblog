@@ -51,7 +51,7 @@ class HMZHomeViewController: HMZBaseTableViewController {
         //注册 tableViewCell
         tableView.registerClass(HMZStatusCell.self, forCellReuseIdentifier: homeCellId)
         //tableView.rowHeight = 200
-        //设置预估行高
+//        //设置预估行高
         tableView.estimatedRowHeight = 300
         //设置行高自动计算
         tableView.rowHeight = UITableViewAutomaticDimension//Automatic:自动 Dimension:尺寸
