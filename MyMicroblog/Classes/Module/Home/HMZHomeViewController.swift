@@ -10,87 +10,58 @@ import UIKit
 
 class HMZHomeViewController: HMZBaseTableViewController {
 
+    ///  添加微博模型数据
+   lazy var statuses = [HMZStatus]()
+    private let homeCellId = "homeCellId"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        visitorLoginView?.setupInfo("关注一些人，回这里看看有什么惊喜", imageName: nil)
+        if !userLoginState {
+            visitorLoginView?.setupInfo("关注一些人，回这里看看有什么惊喜", imageName: nil)
+            return
+        }
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        prepareTableView()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    // MARK: -准备tableView
+    private func prepareTableView() {
+        //注册 tableViewCell
+        tableView.registerClass(HMZStatusCell.self, forCellReuseIdentifier: homeCellId)
+        //设置预估行高
+        tableView.estimatedRowHeight = 300
+        //设置行高自动计算
+        tableView.rowHeight = UITableViewAutomaticDimension//Automatic:自动 Dimension:尺寸
+        //separator: 分离器
+        tableView.separatorStyle = .None
+        
+        //刷新控件
+        refreshControl = UIRefreshControl()
+        //添加刷新事件
+        refreshControl?.addTarget(self, action: "", forControlEvents: .ValueChanged)
+        
+        //添加文案提示
+        
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
+    
+    
+    
+    
+    // MARK: - Table view 数据源
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return statuses.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(homeCellId, forIndexPath: indexPath) as! HMZStatusCell
 
-        // Configure the cell...
-
+        cell.status = statuses[indexPath.row]
         return cell
     }
-    */
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

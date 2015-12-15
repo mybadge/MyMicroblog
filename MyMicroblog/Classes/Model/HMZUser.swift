@@ -21,7 +21,6 @@ enum HMZUserVerifiedType: Int{
     case OrgWebsite = 5
     /// 微博达人
     case Daren = 220
-    
     case Other = 330
 }
 

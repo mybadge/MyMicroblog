@@ -51,7 +51,7 @@ extension HMZOAuthViewController: UIWebViewDelegate {
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         let urlString = request.URL?.absoluteString ?? ""
         
-        //print(urlString)
+        print(urlString)
         
         //屏蔽掉不希望加载的页面
         if urlString.hasPrefix("https://api.weibo.com/") {

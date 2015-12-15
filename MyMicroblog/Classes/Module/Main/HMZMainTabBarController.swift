@@ -14,7 +14,6 @@ class HMZMainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
         //kvc赋值
         setValue(mainTabBar, forKey: "tabBar")
         

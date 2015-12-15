@@ -48,10 +48,8 @@ extension UIButton {
     
     
     ///  快速创建对象
-    ///
     ///  - parameter imageName:       设置图片
     ///  - parameter backgroundImage: 设置背景图片
-    ///
     convenience init(imageName: String, backgroundImage: String?){
         self.init()
         setImage(UIImage(named: imageName), forState: .Normal)
