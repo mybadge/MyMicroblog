@@ -15,9 +15,8 @@ class HMZStatusCell: UITableViewCell {
 
     var status: HMZStatus? {
         didSet {
-//            textLabel?.text = status?.text
-//            textLabel?.numberOfLines = 0
             statusOriginalView.status = status
+            toolBar.status = status
         }
     }
     
@@ -33,25 +32,27 @@ class HMZStatusCell: UITableViewCell {
     
     private func setupUI() {
         contentView.addSubview(statusOriginalView)
-        contentView.addSubview(bottomView)
+        contentView.addSubview(toolBar)
         //添加约束
         statusOriginalView.snp_makeConstraints { (make) -> Void in
             make.top.left.right.equalTo(contentView)
         }
         
-        bottomView.snp_makeConstraints { (make) -> Void in
-            make.width.equalTo(self)
-//            make.height.
+        toolBar.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(statusOriginalView.snp_bottom)
+            make.left.equalTo(contentView.snp_left)
+            make.height.equalTo(40)
         }
+        
         contentView.snp_makeConstraints { (make) -> Void in
             make.left.top.right.equalTo(self)
-            make.bottom.equalTo(bottomView.snp_bottom)
+            make.bottom.equalTo(toolBar.snp_bottom)
         }
     }
     
     
     //MARK: 懒加载姿势图
     private lazy var statusOriginalView: HMZStatusOriginalView = HMZStatusOriginalView()
-    private lazy var bottomView: UIView = UIView()
+    private lazy var toolBar: HMZStatusToolBar = HMZStatusToolBar()
     
 }

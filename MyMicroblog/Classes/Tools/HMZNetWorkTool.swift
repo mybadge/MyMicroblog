@@ -25,6 +25,7 @@ class HMZNetWorkTool: AFHTTPSessionManager {
         let instence = HMZNetWorkTool(baseURL: url)
         instence.responseSerializer.acceptableContentTypes?.insert("text/html")
         instence.responseSerializer.acceptableContentTypes?.insert("text/plain")
+        instence.responseSerializer.acceptableContentTypes?.insert("application/json")
         return instence
     }()
     

@@ -50,11 +50,11 @@ class HMZHomeViewController: HMZBaseTableViewController {
     private func prepareTableView() {
         //注册 tableViewCell
         tableView.registerClass(HMZStatusCell.self, forCellReuseIdentifier: homeCellId)
-        tableView.rowHeight = 200
-//        //设置预估行高
-//        tableView.estimatedRowHeight = 300
-//        //设置行高自动计算
-//        tableView.rowHeight = UITableViewAutomaticDimension//Automatic:自动 Dimension:尺寸
+        //tableView.rowHeight = 200
+        //设置预估行高
+        tableView.estimatedRowHeight = 300
+        //设置行高自动计算
+        tableView.rowHeight = UITableViewAutomaticDimension//Automatic:自动 Dimension:尺寸
         //separator: 分离器
         tableView.separatorStyle = .None
         
@@ -116,6 +116,9 @@ class HMZHomeViewController: HMZBaseTableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(homeCellId, forIndexPath: indexPath) as! HMZStatusCell
         cell.status = statuses[indexPath.row]
         if indexPath.row == statuses.count - 1 && !indicatorView.isAnimating() {
+            //这句话千万不能漏掉,否则很严重(他会一直想服务器发送数据,紧接着就会Error Domain=com.alamofire.error.serialization.response Code=-1011 "Request failed: forbidden (403)")
+            //User requests out of rate limit	用户请求频次超过上限
+            indicatorView.startAnimating()
             loadData()
             print("默默加载")
         }
