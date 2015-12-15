@@ -63,7 +63,7 @@ class HMZWelcomeViewController: UIViewController {
         - parameter completion:             动画结束后的闭包
         */
 
-        UIView.animateWithDuration(3, delay: 0.25, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: [], animations: { () -> Void in
+        UIView.animateWithDuration(1, delay: 0.25, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: [], animations: { () -> Void in
             //强制刷新
             self.view.layoutIfNeeded()
             }) { (_) -> Void in

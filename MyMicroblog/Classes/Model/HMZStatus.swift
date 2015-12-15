@@ -9,6 +9,8 @@
 import UIKit
 
 class HMZStatus: NSObject {
+    /// 微博Id
+    var id: Int = 0
     /// 字符串型的微博ID
     var idstr: String?
     /// 微博信息内容

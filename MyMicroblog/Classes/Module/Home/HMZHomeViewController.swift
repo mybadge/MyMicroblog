@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class HMZHomeViewController: HMZBaseTableViewController {
     
@@ -49,10 +50,11 @@ class HMZHomeViewController: HMZBaseTableViewController {
     private func prepareTableView() {
         //注册 tableViewCell
         tableView.registerClass(HMZStatusCell.self, forCellReuseIdentifier: homeCellId)
-        //设置预估行高
-        tableView.estimatedRowHeight = 300
-        //设置行高自动计算
-        tableView.rowHeight = UITableViewAutomaticDimension//Automatic:自动 Dimension:尺寸
+        tableView.rowHeight = 200
+//        //设置预估行高
+//        tableView.estimatedRowHeight = 300
+//        //设置行高自动计算
+//        tableView.rowHeight = UITableViewAutomaticDimension//Automatic:自动 Dimension:尺寸
         //separator: 分离器
         tableView.separatorStyle = .None
         
@@ -65,14 +67,41 @@ class HMZHomeViewController: HMZBaseTableViewController {
         //TOTO: 添加提示
     }
     
+     ///用ViewModel 去网络上加载数据
     @objc private func loadData() {
-        //用ViewModel 去网络上加载数据
-        HMZStatusViewModel.loadData(0, maxId: 0) { (statuses) -> () in
-            if let list = statuses {
-                self.statuses = list
-                //printLog(list)
-                self.tableView.reloadData()
+       refreshControl?.beginRefreshing()
+        //如果既=同时指定 since_id, max_id 服务不会返回任何数据 
+        var sinceId = 0
+        var maxId = 0
+        if indicatorView.isAnimating() {
+            //上拉加载更多
+            sinceId = 0
+            maxId = statuses.last!.id ?? 0
+        }else {
+            sinceId = statuses.first?.id ?? 0
+            maxId = 0
+        }
+        
+        HMZStatusViewModel.loadData(sinceId, maxId: maxId) { (statuses) -> () in
+            self.refreshControl?.endRefreshing()
+            guard let list = statuses else{
+                SVProgressHUD.showErrorWithStatus("服务器出错了,请稍后再试")
+                return
             }
+            
+            if maxId > 0 {
+                //上拉加载更多
+                self.statuses += list
+                self.indicatorView.stopAnimating()
+            }else if sinceId > 0 {//下拉加载
+                self.statuses = list + self.statuses
+                self.indicatorView.stopAnimating()
+            }else {//首次加载
+                self.statuses = list
+            }
+
+            self.tableView.reloadData()
+
         }
     }
     
@@ -85,8 +114,12 @@ class HMZHomeViewController: HMZBaseTableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(homeCellId, forIndexPath: indexPath) as! HMZStatusCell
-        
         cell.status = statuses[indexPath.row]
+        if indexPath.row == statuses.count - 1 && !indicatorView.isAnimating() {
+            loadData()
+            print("默默加载")
+        }
+        
         return cell
     }
     
