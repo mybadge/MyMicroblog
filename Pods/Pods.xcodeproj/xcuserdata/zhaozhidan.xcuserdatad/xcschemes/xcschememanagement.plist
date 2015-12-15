@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FFLabel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,22 +42,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>89785732E5568C0C8D9B5170C8F9A654</key>
+		<key>65107E1C77D66571A3CFBEECE0444378</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9B474ABAA6713002A4A4C7DBB65DBB8C</key>
+		<key>95319F561C6A03686A6B662F761D6CF8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F2C747CA3CA650F30EBDE82A3E8C2103</key>
+		<key>BC90BC8FDB2E5D489B18D7E907112F77</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FEAD8938FD65883907EECA98418D8A19</key>
+		<key>ED6674D9309296B3C4AC384BB4CE120F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FF242AA6B420A84A43ED1FC7EFCA1836</key>
 		<dict>
 			<key>primary</key>
 			<true/>

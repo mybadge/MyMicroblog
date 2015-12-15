@@ -32,5 +32,7 @@ class HMZStatusCell: UITableViewCell {
     
     
     //MARK: 懒加载姿势图
-//    private lazy var statusOriginalView
+    private lazy var statusOriginalView: UIView = UIView()
+    
+    
 }
