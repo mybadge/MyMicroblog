@@ -37,6 +37,7 @@
 		DA9B6C671C1E6653005A910A /* HMZNewFeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B6C661C1E6653005A910A /* HMZNewFeatureViewController.swift */; };
 		DA9B6C691C1E672B005A910A /* HMZWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B6C681C1E672B005A910A /* HMZWelcomeViewController.swift */; };
 		DAF5B2AB1C20FFEC0021DC2F /* HMZStatusPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5B2AA1C20FFEC0021DC2F /* HMZStatusPhotoView.swift */; };
+		DAF5B2AD1C213A360021DC2F /* HMZTempWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5B2AC1C213A360021DC2F /* HMZTempWebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		DA9B6C661C1E6653005A910A /* HMZNewFeatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZNewFeatureViewController.swift; sourceTree = "<group>"; };
 		DA9B6C681C1E672B005A910A /* HMZWelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZWelcomeViewController.swift; sourceTree = "<group>"; };
 		DAF5B2AA1C20FFEC0021DC2F /* HMZStatusPhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZStatusPhotoView.swift; sourceTree = "<group>"; };
+		DAF5B2AC1C213A360021DC2F /* HMZTempWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZTempWebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 			children = (
 				DA8783A81C1FB0E100A411C1 /* StatusCell */,
 				DA6B00E11C1C4AB500D362C9 /* HMZHomeViewController.swift */,
+				DAF5B2AC1C213A360021DC2F /* HMZTempWebViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				DA0282211C1D0C93000416A4 /* HMZOAuthViewController.swift in Sources */,
 				DA0152F01C1ED69400F4E5E3 /* UILabel+Extension.swift in Sources */,
 				DA18C66E1C1FC31F00C8FCB7 /* HMZStatusOriginalView.swift in Sources */,
+				DAF5B2AD1C213A360021DC2F /* HMZTempWebViewController.swift in Sources */,
 				DA6B00EB1C1C5ABD00D362C9 /* HMZCommon.swift in Sources */,
 				DA6B00DE1C1C08C100D362C9 /* HMZMainTabBar.swift in Sources */,
 				DA02821E1C1D0135000416A4 /* HMZNetWorkTool.swift in Sources */,

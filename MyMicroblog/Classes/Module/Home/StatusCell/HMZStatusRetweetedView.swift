@@ -61,7 +61,7 @@ class HMZStatusRetweetedView: UIView {
         backgroundColor = UIColor(white: 0.95, alpha: 1)
         //添加子视图
         addSubview(retweetedLabel)
-        //retweetedLabel.labelDelegate = self
+        retweetedLabel.labelDelegate = self
         addSubview(pictureView)
         
         //添加转发微博正文的约束
@@ -95,10 +95,10 @@ extension HMZStatusRetweetedView: FFLabelDelegate {
     func labelDidSelectedLinkText(label: FFLabel, text: String) {
         print(text)
         if text.hasPrefix("http") {
-            //进行叶面跳转
-//            let temp = TempWebViewController()
-//            temp.urlString = text
-//            self.navController()?.pushViewController(temp, animated: true)
+            //进行页面跳转
+            let temp = HMZTempWebViewController()
+            temp.urlString = text
+            self.getNavController()?.pushViewController(temp, animated: true)
             
         }
     }

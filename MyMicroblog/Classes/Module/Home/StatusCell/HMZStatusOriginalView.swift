@@ -9,6 +9,7 @@
 import UIKit
 import SDWebImage
 import SnapKit
+import FFLabel
 
 /// 原创微博的自定义View
 class HMZStatusOriginalView: UIView {
@@ -78,7 +79,7 @@ class HMZStatusOriginalView: UIView {
         
         addSubview(contentLabel)
         //指定代理
-        //contentLabel.labelDelegate = self
+        contentLabel.labelDelegate = self
         
         addSubview(photoView)
         
@@ -157,7 +158,7 @@ class HMZStatusOriginalView: UIView {
     /// 来源
     private lazy var sourceLabel: UILabel = UILabel(title: "火星", color: UIColor.grayColor(), fontSize: 12)
     /// 正文内容
-    private lazy var contentLabel: UILabel = UILabel(title: "hehe", color: UIColor.blackColor(), fontSize: 14, margin: StatusCellMargin)
+    private lazy var contentLabel: FFLabel = FFLabel(title: "hehe", color: UIColor.blackColor(), fontSize: 14, margin: StatusCellMargin)
     /// 相册
     private lazy var photoView: HMZStatusPhotoView = {
         let v = HMZStatusPhotoView()
@@ -165,5 +166,14 @@ class HMZStatusOriginalView: UIView {
         v.backgroundColor = HMZRandomColor()
         return v
     }()
-    
+}
+
+extension HMZStatusOriginalView:FFLabelDelegate {
+    func labelDidSelectedLinkText(label: FFLabel, text: String) {
+        if text.hasPrefix("http") {
+            let tempVc = HMZTempWebViewController()
+            tempVc.urlString = text
+            self.getNavController()?.pushViewController(tempVc, animated: true)
+        }
+    }
 }
