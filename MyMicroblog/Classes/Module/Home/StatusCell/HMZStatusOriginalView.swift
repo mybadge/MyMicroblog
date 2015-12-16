@@ -26,7 +26,7 @@ class HMZStatusOriginalView: UIView {
             
             //TODO: 后期完善
             timeLabel.text = status?.created_at
-            sourceLabel.text = status?.source
+            sourceLabel.text = status?.source?.linkText().text
             contentLabel.text = status?.text
             
             

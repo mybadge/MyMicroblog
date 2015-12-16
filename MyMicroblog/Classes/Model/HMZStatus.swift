@@ -20,6 +20,13 @@ class HMZStatus: NSObject {
     var created_at: String?
     /// 微博来源
     var source: String?
+    //getter方法怎么写
+//        {
+//        if let sourceStr = self.source {
+//             sourceStr.linkText().text
+//        }
+//       return nil
+//    }
     /// 微博作者的用户信息字段 详细
     var user: HMZUser?
     /// 转发数

@@ -38,6 +38,7 @@
 		DA9B6C691C1E672B005A910A /* HMZWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B6C681C1E672B005A910A /* HMZWelcomeViewController.swift */; };
 		DAF5B2AB1C20FFEC0021DC2F /* HMZStatusPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5B2AA1C20FFEC0021DC2F /* HMZStatusPhotoView.swift */; };
 		DAF5B2AD1C213A360021DC2F /* HMZTempWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5B2AC1C213A360021DC2F /* HMZTempWebViewController.swift */; };
+		DAF5B2AF1C218E770021DC2F /* String+RegEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5B2AE1C218E770021DC2F /* String+RegEx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		DA9B6C681C1E672B005A910A /* HMZWelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZWelcomeViewController.swift; sourceTree = "<group>"; };
 		DAF5B2AA1C20FFEC0021DC2F /* HMZStatusPhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZStatusPhotoView.swift; sourceTree = "<group>"; };
 		DAF5B2AC1C213A360021DC2F /* HMZTempWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZTempWebViewController.swift; sourceTree = "<group>"; };
+		DAF5B2AE1C218E770021DC2F /* String+RegEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+RegEx.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				DA0152ED1C1ECD4200F4E5E3 /* UIButton+Extension.swift */,
 				DA0152EF1C1ED69400F4E5E3 /* UILabel+Extension.swift */,
 				DA0152F11C1ED8D300F4E5E3 /* UIVIew+ViewController.swift */,
+				DAF5B2AE1C218E770021DC2F /* String+RegEx.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				DA6B00DA1C1C068000D362C9 /* HMZMainTabBarController.swift in Sources */,
 				DA0152F21C1ED8D300F4E5E3 /* UIVIew+ViewController.swift in Sources */,
 				DA0152F61C1EE0D200F4E5E3 /* HMZUser.swift in Sources */,
+				DAF5B2AF1C218E770021DC2F /* String+RegEx.swift in Sources */,
 				DA6B00E21C1C4AB500D362C9 /* HMZHomeViewController.swift in Sources */,
 				DA6B00E51C1C4AF400D362C9 /* HMZBaseTableViewController.swift in Sources */,
 				DA6B00F01C1C691200D362C9 /* HMZVisitorLoginViewController.swift in Sources */,
