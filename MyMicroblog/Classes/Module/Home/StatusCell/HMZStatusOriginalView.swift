@@ -14,7 +14,7 @@ import SnapKit
 class HMZStatusOriginalView: UIView {
     //let margin = 10
     
-    /// 底部约束属性
+    /// 底部约束属性 ,这个底部约束很总要,若不指定底部约束,cell就不知道有多高,就不会自动算出cell的高度,会是默认的44.
     var bottomConstraints: Constraint?
     
     var status: HMZStatus? {
@@ -36,25 +36,21 @@ class HMZStatusOriginalView: UIView {
             //智能提示不好使
             if let urls = status?.imageURLs where urls.count != 0 {
                 //有配图视图
-                //1.设置数据源
-                //photoView.imageURLs = urls
-                //2.更改视图的底部约束
+                //设置数据源
+                photoView.imageURLs = urls
                 self.snp_updateConstraints(closure: { (make) -> Void in
-                    self.bottomConstraints =  make.bottom.equalTo(photoView.snp_bottom).offset(StatusCellMargin).constraint
+                    self.bottomConstraints = make.bottom.equalTo(photoView.snp_bottom).offset(StatusCellMargin).constraint
                 })
-                //显示配图视图
                 photoView.hidden = false
             } else {
-                //没有配图视图  更改底部约束
+                //无配图试图
                 self.snp_updateConstraints(closure: { (make) -> Void in
                     //记录底部约束
                     //1.对底部添加约束  2.转换成约束对象 并且使用属性记录
-                    self.bottomConstraints =  make.bottom.equalTo(contentLabel.snp_bottom).offset(StatusCellMargin).constraint
+                    self.bottomConstraints = make.bottom.equalTo(contentLabel.snp_bottom).offset(StatusCellMargin).constraint
                 })
-                //隐藏配图视图
                 photoView.hidden = true
             }
-
         }
     }
     
@@ -63,7 +59,7 @@ class HMZStatusOriginalView: UIView {
         setupUI()
         //backgroundColor = UIColor.redColor()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -92,17 +88,12 @@ class HMZStatusOriginalView: UIView {
             make.top.left.right.equalTo(self)
             make.height.equalTo(StatusCellMargin)
         }
-      
+        
         iconView.snp_makeConstraints { (make) -> Void in
             make.top.equalTo(sepView.snp_bottom).offset(StatusCellMargin)
-            make.left.equalTo(self).offset(StatusCellMargin)//这里需要注意
-            make.size.equalTo(CGSize(width: StatusCellImageWidth, height: StatusCellImageWidth))
+            make.left.equalTo(self.snp_left).offset(StatusCellMargin)//这里需要注意
+            make.width.height.equalTo(StatusCellImageWidth)
         }
-        //        iconView.snp_makeConstraints { (make) -> Void in
-        //            make.top.equalTo(sepView.snp_bottom).offset(StatusCellMargin)
-        //            make.left.equalTo(self.snp_left).offset(StatusCellMargin)
-        //            make.width.height.equalTo(StatusCellImageWidth)
-        //        }
         
         nameLabel.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(iconView.snp_right).offset(StatusCellMargin)
@@ -118,7 +109,7 @@ class HMZStatusOriginalView: UIView {
             make.centerX.equalTo(iconView.snp_right)
             make.centerY.equalTo(iconView.snp_bottom)
         }
-
+        
         
         timeLabel.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(iconView.snp_right).offset(StatusCellMargin)
@@ -147,35 +138,6 @@ class HMZStatusOriginalView: UIView {
         }
     }
     
-//    func setupUI() {
-//        sepView.backgroundColor = UIColor.grayColor()
-//        addSubview(sepView)
-//        addSubview(iconView)
-//        addSubview(verified_type_image)
-//        addSubview(nameLabel)
-//        addSubview(vipView)
-//        addSubview(sourceLabel)
-//        addSubview(timeLabel)
-//        addSubview(contentLabel)
-//        addSubview(photoView)
-//        
-//        //设置约束
-
-
-
-
-//        
-
-
-
-
-
-//        
-//        //底部约束 由于需要根据具体的数据来进行更改 在setupUI中 无法拿到具体数据 无法在这个进行更改
-//        self.snp_makeConstraints { (make) -> Void in
-//            self.bottomConstraints = make.bottom.equalTo(contentLabel.snp_bottom).offset(StatusCellMargin).constraint
-//        }
-//    }
     
     
     //MARK: 懒加载所有的子视图
@@ -197,8 +159,8 @@ class HMZStatusOriginalView: UIView {
     /// 正文内容
     private lazy var contentLabel: UILabel = UILabel(title: "hehe", color: UIColor.blackColor(), fontSize: 14, margin: StatusCellMargin)
     /// 相册
-    private lazy var photoView: UIView = {
-        let v = UIView()
+    private lazy var photoView: HMZStatusPhotoView = {
+        let v = HMZStatusPhotoView()
         v.addSubview(UILabel(title: "如知后事如何,请看下集", color: UIColor.purpleColor(), fontSize: 20, margin: 12))
         v.backgroundColor = HMZRandomColor()
         return v

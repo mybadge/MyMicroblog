@@ -23,7 +23,7 @@ class HMZNewFeatureViewController: UICollectionViewController {
         layout.minimumLineSpacing = 0
         
         super.init(collectionViewLayout: layout)
-        
+        //必须放到 super.init 下面
         collectionView?.pagingEnabled = true
         collectionView?.showsHorizontalScrollIndicator = false
         //弹簧效果
@@ -36,7 +36,7 @@ class HMZNewFeatureViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.purpleColor()
+        //view.backgroundColor = UIColor.purpleColor()
         // Register cell classes
         self.collectionView!.registerClass(HMZNewFeatureViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
@@ -101,10 +101,11 @@ class HMZNewFeatureViewCell: UICollectionViewCell {
             make.edges.equalTo(contentView.snp_edges)
         }
         
+        //CGFloat offset = contentView.bounds.size.width
         startBtn.snp_makeConstraints { (make) -> Void in
             make.width.equalTo(135)
             make.centerX.equalTo(contentView.snp_centerX)
-            make.bottom.equalTo(contentView.snp_bottom).offset(-180)
+            make.top.equalTo(contentView.snp_top).offset(self.contentView.bounds.size.height * 0.8)
             
         }
         
@@ -145,7 +146,7 @@ class HMZNewFeatureViewCell: UICollectionViewCell {
     }
     
     @objc private func startBtnDidClick() {
-        NSNotificationCenter.defaultCenter().postNotificationName(HMZSwitchRootVCNotificationKey, object: "Welcome")
+        NSNotificationCenter.defaultCenter().postNotificationName(HMZSwitchRootVCNotificationKey, object: nil)
     }
     
     @objc private func shareBtnDidClick(sender: UIButton) {

@@ -36,6 +36,7 @@
 		DA9932621C1BC77800FD69F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA9932611C1BC77800FD69F6 /* Assets.xcassets */; };
 		DA9B6C671C1E6653005A910A /* HMZNewFeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B6C661C1E6653005A910A /* HMZNewFeatureViewController.swift */; };
 		DA9B6C691C1E672B005A910A /* HMZWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B6C681C1E672B005A910A /* HMZWelcomeViewController.swift */; };
+		DAF5B2AB1C20FFEC0021DC2F /* HMZStatusPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5B2AA1C20FFEC0021DC2F /* HMZStatusPhotoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		DA9932611C1BC77800FD69F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA9B6C661C1E6653005A910A /* HMZNewFeatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZNewFeatureViewController.swift; sourceTree = "<group>"; };
 		DA9B6C681C1E672B005A910A /* HMZWelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZWelcomeViewController.swift; sourceTree = "<group>"; };
+		DAF5B2AA1C20FFEC0021DC2F /* HMZStatusPhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZStatusPhotoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 				DA18C66D1C1FC31F00C8FCB7 /* HMZStatusOriginalView.swift */,
 				DA18C6711C20417100C8FCB7 /* HMZStatusToolBar.swift */,
 				DA18C6731C205E1200C8FCB7 /* HMZStatusRetweetedView.swift */,
+				DAF5B2AA1C20FFEC0021DC2F /* HMZStatusPhotoView.swift */,
 			);
 			path = StatusCell;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				DA6B00E91C1C4B5300D362C9 /* HMZProfileViewController.swift in Sources */,
 				DA9B6C671C1E6653005A910A /* HMZNewFeatureViewController.swift in Sources */,
 				DA0152EB1C1EC4AE00F4E5E3 /* HMZNavigationController.swift in Sources */,
+				DAF5B2AB1C20FFEC0021DC2F /* HMZStatusPhotoView.swift in Sources */,
 				DA9932501C1BC65300FD69F6 /* AppDelegate.swift in Sources */,
 				DA9B6C691C1E672B005A910A /* HMZWelcomeViewController.swift in Sources */,
 				DA8783AA1C1FB11400A411C1 /* HMZStatusCell.swift in Sources */,

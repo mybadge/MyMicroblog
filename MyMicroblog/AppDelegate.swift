@@ -29,16 +29,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func defaultRootViewController() -> UIViewController{
+        
+        if isNewVersion() {//是新版本 进入新特性界面
+            return HMZNewFeatureViewController()
+        }
+        
         //判断登录状态
         if HMZUserAccountViewModel.shareViewModel.userLoginState {
-            if isNewVersion() {//是新版本 进入新特性界面
-                return HMZNewFeatureViewController()
-            }
             //否则进入欢迎界面
             return HMZWelcomeViewController()
         }
         //进入主界面的访客视图
         return HMZMainTabBarController()
+
     }
     
     private func isNewVersion() ->Bool {
