@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setThemeColor()
         
         //注册通知
-        registerNotification()
+         NSNotificationCenter.defaultCenter().addObserver(self, selector: "switchRootVC:", name: HMZSwitchRootVCNotificationKey, object: nil)
         
         return true
     }
@@ -66,24 +66,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = n.object == nil ? HMZMainTabBarController() : HMZWelcomeViewController()
     }
     
-    private func registerNotification() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "switchRootVC:", name: HMZSwitchRootVCNotificationKey, object: nil)
-    }
-    //移除通知  析构方法移除通知
-    deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     func setThemeColor() {
         //一定要提前设置
         UINavigationBar.appearance().tintColor = HMZThemeColor
@@ -98,6 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
+        print("进入后台")
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
@@ -115,6 +98,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidReceiveMemoryWarning(application: UIApplication) {
+        print("内存警告!!!!")
         SDWebImageManager.sharedManager().cancelAll()
         SDWebImageManager.sharedManager().imageCache.clearMemory()
     }

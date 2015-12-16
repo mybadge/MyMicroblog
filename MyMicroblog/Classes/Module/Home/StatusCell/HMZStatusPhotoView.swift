@@ -18,7 +18,7 @@ class HMZStatusPhotoView: UICollectionView {
         didSet {
             testLabel.text = "\(imageURLs?.count ?? 0)"
             let photoSize = getPhotoViewSize()
-            print("\(testLabel.text)" + "\(photoSize)")
+            //print("\(testLabel.text)" + "\(photoSize)")
             self.snp_updateConstraints { (make) -> Void in
                 make.size.equalTo(photoSize)
             }
@@ -37,7 +37,7 @@ class HMZStatusPhotoView: UICollectionView {
         //注册Cell类型
         registerClass(HMZStatusPhotoCell.self, forCellWithReuseIdentifier: photoCellId)
         
-        setupUI()
+        //setupUI()
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -26,7 +26,7 @@ extension String {
         let range2 = result.rangeAtIndex(2)
         let subStr2 = (self as NSString).substringWithRange(range2)
         
-        print(self + "------" + subStr1 + "---------" + subStr2)
+        //print(self + "------" + subStr1 + "---------" + subStr2)
         return (subStr1,subStr2)
     }
 }

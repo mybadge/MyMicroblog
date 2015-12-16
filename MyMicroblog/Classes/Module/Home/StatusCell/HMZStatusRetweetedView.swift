@@ -58,7 +58,8 @@ class HMZStatusRetweetedView: UIView {
     
     //MARK: 设置UI 及布局
     private func setupUI() {
-        backgroundColor = UIColor(white: 0.95, alpha: 1)
+        //backgroundColor = UIColor(white: 0.95, alpha: 1)
+        backgroundColor = UIColor(red: 247, green: 247, blue: 247, alpha: 1)
         //添加子视图
         addSubview(retweetedLabel)
         retweetedLabel.labelDelegate = self

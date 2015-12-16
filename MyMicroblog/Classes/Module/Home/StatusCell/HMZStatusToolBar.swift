@@ -26,7 +26,7 @@ class HMZStatusToolBar: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
-        backgroundColor = UIColor(white: 0.85, alpha: 1)
+        backgroundColor = UIColor(white: 0.90, alpha: 1)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -91,7 +91,7 @@ class HMZStatusToolBar: UIView {
     
     private func sepView() ->UIView {
         let v = UIView()
-        v.backgroundColor = UIColor.darkGrayColor()
+        v.backgroundColor = UIColor(red: 228, green: 224, blue: 228, alpha: 1)
         addSubview(v)
         return v
     }

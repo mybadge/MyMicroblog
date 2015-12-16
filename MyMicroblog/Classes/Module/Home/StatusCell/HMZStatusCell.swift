@@ -48,6 +48,7 @@ class HMZStatusCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
         selectionStyle = .None
+        backgroundColor = UIColor.clearColor()
     }
 
     required init?(coder aDecoder: NSCoder) {

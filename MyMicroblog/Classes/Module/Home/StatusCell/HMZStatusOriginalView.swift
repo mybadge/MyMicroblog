@@ -68,7 +68,7 @@ class HMZStatusOriginalView: UIView {
     //设置ui
     private func setupUI() {
         
-        sepView.backgroundColor = UIColor.lightGrayColor()
+        sepView.backgroundColor = UIColor.lightGrayColor() //UIColor(red: 244, green: 241, blue: 245, alpha: 1)
         addSubview(sepView)
         addSubview(iconView)
         addSubview(nameLabel)
