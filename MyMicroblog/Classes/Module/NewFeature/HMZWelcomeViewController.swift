@@ -66,7 +66,6 @@ class HMZWelcomeViewController: UIViewController {
         - parameter animations:             完成动画闭包
         - parameter completion:             动画结束后的闭包
         */
-
         UIView.animateWithDuration(1, delay: 0.25, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: [], animations: { () -> Void in
             //强制刷新
             self.view.layoutIfNeeded()
@@ -76,19 +75,12 @@ class HMZWelcomeViewController: UIViewController {
         }
     }
     
-    
     /// 子视图
     private lazy var backImageView: UIImageView = UIImageView(image: UIImage(named: "ad_background"))
     /// 头像
     private lazy var iconView: UIImageView = UIImageView()
     
     ///  欢迎台词
-    private lazy var welcomeLabel: UILabel = {
-        let l = UILabel()
-        l.text = (HMZUserAccountViewModel.shareViewModel.userName ?? "") + "\n 欢迎回来, 有你的日子真好"
-        l.textAlignment = .Center
-        l.numberOfLines = 0
-        l.font = UIFont.systemFontOfSize(20)
-        return l
-    }()
+    private lazy var welcomeLabel: UILabel = UILabel(title: (HMZUserAccountViewModel.shareViewModel.userName ?? "") + "\n 欢迎回来, 有你的日子真好", fontSize: 20)
+ 
 }

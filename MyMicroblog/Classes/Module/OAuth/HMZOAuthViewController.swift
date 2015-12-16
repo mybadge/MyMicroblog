@@ -82,7 +82,7 @@ extension HMZOAuthViewController: UIWebViewDelegate {
             self.dismissViewControllerAnimated(false, completion: { () -> Void in
                 SVProgressHUD.dismiss()
                 //等控制器释放掉之后, 发出切换页面消息,可解决以上问题.
-                NSNotificationCenter.defaultCenter().postNotificationName(HMZSwitchRootVCNotificationKey, object: "welcome")
+                NSNotificationCenter.defaultCenter().postNotificationName(HMZSwitchRootVCNotificationKey, object: "loginSuccess")
             })
         }
         

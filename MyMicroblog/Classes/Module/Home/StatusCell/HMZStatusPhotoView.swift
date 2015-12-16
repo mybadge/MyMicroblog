@@ -14,7 +14,11 @@ private let photoCellId = "photoCellId"
 private let photoCellMargin: CGFloat = 5
 class HMZStatusPhotoView: UICollectionView {
 
-    var imageURLs:[NSURL]?
+    var imageURLs:[NSURL]? {
+        didSet {
+            
+        }
+    }
 
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         let layout = UICollectionViewFlowLayout()
@@ -22,7 +26,7 @@ class HMZStatusPhotoView: UICollectionView {
         layout.minimumInteritemSpacing = photoCellMargin
         
         super.init(frame: frame, collectionViewLayout: layout)
-     
+        dataSource = self
         backgroundColor = UIColor.whiteColor()
     }
 
@@ -34,6 +38,19 @@ class HMZStatusPhotoView: UICollectionView {
         
     }
     
-    
+    var testLabel: UILabel = UILabel(title: "test")
+}
 
+//MARK: 数据源
+extension HMZStatusPhotoView:UICollectionViewDataSource {
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return imageURLs?.count ?? 0
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(photoCellId, forIndexPath: indexPath)
+        
+        return cell
+    }
 }

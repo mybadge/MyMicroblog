@@ -103,6 +103,8 @@ extension HMZVisitorLoginView {
         addSubview(registerBtn)
         addSubview(loginBtn)
         
+        loginBtn.addTarget(self, action: "loginBtnDidClick", forControlEvents: .TouchUpInside)
+        
         for sub in subviews {
             //在使用手码添加约束 需要屏蔽 frame布局
             sub.translatesAutoresizingMaskIntoConstraints = false

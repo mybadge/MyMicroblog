@@ -16,6 +16,8 @@ class HMZBaseTableViewController: UITableViewController,HMZVisitorLoginViewDeleg
     var visitorLoginView: HMZVisitorLoginView?
     
     override func loadView() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loginSuccess:", name: HMZSwitchRootVCNotificationKey, object: nil)
+        
         if userLoginState {
             //登录成功 跳到首页
             super.loadView()
@@ -24,6 +26,8 @@ class HMZBaseTableViewController: UITableViewController,HMZVisitorLoginViewDeleg
             setupVisitorLoginView()
         }
     }
+    
+    
     
     func setupVisitorLoginView(){
         visitorLoginView = HMZVisitorLoginView()
@@ -36,9 +40,7 @@ class HMZBaseTableViewController: UITableViewController,HMZVisitorLoginViewDeleg
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "注册", style: .Plain, target: self, action: "userWillRegister")
     }
     
-    func userWillLogin() {
-        print(__FUNCTION__)
-        
+   func userWillLogin() {
         let nav = UINavigationController(rootViewController: HMZOAuthViewController())
         //一般像登录,注册这类的和程序的主题框架不同的控制器,要Modal出来.
         presentViewController(nav, animated: true, completion: nil)
@@ -46,5 +48,15 @@ class HMZBaseTableViewController: UITableViewController,HMZVisitorLoginViewDeleg
     
     func userWillRegister() {
         print(__FUNCTION__)
+    }
+    
+    
+    ///  解决登陆成功后,访客视图还在,加载网络完成后 reloadData时,因为不是UITableView,造成的程序崩溃.
+    @objc private func loginSuccess(n: NSNotification) {
+        let stateStr = n.object as? String
+        print("loginState =" + (stateStr ?? ""))
+        if let state = stateStr where state == "loginSuccess" {
+            view = UITableView()
+        }
     }
 }
