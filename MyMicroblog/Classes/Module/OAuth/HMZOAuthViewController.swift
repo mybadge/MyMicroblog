@@ -77,11 +77,11 @@ extension HMZOAuthViewController: UIWebViewDelegate {
                 SVProgressHUD.showErrorWithStatus(HMZAppErrorTip)
                 return
             }
-            
+            // dismissViewControllerAnimated 页面并不会立即被回收
+            /// 解决页面叠加的问题,由于通知是同步执行,如果在闭包外发送通知的话,会造成modal视图不会被释放掉,紧接着切换跟视图控制器,造成页面叠加,
             self.dismissViewControllerAnimated(false, completion: { () -> Void in
                 SVProgressHUD.dismiss()
-                //发出切换页面消息
-                // dismissViewControllerAnimated 页面并不会立即被回收
+                //等控制器释放掉之后, 发出切换页面消息,可解决以上问题.
                 NSNotificationCenter.defaultCenter().postNotificationName(HMZSwitchRootVCNotificationKey, object: "welcome")
             })
         }

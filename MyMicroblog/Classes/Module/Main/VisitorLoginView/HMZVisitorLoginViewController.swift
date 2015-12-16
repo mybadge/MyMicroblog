@@ -75,25 +75,13 @@ class HMZVisitorLoginView: UIView {
     private lazy var largeIcon: UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_house"))
     private lazy var circleView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_smallicon"))
     
-    private lazy var tipLabel: UILabel  = {
-        let l = UILabel()
-        
-        l.text = "关注一些人，回这里看看有什么惊喜,关注一些人，回这里看看有什么惊喜"
-        l.textAlignment = .Center
-        l.numberOfLines = 0;
-        l.font = UIFont.systemFontOfSize(14)
-        l.sizeToFit()
-        return l
-    }()
+    private lazy var tipLabel: UILabel  = UILabel(title: "关注一些人，回这里看看有什么惊喜,关注一些人，回这里看看有什么惊喜", fontSize: 14)
     
     private lazy var registerBtn: UIButton = {
         let btn = UIButton()
-        //stretchableImageWithLeftCapWidth(11, topCapHeight: 0) 拉伸方式11 为宽度的一半
         var image = UIImage(named: "common_button_white_disable2")!
-        //image = image.stretchableImageWithLeftCapWidth(Int(image.size.width * 0.5), topCapHeight: Int(image.size.height * 0.5))
-        image = image.stretchableImageWithLeftCapWidth(1, topCapHeight: 1)
+        image = image.stretchableImageWithLeftCapWidth(Int(image.size.width * 0.5), topCapHeight: Int(image.size.height * 0.5))
         btn.setBackgroundImage(image, forState: .Normal)
-       //btn.setBackgroundImage(UIImage(named: "common_button_white_disable"), forState: .Normal)
         btn.setTitle("注册", forState: .Normal)
         btn.titleLabel?.font = UIFont.systemFontOfSize(15)
         btn.setTitleColor(HMZThemeColor, forState: .Normal)
@@ -101,16 +89,8 @@ class HMZVisitorLoginView: UIView {
         return btn
     }()
     
-    private lazy var loginBtn: UIButton = {
-        let btn = UIButton()
-        btn.setBackgroundImage(UIImage(named: "common_button_white_disable"), forState: .Normal)
-        btn.setTitle("登录", forState: .Normal)
-        btn.titleLabel?.font = UIFont.systemFontOfSize(15)
-        btn.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
-        btn.addTarget(self, action: "loginBtnDidClick", forControlEvents: .TouchUpInside)
-        return btn
-    }()
-}
+    private lazy var loginBtn: UIButton = UIButton(title: "登录", backgroundImage: "common_button_white_disable", color: UIColor.darkGrayColor(), fontSize: 15, isNeedHighighted: true, imageName: nil)
+    }
 
 //MARK: - 初始化视图
 extension HMZVisitorLoginView {
