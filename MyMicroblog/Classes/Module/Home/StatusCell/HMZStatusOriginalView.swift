@@ -160,12 +160,7 @@ class HMZStatusOriginalView: UIView {
     /// 正文内容
     private lazy var contentLabel: FFLabel = FFLabel(title: "hehe", color: UIColor.blackColor(), fontSize: 14, margin: StatusCellMargin)
     /// 相册
-    private lazy var photoView: HMZStatusPhotoView = {
-        let v = HMZStatusPhotoView()
-        v.addSubview(UILabel(title: "如知后事如何,请看下集", color: UIColor.purpleColor(), fontSize: 20, margin: 12))
-        v.backgroundColor = HMZRandomColor()
-        return v
-    }()
+    private lazy var photoView: HMZStatusPhotoView = HMZStatusPhotoView()
 }
 
 extension HMZStatusOriginalView:FFLabelDelegate {

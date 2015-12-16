@@ -26,13 +26,13 @@ class HMZStatusRetweetedView: UIView {
             if let urls = retweetedStatus?.imageURLs where urls.count != 0 {
                 //有配图视图
                 //1.设置数据源
-                //pictureView.imageURLs = urls
+                photoView.imageURLs = urls
                 //2.更改视图的底部约束
                 self.snp_updateConstraints(closure: { (make) -> Void in
-                    self.bottomConstraints =  make.bottom.equalTo(pictureView.snp_bottom).offset(StatusCellMargin).constraint
+                    self.bottomConstraints =  make.bottom.equalTo(photoView.snp_bottom).offset(StatusCellMargin).constraint
                 })
                 //显示配图视图
-                pictureView.hidden = false
+                photoView.hidden = false
             } else {
                 //没有配图视图  更改底部约束
                 self.snp_updateConstraints(closure: { (make) -> Void in
@@ -41,7 +41,7 @@ class HMZStatusRetweetedView: UIView {
                     self.bottomConstraints =  make.bottom.equalTo(retweetedLabel.snp_bottom).offset(StatusCellMargin).constraint
                 })
                 //隐藏配图视图
-                pictureView.hidden = true
+                photoView.hidden = true
             }
         }
     }
@@ -62,7 +62,7 @@ class HMZStatusRetweetedView: UIView {
         //添加子视图
         addSubview(retweetedLabel)
         retweetedLabel.labelDelegate = self
-        addSubview(pictureView)
+        addSubview(photoView)
         
         //添加转发微博正文的约束
         retweetedLabel.snp_makeConstraints { (make) -> Void in
@@ -70,7 +70,7 @@ class HMZStatusRetweetedView: UIView {
             make.top.equalTo(self.snp_top).offset(StatusCellMargin)
         }
         
-        pictureView.snp_makeConstraints { (make) -> Void in
+        photoView.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(retweetedLabel.snp_left)
             make.top.equalTo(retweetedLabel.snp_bottom).offset(StatusCellMargin)
             //            make.size.equalTo(CGSize(width: 100, height: 100))
@@ -78,14 +78,14 @@ class HMZStatusRetweetedView: UIView {
         
         //添加底部约束
         self.snp_makeConstraints { (make) -> Void in
-            self.bottomConstraints = make.bottom.equalTo(pictureView.snp_bottom).offset(StatusCellMargin).constraint
+            self.bottomConstraints = make.bottom.equalTo(photoView.snp_bottom).offset(StatusCellMargin).constraint
         }
     }
     
     //MARK: 懒加载所有的子控件
     private lazy var retweetedLabel: FFLabel = FFLabel(title: "转发微博", color: UIColor.darkGrayColor(), fontSize: 14, margin: StatusCellMargin)
     
-    private lazy var pictureView: UIView = UIView()
+    private lazy var photoView: HMZStatusPhotoView = HMZStatusPhotoView()
     
 }
 
