@@ -26,6 +26,7 @@ class HMZStatusToolBar: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
+        backgroundColor = UIColor(white: 0.85, alpha: 1)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -55,8 +56,12 @@ class HMZStatusToolBar: UIView {
         
         let sepView1 = sepView()
         let sepView2 = sepView()
+        let sepViewTop = sepView()
+        let sepViewBottom = sepView()
         let w = 0.5
         let scale = 0.4
+       
+        
         
         sepView1.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(repostBtn.snp_right)
@@ -70,6 +75,17 @@ class HMZStatusToolBar: UIView {
             make.width.equalTo(w)
             make.height.equalTo(self.snp_height).multipliedBy(scale)
         }
+        sepViewTop.snp_makeConstraints { (make) -> Void in
+            make.left.top.right.equalTo(self)
+            make.width.equalTo(screenW)
+            make.height.equalTo(0.5)
+        }
+        sepViewBottom.snp_makeConstraints { (make) -> Void in
+            make.left.bottom.right.equalTo(self)
+            make.width.equalTo(screenW)
+            make.height.equalTo(0.5)
+        }
+        
     }
     
     
