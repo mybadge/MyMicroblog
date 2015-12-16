@@ -17,7 +17,24 @@ class HMZStatus: NSObject {
     var text: String?
     
     /// 微博创建时间
-    var created_at: String?
+    var created_atStr: String?
+    var created_at: String? {
+        didSet {
+            let date = NSDate.sinaDate(created_at ?? "")
+            created_atStr = date?.fullDescription()
+        }
+    }
+    
+//        {
+//        get {
+//            if let dateString = created_at {
+//                let date = NSDate.sinaDate(dateString)
+//                return date?.fullDescription()
+//            }else {
+//                return nil
+//            }
+//        }
+//    }
     /// 微博来源
     var source: String?
     //getter方法怎么写

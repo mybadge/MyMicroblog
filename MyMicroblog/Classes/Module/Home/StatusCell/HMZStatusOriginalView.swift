@@ -25,7 +25,7 @@ class HMZStatusOriginalView: UIView {
             verified_type_image.image = status?.user?.verified_type_image
             
             //TODO: 后期完善
-            timeLabel.text = status?.created_at
+            timeLabel.text = status?.created_atStr
             sourceLabel.text = status?.source?.linkText().text
             contentLabel.text = status?.text
             

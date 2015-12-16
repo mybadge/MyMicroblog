@@ -39,6 +39,7 @@
 		DAF5B2AB1C20FFEC0021DC2F /* HMZStatusPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5B2AA1C20FFEC0021DC2F /* HMZStatusPhotoView.swift */; };
 		DAF5B2AD1C213A360021DC2F /* HMZTempWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5B2AC1C213A360021DC2F /* HMZTempWebViewController.swift */; };
 		DAF5B2AF1C218E770021DC2F /* String+RegEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5B2AE1C218E770021DC2F /* String+RegEx.swift */; };
+		DAF5B2B11C21A12C0021DC2F /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5B2B01C21A12C0021DC2F /* NSDate+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		DAF5B2AA1C20FFEC0021DC2F /* HMZStatusPhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZStatusPhotoView.swift; sourceTree = "<group>"; };
 		DAF5B2AC1C213A360021DC2F /* HMZTempWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZTempWebViewController.swift; sourceTree = "<group>"; };
 		DAF5B2AE1C218E770021DC2F /* String+RegEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+RegEx.swift"; sourceTree = "<group>"; };
+		DAF5B2B01C21A12C0021DC2F /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				DA0152EF1C1ED69400F4E5E3 /* UILabel+Extension.swift */,
 				DA0152F11C1ED8D300F4E5E3 /* UIVIew+ViewController.swift */,
 				DAF5B2AE1C218E770021DC2F /* String+RegEx.swift */,
+				DAF5B2B01C21A12C0021DC2F /* NSDate+Extension.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				DA18C6741C205E1200C8FCB7 /* HMZStatusRetweetedView.swift in Sources */,
 				DA0282211C1D0C93000416A4 /* HMZOAuthViewController.swift in Sources */,
 				DA0152F01C1ED69400F4E5E3 /* UILabel+Extension.swift in Sources */,
+				DAF5B2B11C21A12C0021DC2F /* NSDate+Extension.swift in Sources */,
 				DA18C66E1C1FC31F00C8FCB7 /* HMZStatusOriginalView.swift in Sources */,
 				DAF5B2AD1C213A360021DC2F /* HMZTempWebViewController.swift in Sources */,
 				DA6B00EB1C1C5ABD00D362C9 /* HMZCommon.swift in Sources */,
