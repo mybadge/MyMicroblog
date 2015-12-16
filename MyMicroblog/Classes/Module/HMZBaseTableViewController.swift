@@ -11,7 +11,7 @@ import UIKit
 class HMZBaseTableViewController: UITableViewController,HMZVisitorLoginViewDelegate {
     
     /// 用户登录标识
-    var userLoginState = HMZUserAccountViewModel.shareViewModel.userLoginState
+    var userLoginState =  HMZUserAccountViewModel.shareViewModel.userLoginState
     
     var visitorLoginView: HMZVisitorLoginView?
     

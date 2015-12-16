@@ -31,7 +31,11 @@ class HMZHomeViewController: HMZBaseTableViewController {
     ///  提前加载数据
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        loadData()
+        
+        //这里判断是解决,未登录时加载网络数据,更新tabView时崩溃的问题
+        if  HMZUserAccountViewModel.shareViewModel.userLoginState {
+            loadData()
+        }
     }
     
     override func viewDidLoad() {

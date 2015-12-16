@@ -14,6 +14,7 @@ private let maxItemCount = 4
 
 class HMZNewFeatureViewController: UICollectionViewController {
     
+    //构造方法只能向上继承一个层级,init是NSOBject 的构造方法,不能透过父亲去找爷爷的狗仔方法
     init() {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = UIScreen.mainScreen().bounds.size
