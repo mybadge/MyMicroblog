@@ -28,8 +28,7 @@ class HMZComposeViewController: UIViewController {
     
     /// 发微博
     @objc private func compose() {
-        print(__FUNCTION__)
-        //let account =
+        //print(__FUNCTION__)
         guard let token = HMZUserAccountViewModel.shareViewModel.token else{
             SVProgressHUD.showErrorWithStatus("您尚未登陆，请先登录")
             return
@@ -51,6 +50,7 @@ class HMZComposeViewController: UIViewController {
         
     }
     
+    //懒加载
     private lazy var textView: HMZEmoticonTextView = {
         let tv = HMZEmoticonTextView()
         tv.font = UIFont.systemFontOfSize(18)
@@ -67,7 +67,7 @@ class HMZComposeViewController: UIViewController {
 
 extension HMZComposeViewController {
     private func setupUI() {
-        view.backgroundColor = HMZRandomColor()
+        view.backgroundColor = UIColor.whiteColor()
         setupNav()
         setupTextView()
     }
@@ -89,7 +89,7 @@ extension HMZComposeViewController {
     
     private func setupNav() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "取消", style: .Plain, target: self, action: "cancel")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "发布", style: .Plain, target: self, action: "compose")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "发送", style: .Plain, target: self, action: "compose")
         navigationItem.rightBarButtonItem?.enabled = false
         //设置title
         let v = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 40))

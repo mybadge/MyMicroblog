@@ -99,6 +99,7 @@ class HMZMessageCell:UITableViewCell {
         desLabel.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(iconView.snp_right).offset(margin)
             make.top.equalTo(nameLabel.snp_bottom).offset(margin)
+            make.right.equalTo(contentView.snp_right).offset(margin)
         }
         timeLabel.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(nameLabel.snp_right).offset(margin)
@@ -126,6 +127,6 @@ class HMZMessageCell:UITableViewCell {
     /// 创建时间
     private lazy var timeLabel: UILabel = UILabel(title: "11.11", color: UIColor.grayColor(), fontSize: 12)
     /// 描述
-    private lazy var desLabel: UILabel = UILabel(title: "火星", color: UIColor.grayColor(), fontSize: 12, margin: 10)
+    private lazy var desLabel: UILabel = UILabel(title: "火星", color: UIColor.grayColor(), fontSize: 12)
 
 }
