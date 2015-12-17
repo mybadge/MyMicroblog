@@ -34,7 +34,9 @@ class HMZHomeViewController: HMZBaseTableViewController {
         
         //这里判断是解决,未登录时加载网络数据,更新tabView时崩溃的问题
         if  HMZUserAccountViewModel.shareViewModel.userLoginState {
+            NSLog("开始加载")
             loadData()
+            SVProgressHUD.show()
         }
     }
     
@@ -109,7 +111,8 @@ class HMZHomeViewController: HMZBaseTableViewController {
             }else {//首次加载
                 self.statuses = list
             }
-            
+            SVProgressHUD.dismiss()
+             NSLog("加载完成")
             self.tableView.reloadData()
         }
     }

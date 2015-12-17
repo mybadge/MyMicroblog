@@ -18,6 +18,7 @@ class HMZStatusViewModel: NSObject {
         }
         var param: [String: String] = [String: String]()
         param["access_token"] = token
+        print(HMZUserAccountViewModel.shareViewModel.account)
         if sinceId > 0 {
             param["since_id"] = "\(sinceId)"
         }
