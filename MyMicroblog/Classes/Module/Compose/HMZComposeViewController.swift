@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class HMZComposeViewController: UIViewController {
 
@@ -21,10 +22,6 @@ class HMZComposeViewController: UIViewController {
     @objc private func compose() {
         print(__FUNCTION__)
     }
-    
-    private func setupTitle() {
-        
-    }
 }
 
 extension HMZComposeViewController {
@@ -37,6 +34,19 @@ extension HMZComposeViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "发布", style: .Plain, target: self, action: "compose")
         navigationItem.rightBarButtonItem?.enabled = false
         //设置title
-        
+        let v = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
+        navigationItem.titleView = v
+        let weiboLabel = UILabel(title: "发微博", color: UIColor.darkGrayColor(), fontSize: 17)
+        let nameLabel = UILabel(title: HMZUserAccountViewModel.shareViewModel.userName ?? "", color: UIColor.lightGrayColor(), fontSize:14)
+        v.addSubview(weiboLabel)
+        v.addSubview(nameLabel)
+        weiboLabel.snp_makeConstraints { (make) -> Void in
+            make.centerX.equalTo(v.snp_centerX)
+            make.top.equalTo(v.snp_top)
+        }
+        nameLabel.snp_makeConstraints { (make) -> Void in
+            make.centerX.equalTo(v.snp_centerX)
+            make.bottom.equalTo(v.snp_bottom)
+        }
     }
 }

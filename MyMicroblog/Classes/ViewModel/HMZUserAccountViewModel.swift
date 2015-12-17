@@ -65,7 +65,6 @@ extension HMZUserAccountViewModel {
                 finish(error: error)
             })
             //Optional(["access_token": 2.00qcxPXFWPjfiC9eefed557816UaRC, "remind_in": 157679999, "uid": 5072087372, "expires_in": 157679999])
-            
         }
     }
     
