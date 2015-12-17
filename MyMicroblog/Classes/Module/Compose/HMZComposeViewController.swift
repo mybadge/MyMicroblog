@@ -8,27 +8,85 @@
 
 import UIKit
 import SnapKit
+import SVProgressHUD
 
 class HMZComposeViewController: UIViewController {
-
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        textView.becomeFirstResponder()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
     }
     
     @objc private func cancel() {
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    /// 发微博
     @objc private func compose() {
         print(__FUNCTION__)
+        //let account =
+        guard let token = HMZUserAccountViewModel.shareViewModel.token else{
+            SVProgressHUD.showErrorWithStatus("您尚未登陆，请先登录")
+            return
+        }
+        let urlString = "/2/statuses/update.json"
+        var param = [String: String]()
+        param["access_token"] = token
+        param["status"] = textView.fullText()
+        
+        //发送没有图片的微博
+        HMZNetWorkTool.sharedTools.requestJSONDict(HTTPRequestMethod.POST, urlString: urlString, parameters: param) { (result, error) -> () in
+            if error != nil {
+                SVProgressHUD.showErrorWithStatus(HMZAppErrorTip)
+                return
+            }
+            SVProgressHUD.showSuccessWithStatus("发送成功")
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        
     }
+    
+    private lazy var textView: HMZEmoticonTextView = {
+        let tv = HMZEmoticonTextView()
+        tv.font = UIFont.systemFontOfSize(18)
+        tv.textColor = UIColor.darkGrayColor()
+        //tv.backgroundColor = HMZRandomColor()
+        tv.alwaysBounceVertical = true
+        //键盘的关闭模式,当拖动的时候关闭键盘
+        tv.keyboardDismissMode = .OnDrag
+        tv.delegate = self
+        return tv
+    }()
+    private lazy var placeholderLabel: UILabel = UILabel(title: "分享新鲜事儿", color: UIColor.lightGrayColor(),fontSize:18)
 }
 
 extension HMZComposeViewController {
     private func setupUI() {
         view.backgroundColor = HMZRandomColor()
         setupNav()
+        setupTextView()
     }
+    
+    private func setupTextView() {
+        view.addSubview(textView)
+        textView.snp_makeConstraints { (make) -> Void in
+            make.left.top.right.equalTo(self.view)
+            make.height.equalTo(screenH / 2)
+        }
+        textView.addSubview(placeholderLabel)
+        placeholderLabel.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(textView.snp_top).offset(8)
+            make.left.equalTo(textView.snp_left).offset(5)
+        }
+    }
+    
+    
+    
     private func setupNav() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "取消", style: .Plain, target: self, action: "cancel")
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "发布", style: .Plain, target: self, action: "compose")
@@ -48,5 +106,12 @@ extension HMZComposeViewController {
             make.centerX.equalTo(v.snp_centerX)
             make.bottom.equalTo(v.snp_bottom)
         }
+    }
+}
+
+extension HMZComposeViewController:UITextViewDelegate {
+    func textViewDidChange(textView: UITextView) {
+        navigationItem.rightBarButtonItem?.enabled = textView.hasText()
+        placeholderLabel.hidden = textView.hasText()
     }
 }
