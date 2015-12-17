@@ -16,9 +16,17 @@ class HMZMainTabBarController: UITabBarController {
         super.viewDidLoad()
         //kvc赋值
         setValue(mainTabBar, forKey: "tabBar")
+        mainTabBar.composeBtn.addTarget(self, action: "composeDidButtonClick", forControlEvents: .TouchUpInside)
         
         //初始化子控制器
         setupChildVC()
+        
+    }
+    
+    @objc private func composeDidButtonClick() {
+        print("composeClick")
+        let nav = HMZNavigationController(rootViewController: HMZComposeViewController())
+        presentViewController(nav, animated: true, completion: nil)
     }
 }
 

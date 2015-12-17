@@ -45,7 +45,7 @@ class HMZMessageViewController: HMZBaseTableViewController {
                 return
             }
             self.users = userList
-            print(userList)
+            //print(userList)
             self.tableView.reloadData()
         }
     }

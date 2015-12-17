@@ -41,6 +41,7 @@
 		DAF5B2AF1C218E770021DC2F /* String+RegEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5B2AE1C218E770021DC2F /* String+RegEx.swift */; };
 		DAF5B2B11C21A12C0021DC2F /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5B2B01C21A12C0021DC2F /* NSDate+Extension.swift */; };
 		DAF5B2B31C2244FD0021DC2F /* HMZUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5B2B21C2244FD0021DC2F /* HMZUserViewModel.swift */; };
+		DAF5B2B81C225AE00021DC2F /* HMZComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5B2B71C225AE00021DC2F /* HMZComposeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		DAF5B2AE1C218E770021DC2F /* String+RegEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+RegEx.swift"; sourceTree = "<group>"; };
 		DAF5B2B01C21A12C0021DC2F /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
 		DAF5B2B21C2244FD0021DC2F /* HMZUserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZUserViewModel.swift; sourceTree = "<group>"; };
+		DAF5B2B71C225AE00021DC2F /* HMZComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZComposeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 		DA6B00D01C1C059F00D362C9 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				DAF5B2B41C225A8D0021DC2F /* Compose */,
 				DA9B6C651C1E65E8005A910A /* NewFeature */,
 				DA02821F1C1D0BBA000416A4 /* OAuth */,
 				DA6B00D11C1C059F00D362C9 /* Discover */,
@@ -292,6 +295,14 @@
 			path = NewFeature;
 			sourceTree = "<group>";
 		};
+		DAF5B2B41C225A8D0021DC2F /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				DAF5B2B71C225AE00021DC2F /* HMZComposeViewController.swift */,
+			);
+			path = Compose;
+			sourceTree = "<group>";
+		};
 		EA02D35503E28CDD0D3F7DDE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -434,6 +445,7 @@
 				DA18C6721C20417100C8FCB7 /* HMZStatusToolBar.swift in Sources */,
 				DA18C6701C1FEDB800C8FCB7 /* HMZStatusViewModel.swift in Sources */,
 				DA18C6741C205E1200C8FCB7 /* HMZStatusRetweetedView.swift in Sources */,
+				DAF5B2B81C225AE00021DC2F /* HMZComposeViewController.swift in Sources */,
 				DAF5B2B31C2244FD0021DC2F /* HMZUserViewModel.swift in Sources */,
 				DA0282211C1D0C93000416A4 /* HMZOAuthViewController.swift in Sources */,
 				DA0152F01C1ED69400F4E5E3 /* UILabel+Extension.swift in Sources */,
