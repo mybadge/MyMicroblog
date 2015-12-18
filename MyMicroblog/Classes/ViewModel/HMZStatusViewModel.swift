@@ -18,7 +18,6 @@ class HMZStatusViewModel: NSObject {
         }
         var param: [String: String] = [String: String]()
         param["access_token"] = token
-        //print(HMZUserAccountViewModel.shareViewModel.account)
         if sinceId > 0 {
             param["since_id"] = "\(sinceId)"
         }
@@ -37,7 +36,6 @@ class HMZStatusViewModel: NSObject {
                 finish(statuses: nil)
                 return
             }
-//            //printLog(arrayList[0])
             var list = [HMZStatus]()
             
             for dict in arrayList {
@@ -47,4 +45,26 @@ class HMZStatusViewModel: NSObject {
             finish(statuses: list)
         }
     }
+    
+    
+    ///  转发微博 https://api.weibo.com/2/statuses/repost.json
+    class func repostStatus(id:Int, finish:(result: Bool) ->()) {
+        let urlString = "2/statuses/repost.json"
+        guard let token  = HMZUserAccountViewModel.shareViewModel.token else{
+            SVProgressHUD.showErrorWithStatus("您还未登录,请先登录")
+            return
+        }
+        var param: [String: String] = [String: String]()
+        param["access_token"] = token
+        param["id"] = "\(id)"
+        HMZNetWorkTool.sharedTools.requestJSONDict(HTTPRequestMethod.POST, urlString: urlString, parameters: param) { (result, error) -> () in
+            if error != nil {
+                printLog("数据类型有误")
+                finish(result: false)
+                return
+            }
+            finish(result: true)
+        }
+    }
+    
 }

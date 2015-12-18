@@ -29,15 +29,15 @@ class HMZCommentCell: UITableViewCell {
         contentView.addSubview(timeLabel)
         contentView.addSubview(desLabel)
         contentView.addSubview(attitudeBtn)
-        
-        desLabel.preferredMaxLayoutWidth = screenW - imageWidth - 3*margin
+        desLabel.textAlignment = .Left
+        //desLabel.preferredMaxLayoutWidth = screenW - imageWidth - 3*margin
         
         contentView.snp_makeConstraints { (make) -> Void in
             make.height.equalTo(imageWidth + 2*margin)
         }
         //添加约束
         iconView.snp_makeConstraints { (make) -> Void in
-            make.left.top.equalTo(contentView).offset(margin)
+            make.left.top.equalTo(self).offset(margin)
             make.height.width.equalTo(imageWidth)
         }
         nameLabel.snp_makeConstraints { (make) -> Void in
@@ -46,14 +46,14 @@ class HMZCommentCell: UITableViewCell {
         }
         timeLabel.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(iconView.snp_right).offset(margin)
-            //为什么显示有问题
+            //为什么显示有问题??  reason：需要相对于self，不能相对于contentView
             //make.right.equalTo(contentView.snp_right).offset(margin)
             make.top.equalTo(nameLabel.snp_bottom).offset(margin)
         }
         desLabel.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(iconView.snp_right).offset(margin)
             make.top.equalTo(timeLabel.snp_bottom).offset(margin)
-            make.right.equalTo(contentView.snp_right).offset(margin)
+            make.right.equalTo(self.snp_right).offset(-margin)
         }
         
         attitudeBtn.snp_makeConstraints { (make) -> Void in

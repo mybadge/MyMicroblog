@@ -154,6 +154,12 @@ class HMZHomeViewController: HMZBaseTableViewController {
         return cell
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let status = statuses[indexPath.row]
+        let contentVc = HMZStatusCommentController()
+        contentVc.statusId = status.id
+        navigationController?.pushViewController(contentVc, animated: true)
+    }
     
     
     

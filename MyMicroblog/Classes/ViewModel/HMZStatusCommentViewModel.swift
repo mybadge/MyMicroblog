@@ -36,7 +36,7 @@ class HMZStatusCommentViewModel: NSObject {
                 finish(list: nil)
                 return
             }
-            print(result)
+            //print(result)
             //取出数组中的user 字典,并且是一个嵌套数组字典(数组->字典->数组->字典)
             guard let arrayList = result!["comments"] as? [[String: AnyObject]] else {
                 finish(list: nil)

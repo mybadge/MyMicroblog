@@ -69,7 +69,9 @@ class HMZStatusCommentController: UITableViewController {
             let cell = HMZStatusCell()
             if comments.count > 0 {
                 cell.status = comments[0].status
-                cell.toolBar.hidden = true
+                //怎么在这里给toolBar更改frame,把它调小
+                cell.toolBar.frame = CGRect(x: 50, y: 0, width: 300, height: 30)
+                cell.toolBar.userInteractionEnabled = false
             }
             return cell
         } else {
@@ -80,5 +82,4 @@ class HMZStatusCommentController: UITableViewController {
             return cell
         }
     }
-    
 }

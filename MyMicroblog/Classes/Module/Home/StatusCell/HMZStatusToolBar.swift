@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import SVProgressHUD
 
 class HMZStatusToolBar: UIView {
     
@@ -40,12 +41,26 @@ class HMZStatusToolBar: UIView {
         commentVc.title = "微博正文"
         getNavController()?.pushViewController(commentVc, animated: true)
     }
+    @objc private func repostBtnDidClick() {
+        guard let statusId = status?.id  else {
+            return
+        }
+        HMZStatusViewModel.repostStatus(statusId, finish: { (result) -> () in
+            if result {
+                SVProgressHUD.showSuccessWithStatus("转发成功")
+            } else {
+                SVProgressHUD.showErrorWithStatus("转发失败")
+            }
+        })
+        
+    }
     
     private func setupUI() {
         addSubview(repostBtn)
         addSubview(commentBtn)
         addSubview(attitudeBtn)
         
+        repostBtn.addTarget(self, action: "repostBtnDidClick", forControlEvents: .TouchUpInside)
         commentBtn.addTarget(self, action: "commentBtnDidClick", forControlEvents: .TouchUpInside)
         
         //设置约束--- 三等分视图
@@ -70,7 +85,7 @@ class HMZStatusToolBar: UIView {
         let sepViewBottom = sepView()
         let w = 0.5
         let scale = 0.4
-       
+        
         
         
         sepView1.snp_makeConstraints { (make) -> Void in

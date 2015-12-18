@@ -18,7 +18,7 @@ class HMZMessageViewController: HMZBaseTableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         loadData()
-        SVProgressHUD.showWithStatus("小二正在努力加载中。。。",maskType: .Gradient)
+        SVProgressHUD.showWithStatus("哥正在努力加载中。。。",maskType: .Gradient)
     }
     
     
@@ -88,8 +88,8 @@ class HMZMessageCell:UITableViewCell {
         nameLabel.textAlignment = .Left
         contentView.addSubview(timeLabel)
         contentView.addSubview(desLabel)
-        //desLabel.numberOfLines = 0
-        desLabel.preferredMaxLayoutWidth = screenW - imageWidth - 3*margin
+        
+        //desLabel.preferredMaxLayoutWidth = screenW - imageWidth - 3*margin
         desLabel.textAlignment = .Left
         
         contentView.snp_makeConstraints { (make) -> Void in
@@ -107,7 +107,7 @@ class HMZMessageCell:UITableViewCell {
         desLabel.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(iconView.snp_right).offset(margin)
             make.top.equalTo(nameLabel.snp_bottom).offset(margin)
-            //make.right.equalTo(contentView.snp_right).offset(margin)
+            make.right.equalTo(self.snp_right).offset(-margin)
         }
         timeLabel.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(nameLabel.snp_right).offset(margin)
