@@ -18,6 +18,7 @@ class HMZMessageViewController: HMZBaseTableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         loadData()
+        SVProgressHUD.showWithStatus("小二正在努力加载中。。。",maskType: .Gradient)
     }
     
     
@@ -46,12 +47,15 @@ class HMZMessageViewController: HMZBaseTableViewController {
             }
             self.users = userList
             //print(userList)
+            SVProgressHUD.dismiss()
             self.tableView.reloadData()
         }
     }
 }
 
 extension HMZMessageViewController {
+    
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users?.count ?? 0
     }
@@ -65,6 +69,7 @@ extension HMZMessageViewController {
 
 
 class HMZMessageCell:UITableViewCell {
+    private let imageWidth:CGFloat = 60
     private let margin:CGFloat = 10
     var user: HMZUser?{
         didSet{
@@ -80,17 +85,20 @@ class HMZMessageCell:UITableViewCell {
         
         contentView.addSubview(iconView)
         contentView.addSubview(nameLabel)
+        nameLabel.textAlignment = .Left
         contentView.addSubview(timeLabel)
         contentView.addSubview(desLabel)
-        desLabel.numberOfLines = 0
+        //desLabel.numberOfLines = 0
+        desLabel.preferredMaxLayoutWidth = screenW - imageWidth - 3*margin
+        desLabel.textAlignment = .Left
         
         contentView.snp_makeConstraints { (make) -> Void in
-            make.height.equalTo(80)
+            make.height.equalTo(imageWidth + 2*margin)
         }
         //添加约束
         iconView.snp_makeConstraints { (make) -> Void in
-            make.left.top.equalTo(contentView).offset(margin)
-            make.height.width.equalTo(60)
+            make.left.top.equalTo(self).offset(margin)
+            make.height.width.equalTo(imageWidth)
         }
         nameLabel.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(iconView.snp_right).offset(margin)
@@ -99,13 +107,13 @@ class HMZMessageCell:UITableViewCell {
         desLabel.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(iconView.snp_right).offset(margin)
             make.top.equalTo(nameLabel.snp_bottom).offset(margin)
-            make.right.equalTo(contentView.snp_right).offset(margin)
+            //make.right.equalTo(contentView.snp_right).offset(margin)
         }
         timeLabel.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(nameLabel.snp_right).offset(margin)
             //为什么显示有问题
-            //make.right.equalTo(contentView.snp_right).offset(margin)
-            make.top.equalTo(contentView.snp_top).offset(margin)
+            make.right.equalTo(self.snp_right).offset(-margin)
+            make.top.equalTo(self.snp_top).offset(margin)
         }
         
     }

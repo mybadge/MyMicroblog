@@ -44,6 +44,10 @@
 		DA9932621C1BC77800FD69F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA9932611C1BC77800FD69F6 /* Assets.xcassets */; };
 		DA9B6C671C1E6653005A910A /* HMZNewFeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B6C661C1E6653005A910A /* HMZNewFeatureViewController.swift */; };
 		DA9B6C691C1E672B005A910A /* HMZWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B6C681C1E672B005A910A /* HMZWelcomeViewController.swift */; };
+		DA9E07931C2399300036F444 /* HMZStatusComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E07921C2399300036F444 /* HMZStatusComment.swift */; };
+		DA9E07951C239DDD0036F444 /* HMZStatusCommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E07941C239DDD0036F444 /* HMZStatusCommentController.swift */; };
+		DA9E07971C239FCD0036F444 /* HMZStatusCommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E07961C239FCD0036F444 /* HMZStatusCommentViewModel.swift */; };
+		DA9E079A1C23B5880036F444 /* HMZCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E07991C23B5880036F444 /* HMZCommentCell.swift */; };
 		DAF5B2AB1C20FFEC0021DC2F /* HMZStatusPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5B2AA1C20FFEC0021DC2F /* HMZStatusPhotoView.swift */; };
 		DAF5B2AD1C213A360021DC2F /* HMZTempWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5B2AC1C213A360021DC2F /* HMZTempWebViewController.swift */; };
 		DAF5B2B31C2244FD0021DC2F /* HMZUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5B2B21C2244FD0021DC2F /* HMZUserViewModel.swift */; };
@@ -92,6 +96,10 @@
 		DA9932611C1BC77800FD69F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA9B6C661C1E6653005A910A /* HMZNewFeatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZNewFeatureViewController.swift; sourceTree = "<group>"; };
 		DA9B6C681C1E672B005A910A /* HMZWelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZWelcomeViewController.swift; sourceTree = "<group>"; };
+		DA9E07921C2399300036F444 /* HMZStatusComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZStatusComment.swift; sourceTree = "<group>"; };
+		DA9E07941C239DDD0036F444 /* HMZStatusCommentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZStatusCommentController.swift; sourceTree = "<group>"; };
+		DA9E07961C239FCD0036F444 /* HMZStatusCommentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZStatusCommentViewModel.swift; sourceTree = "<group>"; };
+		DA9E07991C23B5880036F444 /* HMZCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZCommentCell.swift; sourceTree = "<group>"; };
 		DAF5B2AA1C20FFEC0021DC2F /* HMZStatusPhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZStatusPhotoView.swift; sourceTree = "<group>"; };
 		DAF5B2AC1C213A360021DC2F /* HMZTempWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZTempWebViewController.swift; sourceTree = "<group>"; };
 		DAF5B2B21C2244FD0021DC2F /* HMZUserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZUserViewModel.swift; sourceTree = "<group>"; };
@@ -176,8 +184,10 @@
 			isa = PBXGroup;
 			children = (
 				DA8783A81C1FB0E100A411C1 /* StatusCell */,
+				DA9E07981C23B5440036F444 /* CommentCell */,
 				DA6B00E11C1C4AB500D362C9 /* HMZHomeViewController.swift */,
 				DAF5B2AC1C213A360021DC2F /* HMZTempWebViewController.swift */,
+				DA9E07941C239DDD0036F444 /* HMZStatusCommentController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -216,6 +226,7 @@
 				DA0282241C1D405E000416A4 /* HMZAccount.swift */,
 				DA0152F31C1EDF9800F4E5E3 /* HMZStatus.swift */,
 				DA0152F51C1EE0D200F4E5E3 /* HMZUser.swift */,
+				DA9E07921C2399300036F444 /* HMZStatusComment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -237,6 +248,7 @@
 				DA0282221C1D1E63000416A4 /* HMZUserAccountViewModel.swift */,
 				DA18C66F1C1FEDB800C8FCB7 /* HMZStatusViewModel.swift */,
 				DAF5B2B21C2244FD0021DC2F /* HMZUserViewModel.swift */,
+				DA9E07961C239FCD0036F444 /* HMZStatusCommentViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -319,6 +331,14 @@
 				DA9B6C681C1E672B005A910A /* HMZWelcomeViewController.swift */,
 			);
 			path = NewFeature;
+			sourceTree = "<group>";
+		};
+		DA9E07981C23B5440036F444 /* CommentCell */ = {
+			isa = PBXGroup;
+			children = (
+				DA9E07991C23B5880036F444 /* HMZCommentCell.swift */,
+			);
+			path = CommentCell;
 			sourceTree = "<group>";
 		};
 		DAF5B2B41C225A8D0021DC2F /* Compose */ = {
@@ -471,6 +491,7 @@
 				DA9B6C691C1E672B005A910A /* HMZWelcomeViewController.swift in Sources */,
 				DA8783AA1C1FB11400A411C1 /* HMZStatusCell.swift in Sources */,
 				DA0282231C1D1E63000416A4 /* HMZUserAccountViewModel.swift in Sources */,
+				DA9E07951C239DDD0036F444 /* HMZStatusCommentController.swift in Sources */,
 				DA18C6721C20417100C8FCB7 /* HMZStatusToolBar.swift in Sources */,
 				DA18C6701C1FEDB800C8FCB7 /* HMZStatusViewModel.swift in Sources */,
 				DA18C6741C205E1200C8FCB7 /* HMZStatusRetweetedView.swift in Sources */,
@@ -480,6 +501,7 @@
 				DA18C66E1C1FC31F00C8FCB7 /* HMZStatusOriginalView.swift in Sources */,
 				DAF5B2AD1C213A360021DC2F /* HMZTempWebViewController.swift in Sources */,
 				DA7E69251C227F32001E7B78 /* HMZEmoticonTextView.swift in Sources */,
+				DA9E07931C2399300036F444 /* HMZStatusComment.swift in Sources */,
 				DA7E692F1C22CE62001E7B78 /* HMZEmoticonManager.swift in Sources */,
 				DA6B00EB1C1C5ABD00D362C9 /* HMZCommon.swift in Sources */,
 				DA7E691F1C227EE3001E7B78 /* NSDate+Extension.swift in Sources */,
@@ -492,6 +514,7 @@
 				DA6B00E21C1C4AB500D362C9 /* HMZHomeViewController.swift in Sources */,
 				DA6B00E51C1C4AF400D362C9 /* HMZBaseTableViewController.swift in Sources */,
 				DA6B00F01C1C691200D362C9 /* HMZVisitorLoginViewController.swift in Sources */,
+				DA9E079A1C23B5880036F444 /* HMZCommentCell.swift in Sources */,
 				DA7E69231C227EE3001E7B78 /* UIVIew+ViewController.swift in Sources */,
 				DA7E69271C228478001E7B78 /* HMZEmoticon.swift in Sources */,
 				DA6B00E71C1C4B3D00D362C9 /* HMZMessageViewController.swift in Sources */,
@@ -499,6 +522,7 @@
 				DA6B00E01C1C4AA300D362C9 /* HMZDiscoverViewController.swift in Sources */,
 				DA0282251C1D405E000416A4 /* HMZAccount.swift in Sources */,
 				DA0152F41C1EDF9800F4E5E3 /* HMZStatus.swift in Sources */,
+				DA9E07971C239FCD0036F444 /* HMZStatusCommentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

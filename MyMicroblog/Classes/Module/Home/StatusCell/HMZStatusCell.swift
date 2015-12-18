@@ -120,6 +120,6 @@ class HMZStatusCell: UITableViewCell {
     private lazy var statusOriginalView: HMZStatusOriginalView = HMZStatusOriginalView()
     private lazy var statusRetweetedView: HMZStatusRetweetedView = HMZStatusRetweetedView()
     
-    private lazy var toolBar: HMZStatusToolBar = HMZStatusToolBar()
+    lazy var toolBar: HMZStatusToolBar = HMZStatusToolBar()
     
 }

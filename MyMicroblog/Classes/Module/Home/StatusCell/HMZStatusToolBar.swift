@@ -33,10 +33,20 @@ class HMZStatusToolBar: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    @objc private func commentBtnDidClick() {
+        //print(__FUNCTION__)
+        let commentVc = HMZStatusCommentController()
+        commentVc.statusId = status?.id ?? 0
+        commentVc.title = "微博正文"
+        getNavController()?.pushViewController(commentVc, animated: true)
+    }
+    
     private func setupUI() {
         addSubview(repostBtn)
         addSubview(commentBtn)
         addSubview(attitudeBtn)
+        
+        commentBtn.addTarget(self, action: "commentBtnDidClick", forControlEvents: .TouchUpInside)
         
         //设置约束--- 三等分视图
         repostBtn.snp_makeConstraints { (make) -> Void in
