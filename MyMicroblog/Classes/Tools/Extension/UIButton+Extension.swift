@@ -60,6 +60,7 @@ extension UIButton {
             setBackgroundImage(UIImage(named: backgroundImage!), forState: .Normal)
             setBackgroundImage(UIImage(named: backgroundImage! + "_highlighted"), forState: .Highlighted)
         }
+        sizeToFit()
     }
     
 }

@@ -42,9 +42,6 @@ class HMZStatusCommentViewModel: NSObject {
                 finish(list: nil)
                 return
             }
-            if arrayList.count > 0 {
-                printLog(arrayList[0])
-            }
             var list = [HMZStatusComment]()
             
             for dict in arrayList {

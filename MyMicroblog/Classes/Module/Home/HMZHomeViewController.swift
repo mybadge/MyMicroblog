@@ -28,18 +28,6 @@ class HMZHomeViewController: HMZBaseTableViewController {
         return tip
     }()
     
-    ///  提前加载数据
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        //这里判断是解决,未登录时加载网络数据,更新tabView时崩溃的问题
-        if  HMZUserAccountViewModel.shareViewModel.userLoginState {
-            //NSLog("开始加载")
-            loadData()
-            SVProgressHUD.showWithStatus("哥正在努力加载中", maskType: .Gradient)
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         if !userLoginState {
@@ -47,6 +35,8 @@ class HMZHomeViewController: HMZBaseTableViewController {
             return
         }
         
+        loadData()
+        SVProgressHUD.showWithStatus("哥正在努力加载中", maskType: .Gradient)
         prepareTableView()
     }
     
@@ -58,7 +48,7 @@ class HMZHomeViewController: HMZBaseTableViewController {
         //注册 tableViewCell
         tableView.registerClass(HMZStatusCell.self, forCellReuseIdentifier: homeCellId)
         //tableView.rowHeight = 200
-        //        //设置预估行高
+        // 设置预估行高
         tableView.estimatedRowHeight = 300
         //设置行高自动计算
         tableView.rowHeight = UITableViewAutomaticDimension//Automatic:自动 Dimension:尺寸
@@ -112,7 +102,7 @@ class HMZHomeViewController: HMZBaseTableViewController {
                 self.statuses = list
             }
             SVProgressHUD.dismiss()
-             NSLog("加载完成")
+            NSLog("加载完成")
             self.tableView.reloadData()
         }
     }
@@ -160,7 +150,4 @@ class HMZHomeViewController: HMZBaseTableViewController {
         contentVc.statusId = status.id
         navigationController?.pushViewController(contentVc, animated: true)
     }
-    
-    
-    
 }

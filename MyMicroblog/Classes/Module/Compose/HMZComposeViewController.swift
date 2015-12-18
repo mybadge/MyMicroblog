@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SnapKit
+//import SnapKit
 import SVProgressHUD
 
 class HMZComposeViewController: UIViewController {
@@ -47,10 +47,10 @@ class HMZComposeViewController: UIViewController {
             SVProgressHUD.showSuccessWithStatus("发送成功")
             self.dismissViewControllerAnimated(true, completion: nil)
         }
-        
     }
     
-    //懒加载
+    //MARK: -懒加载
+    /// 文本框
     private lazy var textView: HMZEmoticonTextView = {
         let tv = HMZEmoticonTextView()
         tv.font = UIFont.systemFontOfSize(18)
@@ -62,7 +62,17 @@ class HMZComposeViewController: UIViewController {
         tv.delegate = self
         return tv
     }()
+    /// 占位符
     private lazy var placeholderLabel: UILabel = UILabel(title: "分享新鲜事儿", color: UIColor.lightGrayColor(),fontSize:18)
+    /// 工具条
+    private lazy var toolBar: UIToolbar = UIToolbar()
+    ///  表情键盘
+    private lazy var emoticonKeyBoard: HMZEmoticonKeyboardView = HMZEmoticonKeyboardView { [weak self](em) -> () in
+        self?.textView.insertTextWithEmoticon(em)
+    }
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
 }
 
 extension HMZComposeViewController {
@@ -70,13 +80,16 @@ extension HMZComposeViewController {
         view.backgroundColor = UIColor.whiteColor()
         setupNav()
         setupTextView()
+        setupToolBar()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardFrameWillChange:", name: UIKeyboardWillChangeFrameNotification, object: nil)
     }
     
     private func setupTextView() {
         view.addSubview(textView)
         textView.snp_makeConstraints { (make) -> Void in
             make.left.top.right.equalTo(self.view)
-            make.height.equalTo(screenH / 2)
+            make.height.equalTo(screenH)
         }
         textView.addSubview(placeholderLabel)
         placeholderLabel.snp_makeConstraints { (make) -> Void in
@@ -84,8 +97,6 @@ extension HMZComposeViewController {
             make.left.equalTo(textView.snp_left).offset(5)
         }
     }
-    
-    
     
     private func setupNav() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "取消", style: .Plain, target: self, action: "cancel")
@@ -107,11 +118,84 @@ extension HMZComposeViewController {
             make.bottom.equalTo(v.snp_bottom)
         }
     }
+    
+    private func setupToolBar() {
+        //添加工具按钮
+        let itemSettings = [["imageName": "compose_toolbar_picture","actionName":"selectPicture"],
+            ["imageName": "compose_mentionbutton_background"],
+            ["imageName": "compose_trendbutton_background"],
+            ["imageName": "compose_emoticonbutton_background","actionName":"selectEmoticonKeyboard:"],
+            ["imageName": "compose_add_background"]]
+        var items = [UIBarButtonItem]()
+        for dict in itemSettings {
+            let btn = UIButton(imageName: dict["imageName"]!, backgroundImage: nil)
+            if let action = dict["actionName"] {
+                btn.addTarget(self, action: Selector(action), forControlEvents: .TouchUpInside)
+            }
+            let item = UIBarButtonItem(customView: btn)
+            items.append(item)
+            let space = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+            items.append(space)
+        }
+        items.removeLast()
+        toolBar.items = items
+        view.addSubview(toolBar)
+        
+        //设置布局
+        toolBar.snp_makeConstraints { (make) -> Void in
+            make.left.bottom.right.equalTo(self.view)
+            make.height.equalTo(40)
+        }
+    }
 }
 
+// MARK: - 监听方法
 extension HMZComposeViewController:UITextViewDelegate {
     func textViewDidChange(textView: UITextView) {
         navigationItem.rightBarButtonItem?.enabled = textView.hasText()
         placeholderLabel.hidden = textView.hasText()
     }
+    
+    @objc private func keyboardFrameWillChange(n: NSNotification) {
+        //Optional([UIKeyboardFrameBeginUserInfoKey: NSRect: {{0, 736}, {414, 226}}, UIKeyboardCenterEndUserInfoKey: NSPoint: {207, 623}, UIKeyboardBoundsUserInfoKey: NSRect: {{0, 0}, {414, 226}}, UIKeyboardFrameEndUserInfoKey: NSRect: {{0, 510}, {414, 226}}, UIKeyboardAnimationDurationUserInfoKey: 0.25, UIKeyboardCenterBeginUserInfoKey: NSPoint: {207, 849}, UIKeyboardAnimationCurveUserInfoKey: 7, UIKeyboardIsLocalUserInfoKey: 1])
+        let duration = n.userInfo!["UIKeyboardAnimationDurationUserInfoKey"] as! Double
+        let rect = (n.userInfo!["UIKeyboardFrameEndUserInfoKey"] as! NSValue).CGRectValue()
+        //不知道他是干啥的
+        //let curve = n.userInfo!["UIKeyboardAnimationCurveUserInfoKey"] as! Int
+        
+        //更改toolbar的底部约束
+        let offset = -screenH + rect.origin.y
+        toolBar.snp_updateConstraints { (make) -> Void in
+            make.bottom.equalTo(offset)
+        }
+        UIView.animateWithDuration(duration) { () -> Void in
+            //强制刷新
+            //如果给动画添加动画效果的曲线值 原始值 为 7  对应动画时长失效
+            //UIView.setAnimationCurve(UIViewAnimationCurve(rawValue: curve)!)
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @objc private func selectPicture() {
+        print(__FUNCTION__)
+    }
+    
+    @objc private func selectEmoticonKeyboard(sender: UIButton) {
+        
+        textView.resignFirstResponder()
+        //textView.inputView = textView.inputView == nil ? emoticonKeyBoard : nil
+        if textView.inputView == nil {
+            textView.inputView = emoticonKeyBoard
+            sender.setImage(UIImage(named: "compose_keyboardbutton_background"), forState: .Normal)
+            sender.setImage(UIImage(named: "compose_keyboardbutton_background_highlighted"), forState: .Highlighted)
+        } else {
+            textView.inputView = nil
+            sender.setImage(UIImage(named: "compose_emoticonbutton_background"), forState: .Normal)
+            sender.setImage(UIImage(named: "compose_emoticonbutton_background_highlighted"), forState: .Highlighted)
+        }
+        
+        
+        textView.becomeFirstResponder()
+    }
+    
 }

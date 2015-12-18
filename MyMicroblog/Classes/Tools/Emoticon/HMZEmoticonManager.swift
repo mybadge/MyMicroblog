@@ -10,10 +10,53 @@ import UIKit
 ///管理分组表情的工具类  加载所有的表情数据
 class HMZEmoticonManager: NSObject {
     
-    //表情分组数组
+    ///表情分组数组
     lazy var packages = [HMZEmoticonPackage]()
+    /// 管理分组表情的单例
     static let shareEmotionManager = HMZEmoticonManager()
     
+    
+    
+    
+    //重写init方法
+    override init() {
+        super.init()
+        loadPackages()
+    }
+    
+    ///  加载表情包
+    private func loadPackages() {
+        let path = NSBundle.mainBundle().pathForResource("emoticons", ofType: "plist", inDirectory: "Emoticons.bundle")
+        
+        guard let filePath = path else {
+            print("文件路径错误")
+            return
+        }
+        let dict = NSDictionary(contentsOfFile: filePath)!
+        let array = dict["packages"] as! [[String: AnyObject]]
+        for item in array {
+            let id = item["id"] as! String
+            loadGroupPackages(id)
+        }
+    }
+    
+    ///  根据分组Id加载表情包
+    private func loadGroupPackages(id: String) {
+        let path = NSBundle.mainBundle().pathForResource("Info", ofType: "plist", inDirectory: "Emoticons.bundle/\(id)")
+        
+        guard let filePath = path else {
+            print("文件路径错误")
+            return
+        }
+        let dict = NSDictionary(contentsOfFile: filePath)!
+        let group_name_cn = dict["group_name_cn"] as! String
+        let array = dict["emoticons"] as! [[String: String]]
+        let p = HMZEmoticonPackage(id: id, group_name_cn: group_name_cn, array: array)
+        packages.append(p)
+    }
+    
+    
+    ///  把字符串中的表情文字转化为带有表情的富文本
     func emoticonTextToImageText(text: String) -> NSAttributedString {
         
         //设计匹配规则
@@ -46,7 +89,7 @@ class HMZEmoticonManager: NSObject {
         return attrM
     }
     
-    
+    ///  根据 [hehe] 找到表情模型
     func getEmoticon(string: String) ->HMZEmoticon? {
         for p in HMZEmoticonManager.shareEmotionManager.packages {
             //数组过滤器
@@ -59,40 +102,5 @@ class HMZEmoticonManager: NSObject {
         }
         return nil
     }
-    
-    
-    //重写init方法
-    override init() {
-        super.init()
-        loadPackages()
-    }
-    
-    private func loadPackages() {
-        let path = NSBundle.mainBundle().pathForResource("emoticons", ofType: "plist", inDirectory: "Emoticon.bundle")
-        
-        guard let filePath = path else {
-            print("文件路径错误")
-            return
-        }
-        let dict = NSDictionary(contentsOfFile: filePath)!
-        let array = dict["packages"] as! [[String: AnyObject]]
-        for item in array {
-            let id = item["id"] as! String
-            loadGroupPackages(id)
-        }
-    }
-    
-    private func loadGroupPackages(id: String) {
-        let path = NSBundle.mainBundle().pathForResource("Info", ofType: "plist", inDirectory: "Emoticon.bundle/\(id)")
-        
-        guard let filePath = path else {
-            print("文件路径错误")
-            return
-        }
-        let dict = NSDictionary(contentsOfFile: filePath)!
-        let group_name_cn = dict["group_name_cn"] as! String
-        let array = dict["emoticons"] as! [[String: String]]
-        let p = HMZEmoticonPackage(id: id, group_name_cn: group_name_cn, array: array)
-        packages.append(p)
-    }
+
 }

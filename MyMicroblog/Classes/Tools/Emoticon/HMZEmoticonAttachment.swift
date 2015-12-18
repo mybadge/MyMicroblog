@@ -17,7 +17,7 @@ class HMZEmoticonAttachment: NSTextAttachment {
         //存储表情图片的名称,新浪微博的服务器存的是这个字符串,不会存具体图片的
         chs = em.chs
         //把要转换的图片对象 赋值给附件对象中的image属性
-        image = UIImage(contentsOfFile: em.imagePath ?? "")
+        image = em.image
         
         //获取文本的行高
         let lineHeight = font.lineHeight

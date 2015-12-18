@@ -48,6 +48,7 @@
 		DA9E07951C239DDD0036F444 /* HMZStatusCommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E07941C239DDD0036F444 /* HMZStatusCommentController.swift */; };
 		DA9E07971C239FCD0036F444 /* HMZStatusCommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E07961C239FCD0036F444 /* HMZStatusCommentViewModel.swift */; };
 		DA9E079A1C23B5880036F444 /* HMZCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E07991C23B5880036F444 /* HMZCommentCell.swift */; };
+		DA9E079C1C23F62A0036F444 /* HMZEmoticonKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E079B1C23F62A0036F444 /* HMZEmoticonKeyboardView.swift */; };
 		DAF5B2AB1C20FFEC0021DC2F /* HMZStatusPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5B2AA1C20FFEC0021DC2F /* HMZStatusPhotoView.swift */; };
 		DAF5B2AD1C213A360021DC2F /* HMZTempWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5B2AC1C213A360021DC2F /* HMZTempWebViewController.swift */; };
 		DAF5B2B31C2244FD0021DC2F /* HMZUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5B2B21C2244FD0021DC2F /* HMZUserViewModel.swift */; };
@@ -100,6 +101,7 @@
 		DA9E07941C239DDD0036F444 /* HMZStatusCommentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZStatusCommentController.swift; sourceTree = "<group>"; };
 		DA9E07961C239FCD0036F444 /* HMZStatusCommentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZStatusCommentViewModel.swift; sourceTree = "<group>"; };
 		DA9E07991C23B5880036F444 /* HMZCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZCommentCell.swift; sourceTree = "<group>"; };
+		DA9E079B1C23F62A0036F444 /* HMZEmoticonKeyboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZEmoticonKeyboardView.swift; sourceTree = "<group>"; };
 		DAF5B2AA1C20FFEC0021DC2F /* HMZStatusPhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZStatusPhotoView.swift; sourceTree = "<group>"; };
 		DAF5B2AC1C213A360021DC2F /* HMZTempWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZTempWebViewController.swift; sourceTree = "<group>"; };
 		DAF5B2B21C2244FD0021DC2F /* HMZUserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZUserViewModel.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 		DA7E69191C227E72001E7B78 /* Emoticon */ = {
 			isa = PBXGroup;
 			children = (
+				DA9E079B1C23F62A0036F444 /* HMZEmoticonKeyboardView.swift */,
 				DA7E69261C228478001E7B78 /* HMZEmoticon.swift */,
 				DA7E69241C227F32001E7B78 /* HMZEmoticonTextView.swift */,
 				DA7E692A1C228B77001E7B78 /* HMZEmoticonAttachment.swift */,
@@ -522,6 +525,7 @@
 				DA6B00E01C1C4AA300D362C9 /* HMZDiscoverViewController.swift in Sources */,
 				DA0282251C1D405E000416A4 /* HMZAccount.swift in Sources */,
 				DA0152F41C1EDF9800F4E5E3 /* HMZStatus.swift in Sources */,
+				DA9E079C1C23F62A0036F444 /* HMZEmoticonKeyboardView.swift in Sources */,
 				DA9E07971C239FCD0036F444 /* HMZStatusCommentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

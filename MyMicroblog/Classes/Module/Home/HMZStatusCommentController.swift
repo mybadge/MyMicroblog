@@ -17,12 +17,13 @@ class HMZStatusCommentController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
         loadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        SVProgressHUD.showWithStatus("哥正在努力加载中。。。")
         
         tableView.registerClass(HMZCommentCell.self, forCellReuseIdentifier: commentCellId)
         //let headView = HMZStatusOriginalView()
@@ -34,7 +35,9 @@ class HMZStatusCommentController: UITableViewController {
     
     private func loadData() {
         HMZStatusCommentViewModel.loadData(statusId ?? 0) { (list) -> () in
+            
             SVProgressHUD.dismiss()
+            
             guard let commentList = list else {
                 SVProgressHUD.showErrorWithStatus(HMZAppErrorTip)
                 return
