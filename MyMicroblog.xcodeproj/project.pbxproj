@@ -28,6 +28,7 @@
 		DA6B00E91C1C4B5300D362C9 /* HMZProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6B00E81C1C4B5300D362C9 /* HMZProfileViewController.swift */; };
 		DA6B00EB1C1C5ABD00D362C9 /* HMZCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6B00EA1C1C5ABD00D362C9 /* HMZCommon.swift */; };
 		DA6B00F01C1C691200D362C9 /* HMZVisitorLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6B00EF1C1C691200D362C9 /* HMZVisitorLoginViewController.swift */; };
+		DA74044E1C24E8A000919717 /* HMZPictureSeclectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA74044D1C24E8A000919717 /* HMZPictureSeclectorViewController.swift */; };
 		DA7E691F1C227EE3001E7B78 /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7E691A1C227EE3001E7B78 /* NSDate+Extension.swift */; };
 		DA7E69201C227EE3001E7B78 /* String+RegEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7E691B1C227EE3001E7B78 /* String+RegEx.swift */; };
 		DA7E69211C227EE3001E7B78 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7E691C1C227EE3001E7B78 /* UIButton+Extension.swift */; };
@@ -79,6 +80,7 @@
 		DA6B00E81C1C4B5300D362C9 /* HMZProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZProfileViewController.swift; sourceTree = "<group>"; };
 		DA6B00EA1C1C5ABD00D362C9 /* HMZCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZCommon.swift; sourceTree = "<group>"; };
 		DA6B00EF1C1C691200D362C9 /* HMZVisitorLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZVisitorLoginViewController.swift; sourceTree = "<group>"; };
+		DA74044D1C24E8A000919717 /* HMZPictureSeclectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZPictureSeclectorViewController.swift; sourceTree = "<group>"; };
 		DA7E691A1C227EE3001E7B78 /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
 		DA7E691B1C227EE3001E7B78 /* String+RegEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+RegEx.swift"; sourceTree = "<group>"; };
 		DA7E691C1C227EE3001E7B78 /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 			isa = PBXGroup;
 			children = (
 				DAF5B2B71C225AE00021DC2F /* HMZComposeViewController.swift */,
+				DA74044D1C24E8A000919717 /* HMZPictureSeclectorViewController.swift */,
 			);
 			path = Compose;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				DA18C6741C205E1200C8FCB7 /* HMZStatusRetweetedView.swift in Sources */,
 				DAF5B2B81C225AE00021DC2F /* HMZComposeViewController.swift in Sources */,
 				DAF5B2B31C2244FD0021DC2F /* HMZUserViewModel.swift in Sources */,
+				DA74044E1C24E8A000919717 /* HMZPictureSeclectorViewController.swift in Sources */,
 				DA0282211C1D0C93000416A4 /* HMZOAuthViewController.swift in Sources */,
 				DA18C66E1C1FC31F00C8FCB7 /* HMZStatusOriginalView.swift in Sources */,
 				DAF5B2AD1C213A360021DC2F /* HMZTempWebViewController.swift in Sources */,

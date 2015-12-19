@@ -94,13 +94,13 @@ class HMZStatus: NSObject {
         if key == "user" {
             if let dict = value as? [String: AnyObject] {
                 user = HMZUser(dict: dict)
-                return
             }
+            return
         }else if key == "retweeted_status" {
             if let dict = value as? [String: AnyObject] {
                 retweeted_status = HMZStatus(dict: dict)
-                return
             }
+            return
         }
         
         //一定要注意 需要调用super  ,原因是,当上面两个条件都不满足时,继续走下面的为其他 key 赋值

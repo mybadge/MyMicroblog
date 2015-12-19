@@ -17,7 +17,11 @@ class HMZStatusRetweetedView: UIView {
     
     var retweetedStatus: HMZStatus? {
         didSet {
-            retweetedLabel.text = "@" + (retweetedStatus?.user?.name ?? "") + ": " + (retweetedStatus?.text ?? "")
+            let str = "@" + (retweetedStatus?.user?.name ?? "") + ": " + (retweetedStatus?.text ?? "")
+            let attrStr = HMZEmoticonManager.shareEmotionManager.emoticonTextToImageText(str)
+            retweetedLabel.attributedText = attrStr
+            
+            
             // 使用约束属性  记录可能产生复用的约束  将可能复用的约束 解除掉
             bottomConstraints?.uninstall()
             

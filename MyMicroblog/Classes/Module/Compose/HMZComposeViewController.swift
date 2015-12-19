@@ -11,9 +11,13 @@ import UIKit
 import SVProgressHUD
 
 class HMZComposeViewController: UIViewController {
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        textView.becomeFirstResponder()
+        //当图片选择器中选择了图片时，就不弹出键盘
+        if selectorPictureVc.imageList.count == 0 {
+            textView.becomeFirstResponder()
+        }
     }
     
     override func viewDidLoad() {
@@ -70,6 +74,20 @@ class HMZComposeViewController: UIViewController {
     private lazy var emoticonKeyBoard: HMZEmoticonKeyboardView = HMZEmoticonKeyboardView { [weak self](em) -> () in
         self?.textView.insertTextWithEmoticon(em)
     }
+    
+    /// 选择图片控制器
+    private lazy var selectorPictureVc: HMZPictureSeclectorViewController = {
+        let vc = HMZPictureSeclectorViewController()
+        self.addChildViewController(vc)
+        self.view.addSubview(vc.view)
+        vc.view.snp_makeConstraints(closure: { (make) -> Void in
+            make.left.bottom.right.equalTo(self.view)
+            //默认为零 不显示
+            make.height.equalTo(0)
+        })
+        return vc
+    }()
+    
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
@@ -170,14 +188,19 @@ extension HMZComposeViewController:UITextViewDelegate {
         }
         UIView.animateWithDuration(duration) { () -> Void in
             //强制刷新
-            //如果给动画添加动画效果的曲线值 原始值 为 7  对应动画时长失效
+            //如果给动画添加动画效果的曲线值 原始值 为 7  对应动画时长失效  ????
             //UIView.setAnimationCurve(UIViewAnimationCurve(rawValue: curve)!)
             self.view.layoutIfNeeded()
         }
     }
     
     @objc private func selectPicture() {
-        print(__FUNCTION__)
+        textView.resignFirstResponder()
+        
+        selectorPictureVc.view.snp_updateConstraints { (make) -> Void in
+            make.height.equalTo(226+88+60)
+        }
+        view.bringSubviewToFront(toolBar)
     }
     
     @objc private func selectEmoticonKeyboard(sender: UIButton) {

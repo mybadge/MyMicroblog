@@ -27,7 +27,9 @@ class HMZStatusOriginalView: UIView {
             //TODO: 后期完善
             timeLabel.text = status?.created_atStr
             sourceLabel.text = status?.source?.linkText().text
-            contentLabel.text = status?.text
+            //contentLabel.text = status?.text
+            let attrStr = HMZEmoticonManager.shareEmotionManager.emoticonTextToImageText((status?.text) ?? "")
+            contentLabel.attributedText = attrStr
             
             
             // 使用约束属性  记录可能产生复用的约束  将可能复用的约束 解除掉

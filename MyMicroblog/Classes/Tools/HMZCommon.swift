@@ -31,7 +31,7 @@ let HMZSwitchRootVCNotificationKey = "HMZSwitchRootVCNotificationKey"
 
 ///  获取随机颜色
 func HMZRandomColor() ->UIColor{
-    return UIColor(red: (CGFloat)(random() % 256) / 256.0, green: (CGFloat)(random() % 256) / 256.0, blue: (CGFloat)(random() % 256) / 256.0, alpha: 1)
+    return UIColor(red: (CGFloat)(random() % 256) / 255.0, green: (CGFloat)(random() % 256) / 255.0, blue: (CGFloat)(random() % 256) / 255.0, alpha: 1)
 }
 
 ///  获取沙盒中文件绝对路径 根据相对路径

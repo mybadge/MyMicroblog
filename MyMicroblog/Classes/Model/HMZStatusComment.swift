@@ -53,13 +53,13 @@ class HMZStatusComment: NSObject {
         if key == "user" {
             if let dict = value as? [String: AnyObject] {
                 user = HMZUser(dict: dict)
-                return
             }
+            return
         } else if key == "status" {
             if let dict = value as? [String: AnyObject] {
                 status = HMZStatus(dict: dict)
-                return
             }
+            return
         }
         super.setValue(value, forKey: key)
     }
