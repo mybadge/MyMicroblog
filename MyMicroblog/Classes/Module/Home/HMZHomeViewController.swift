@@ -30,6 +30,7 @@ class HMZHomeViewController: HMZBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if !userLoginState {
             visitorLoginView?.setupInfo("关注一些人，回这里看看有什么惊喜", imageName: nil)
             return
@@ -38,8 +39,16 @@ class HMZHomeViewController: HMZBaseTableViewController {
         loadData()
         SVProgressHUD.showWithStatus("哥正在努力加载中", maskType: .Gradient)
         prepareTableView()
+        setupNav()
     }
     
+    private func setupNav() {
+        /* 设置导航栏上面的内容 */
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UIButton(imageName: "navigationbar_friendattention", backgroundImage: nil))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: UIButton(imageName: "navigationbar_icon_radar", backgroundImage: nil))
+        
+    }
     
     // MARK: -准备tableView
     ///  设置TableView一些必要的属性
@@ -102,7 +111,7 @@ class HMZHomeViewController: HMZBaseTableViewController {
                 self.statuses = list
             }
             SVProgressHUD.dismiss()
-            NSLog("加载完成")
+            //NSLog("加载完成")
             self.tableView.reloadData()
         }
     }
@@ -145,9 +154,8 @@ class HMZHomeViewController: HMZBaseTableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let status = statuses[indexPath.row]
         let contentVc = HMZStatusCommentController()
-        contentVc.statusId = status.id
+        contentVc.status = statuses[indexPath.row]
         navigationController?.pushViewController(contentVc, animated: true)
     }
 }

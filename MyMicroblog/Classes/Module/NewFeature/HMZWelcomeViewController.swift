@@ -22,10 +22,6 @@ class HMZWelcomeViewController: UIViewController {
         iconView.sd_setImageWithURL(HMZUserAccountViewModel.shareViewModel.headImageURL, placeholderImage: nil)
     }
     
-    deinit {
-        print("欢迎页面释放了")
-    }
-    
     //动画建议在viewDidAppear中执行
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)

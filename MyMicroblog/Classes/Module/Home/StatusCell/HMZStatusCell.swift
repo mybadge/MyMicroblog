@@ -77,7 +77,7 @@ class HMZStatusCell: UITableViewCell {
         toolBar.snp_makeConstraints { (make) -> Void in
             self.topConstraints = make.top.equalTo(statusRetweetedView.snp_bottom).constraint
             make.left.right.equalTo(contentView)
-            make.height.equalTo(40)
+            
         }
         
         //需要给contentView添加约束

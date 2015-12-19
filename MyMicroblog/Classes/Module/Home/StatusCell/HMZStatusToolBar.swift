@@ -12,6 +12,11 @@ import SVProgressHUD
 
 class HMZStatusToolBar: UIView {
     
+    /// 是否是来自于评论
+    var isFromComment: Bool = false
+    var toolBarHeightConstraint: Constraint?
+    var repostBtnLeftConstraint: Constraint?
+    
     var status: HMZStatus? {
         didSet {
             let repost = "\(status?.reposts_count ?? 0)" == "0" ? "转发" : "\(status?.reposts_count ?? 0)"
@@ -21,6 +26,17 @@ class HMZStatusToolBar: UIView {
             repostBtn.setTitle(repost, forState: .Normal)
             commentBtn.setTitle(comments, forState: .Normal)
             attitudeBtn.setTitle(attitudes, forState: .Normal)
+            
+            if isFromComment {
+                toolBarHeightConstraint?.uninstall()
+                repostBtnLeftConstraint?.uninstall()
+                self.snp_updateConstraints(closure: { (make) -> Void in
+                    toolBarHeightConstraint = make.height.equalTo(20).constraint
+                })
+                repostBtn.snp_makeConstraints(closure: { (make) -> Void in
+                    make.width.equalTo(80)
+                })
+            }
         }
     }
     
@@ -37,8 +53,7 @@ class HMZStatusToolBar: UIView {
     @objc private func commentBtnDidClick() {
         //print(__FUNCTION__)
         let commentVc = HMZStatusCommentController()
-        commentVc.statusId = status?.id ?? 0
-        commentVc.title = "微博正文"
+        commentVc.status = status
         getNavController()?.pushViewController(commentVc, animated: true)
     }
     @objc private func repostBtnDidClick() {
@@ -63,9 +78,14 @@ class HMZStatusToolBar: UIView {
         repostBtn.addTarget(self, action: "repostBtnDidClick", forControlEvents: .TouchUpInside)
         commentBtn.addTarget(self, action: "commentBtnDidClick", forControlEvents: .TouchUpInside)
         
+        self.snp_makeConstraints { (make) -> Void in
+            self.toolBarHeightConstraint = make.height.equalTo(40).constraint
+        }
+        
         //设置约束--- 三等分视图
         repostBtn.snp_makeConstraints { (make) -> Void in
-            make.left.top.bottom.equalTo(self)
+            make.top.bottom.equalTo(self)
+            self.repostBtnLeftConstraint = make.left.equalTo(self).constraint
         }
         commentBtn.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(repostBtn.snp_right)

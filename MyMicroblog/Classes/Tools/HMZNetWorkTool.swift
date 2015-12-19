@@ -29,6 +29,13 @@ class HMZNetWorkTool: AFHTTPSessionManager {
         return instence
     }()
     
+//    override init(baseURL url: NSURL?, sessionConfiguration configuration: NSURLSessionConfiguration?) {
+//        return
+//    }
+//
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
     
     //    func request(method: HTTPRequestMethod, URLString: String, parameters: AnyObject?, finished: (result: AnyObject?, error: NSError?)->()) {
     //        let success = {
@@ -48,11 +55,13 @@ class HMZNetWorkTool: AFHTTPSessionManager {
     //        }
     //    }
     
+    
+    
     ///  基于核心网络框架的核心方法 进行封装  以后所有的网络请求 都走这个方法
     ///  默认是调用GET 方法, 只有第一个参数写上 .POST,才会调用POST方法
     func requestJSONDict(method : HTTPRequestMethod = .GET, urlString: String, parameters: [String: AnyObject]?, finished: (result:[String: AnyObject]?, error: NSError?) ->()) {
         if method == .GET {//默认是GET
-            GET(urlString, parameters: parameters, success: { (_, result) -> Void in
+            GET(urlString, parameters: parameters, progress: nil, success: { (_, result) -> Void in
                 if let dict = result as? [String: AnyObject] {
                     finished(result: dict, error: nil)
                     return
@@ -68,7 +77,7 @@ class HMZNetWorkTool: AFHTTPSessionManager {
                     finished(result: nil, error: error)
             })
         }else{//是POST
-            POST(urlString, parameters: parameters, success: { (_, result) -> Void in
+            POST(urlString, parameters: parameters,progress: nil, success: { (_, result) -> Void in
                 if let dict = result as? [String: AnyObject] {
                     finished(result: dict, error: nil)
                 }else{

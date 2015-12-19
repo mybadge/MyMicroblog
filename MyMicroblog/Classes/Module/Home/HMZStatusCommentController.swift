@@ -11,7 +11,7 @@ import SVProgressHUD
 
 class HMZStatusCommentController: UITableViewController {
     /// 要查看评论微博的Id
-    var statusId: Int?
+    var status: HMZStatus?
     private lazy var comments = [HMZStatusComment]()
     private let commentCellId = "commentCellId"
     
@@ -23,18 +23,22 @@ class HMZStatusCommentController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "微博正文"
+
         SVProgressHUD.showWithStatus("哥正在努力加载中。。。")
         
         tableView.registerClass(HMZCommentCell.self, forCellReuseIdentifier: commentCellId)
-        //let headView = HMZStatusOriginalView()
-        //headView.status =
-        //tableView.tableHeaderView = headView
+        
         tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableViewAutomaticDimension
+        
+        //let headView = HMZStatusCell()
+        //headView.status = status
+        //tableView.tableHeaderView = headView
     }
     
     private func loadData() {
-        HMZStatusCommentViewModel.loadData(statusId ?? 0) { (list) -> () in
+        HMZStatusCommentViewModel.loadData(status?.id ?? 0) { (list) -> () in
             
             SVProgressHUD.dismiss()
             
@@ -70,12 +74,13 @@ class HMZStatusCommentController: UITableViewController {
         
         if indexPath.section == 0{
             let cell = HMZStatusCell()
-            if comments.count > 0 {
-                cell.status = comments[0].status
-                //怎么在这里给toolBar更改frame,把它调小
-                cell.toolBar.frame = CGRect(x: 50, y: 0, width: 300, height: 30)
-                cell.toolBar.userInteractionEnabled = false
-            }
+            cell.status = status
+            //TODO: ????
+            //怎么在这里给toolBar更改frame,把它调小
+            //cell.toolBar.frame = CGRect(x: 50, y: 0, width: 300, height: 30)
+            cell.toolBar.userInteractionEnabled = false
+            cell.toolBar.isFromComment = true
+            cell.toolBar.status = status
             return cell
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier(commentCellId, forIndexPath: indexPath) as! HMZCommentCell

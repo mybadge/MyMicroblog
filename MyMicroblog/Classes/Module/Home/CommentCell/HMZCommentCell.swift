@@ -7,17 +7,28 @@
 //
 
 import UIKit
+import SnapKit
 
 class HMZCommentCell: UITableViewCell {
     
-    private let margin:CGFloat = 10
-    private let imageWidth:CGFloat = 60
+    private let margin: CGFloat = 10
+    private let imageWidth: CGFloat = 60
+    
+    //var bottomConstraints: Constraint?
+    
     var comment: HMZStatusComment?{
         didSet{
-            nameLabel.text = comment?.user?.name
-            desLabel.text = comment?.text
-            timeLabel.text = comment?.created_atStr
             iconView.sd_setImageWithURL(comment?.user?.avatar_largeURL)
+            nameLabel.text = comment?.user?.name
+            timeLabel.text = comment?.created_atStr
+            //desLabel.text = comment?.text
+            desLabel.attributedText = HMZEmoticonManager.shareEmotionManager.emoticonTextToImageText(comment?.text ?? "")
+            
+//            bottomConstraints?.uninstall()
+//            contentView.snp_updateConstraints { (make) -> Void in
+//                make.bottom.equalTo(desLabel.snp_bottom)
+//            }
+            
         }
     }
     
@@ -32,17 +43,18 @@ class HMZCommentCell: UITableViewCell {
         desLabel.textAlignment = .Left
         //desLabel.preferredMaxLayoutWidth = screenW - imageWidth - 3*margin
         
-        contentView.snp_makeConstraints { (make) -> Void in
-            make.height.equalTo(imageWidth + 2*margin)
-        }
         //添加约束
         iconView.snp_makeConstraints { (make) -> Void in
-            make.left.top.equalTo(self).offset(margin)
+            make.left.top.equalTo(contentView).offset(margin)
             make.height.width.equalTo(imageWidth)
         }
         nameLabel.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(iconView.snp_right).offset(margin)
             make.top.equalTo(iconView.snp_top)
+        }
+        attitudeBtn.snp_makeConstraints { (make) -> Void in
+            make.right.equalTo(contentView.snp_right).offset(-margin)
+            make.top.equalTo(contentView.snp_top).offset(margin)
         }
         timeLabel.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(iconView.snp_right).offset(margin)
@@ -53,12 +65,16 @@ class HMZCommentCell: UITableViewCell {
         desLabel.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(iconView.snp_right).offset(margin)
             make.top.equalTo(timeLabel.snp_bottom).offset(margin)
-            make.right.equalTo(self.snp_right).offset(-margin)
+            make.right.equalTo(contentView.snp_right).offset(-margin)
         }
         
-        attitudeBtn.snp_makeConstraints { (make) -> Void in
-            make.right.equalTo(self.snp_right).offset(-margin)
-            make.top.equalTo(self.snp_top).offset(margin)
+        
+        
+        contentView.snp_makeConstraints { (make) -> Void in
+            //make.height.equalTo(imageWidth + 2*margin)
+            //self.bottomConstraints =
+            make.top.left.right.equalTo(self)
+            make.bottom.equalTo(desLabel.snp_bottom).offset(margin)
         }
     }
     
@@ -80,8 +96,8 @@ class HMZCommentCell: UITableViewCell {
     private lazy var timeLabel: UILabel = UILabel(title: "11.11", color: UIColor.grayColor(), fontSize: 12)
     /// 评论内容
     private lazy var desLabel: UILabel = UILabel(title: "火星", color: UIColor.grayColor(), fontSize: 12)
-
+    
     /// 点赞按钮 attitude :态度
     private lazy var attitudeBtn: UIButton = UIButton(title: "赞", backgroundImage: nil, color: UIColor.darkTextColor(), fontSize: 10, isNeedHighighted: false, imageName: "timeline_icon_unlike")
-
+    
 }

@@ -61,8 +61,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     @objc private func switchRootVC(n: NSNotification) {
-        print("root")
-        print(n.object)
+        //print("root")
+        //print(n.object)
         window?.rootViewController = n.object == nil ? HMZMainTabBarController() : HMZWelcomeViewController()
     }
     

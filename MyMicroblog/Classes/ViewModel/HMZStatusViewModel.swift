@@ -47,7 +47,7 @@ class HMZStatusViewModel: NSObject {
     }
     
     
-    ///  转发微博 https://api.weibo.com/2/statuses/repost.json
+    ///  转发一条微博 https://api.weibo.com/2/statuses/repost.json
     class func repostStatus(id:Int, finish:(result: Bool) ->()) {
         let urlString = "2/statuses/repost.json"
         guard let token  = HMZUserAccountViewModel.shareViewModel.token else{
