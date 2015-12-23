@@ -27,6 +27,9 @@ class HMZHomeViewController: HMZBaseTableViewController {
         tip.textAlignment = .Center
         return tip
     }()
+///  刷新控件
+    private lazy var refreshView: HMZRefreshControl = HMZRefreshControl()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,9 +68,9 @@ class HMZHomeViewController: HMZBaseTableViewController {
         tableView.separatorStyle = .None
         
         //刷新控件
-        refreshControl = UIRefreshControl()
+        self.tableView.addSubview(refreshView)
         //添加刷新事件
-        refreshControl?.addTarget(self, action: "loadData", forControlEvents: .ValueChanged)
+        refreshView.addTarget(self, action: "loadData", forControlEvents: .ValueChanged)
         
         //添加文案提示
         navigationController?.navigationBar.addSubview(tipLabel)
@@ -91,7 +94,7 @@ class HMZHomeViewController: HMZBaseTableViewController {
         }
         
         HMZStatusViewModel.loadData(sinceId, maxId: maxId) { (statuses) -> () in
-            self.refreshControl?.endRefreshing()
+            self.refreshView.stopRefreshing()
             guard let list = statuses else{
                 SVProgressHUD.showErrorWithStatus("服务器出错了,请稍后再试")
                 return

@@ -54,6 +54,7 @@
 		DAF5B2AD1C213A360021DC2F /* HMZTempWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5B2AC1C213A360021DC2F /* HMZTempWebViewController.swift */; };
 		DAF5B2B31C2244FD0021DC2F /* HMZUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5B2B21C2244FD0021DC2F /* HMZUserViewModel.swift */; };
 		DAF5B2B81C225AE00021DC2F /* HMZComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF5B2B71C225AE00021DC2F /* HMZComposeViewController.swift */; };
+		DAFBAFB41C2A33EA00A08251 /* HMZRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFBAFB31C2A33EA00A08251 /* HMZRefreshControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,6 +109,7 @@
 		DAF5B2AC1C213A360021DC2F /* HMZTempWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZTempWebViewController.swift; sourceTree = "<group>"; };
 		DAF5B2B21C2244FD0021DC2F /* HMZUserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZUserViewModel.swift; sourceTree = "<group>"; };
 		DAF5B2B71C225AE00021DC2F /* HMZComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZComposeViewController.swift; sourceTree = "<group>"; };
+		DAFBAFB31C2A33EA00A08251 /* HMZRefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZRefreshControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,6 +298,7 @@
 				DA18C6711C20417100C8FCB7 /* HMZStatusToolBar.swift */,
 				DA18C6731C205E1200C8FCB7 /* HMZStatusRetweetedView.swift */,
 				DAF5B2AA1C20FFEC0021DC2F /* HMZStatusPhotoView.swift */,
+				DAFBAFB31C2A33EA00A08251 /* HMZRefreshControl.swift */,
 			);
 			path = StatusCell;
 			sourceTree = "<group>";
@@ -400,7 +403,7 @@
 				TargetAttributes = {
 					DA99324B1C1BC65300FD69F6 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = NL7H29NDQ6;
+						DevelopmentTeam = 8N6JG4G385;
 					};
 				};
 			};
@@ -522,6 +525,7 @@
 				DA6B00E51C1C4AF400D362C9 /* HMZBaseTableViewController.swift in Sources */,
 				DA6B00F01C1C691200D362C9 /* HMZVisitorLoginViewController.swift in Sources */,
 				DA9E079A1C23B5880036F444 /* HMZCommentCell.swift in Sources */,
+				DAFBAFB41C2A33EA00A08251 /* HMZRefreshControl.swift in Sources */,
 				DA7E69231C227EE3001E7B78 /* UIVIew+ViewController.swift in Sources */,
 				DA7E69271C228478001E7B78 /* HMZEmoticon.swift in Sources */,
 				DA6B00E71C1C4B3D00D362C9 /* HMZMessageViewController.swift in Sources */,
@@ -628,7 +632,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MyMicroblog/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.itcast.MyMicroblog;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.Badge.MyMicroblog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -644,7 +648,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MyMicroblog/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.itcast.MyMicroblog;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.Badge.MyMicroblog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

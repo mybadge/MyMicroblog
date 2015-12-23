@@ -73,11 +73,16 @@ class HMZComposeViewController: UIViewController {
     ///  表情键盘
     private lazy var emoticonKeyBoard: HMZEmoticonKeyboardView = HMZEmoticonKeyboardView { [weak self](em) -> () in
         self?.textView.insertTextWithEmoticon(em)
+        
+        //解决插入图片之后占位label不隐藏的问题.
+        self?.textViewDidChange(self!.textView)
     }
     
     /// 选择图片控制器
     private lazy var selectorPictureVc: HMZPictureSeclectorViewController = {
         let vc = HMZPictureSeclectorViewController()
+        vc.collectionView?.backgroundColor = UIColor.darkGrayColor()
+        
         self.addChildViewController(vc)
         self.view.addSubview(vc.view)
         vc.view.snp_makeConstraints(closure: { (make) -> Void in
@@ -200,6 +205,7 @@ extension HMZComposeViewController:UITextViewDelegate {
         selectorPictureVc.view.snp_updateConstraints { (make) -> Void in
             make.height.equalTo(226+88+60)
         }
+       
         view.bringSubviewToFront(toolBar)
     }
     

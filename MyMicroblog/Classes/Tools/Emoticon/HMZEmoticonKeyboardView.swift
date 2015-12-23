@@ -66,7 +66,9 @@ class HMZEmoticonKeyboardView: UIView {
     
     //MARK: 监听方法
     @objc private func itemSelected(sender: UIBarButtonItem) {
-        collectionView.scrollToItemAtIndexPath(NSIndexPath(forItem: 0, inSection: sender.tag), atScrollPosition: .CenteredHorizontally, animated: true)
+        
+        //atScrollPosition:滚动到的位置,不是动画
+        collectionView.scrollToItemAtIndexPath(NSIndexPath(forItem: 0, inSection: sender.tag), atScrollPosition: .Left, animated: true)
     }
     
     //MARK: 懒加载所有的子控件
@@ -148,7 +150,7 @@ class HMZEmoticonCell: UICollectionViewCell {
         //????
         btn.frame = CGRectInset(self.bounds,4,4)
         btn.titleLabel?.font = UIFont.systemFontOfSize(32)
-        //???? why?
+        
         btn.userInteractionEnabled = false
         return btn
     }()

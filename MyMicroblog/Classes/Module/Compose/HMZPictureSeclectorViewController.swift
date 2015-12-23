@@ -11,11 +11,15 @@ import UIKit
 private let reuseIdentifier = "PictureCellId"
 private let cellMargin:CGFloat = 10
 private let rowCount:CGFloat = 4
-private let maxImageCount = 3
+private let maxImageCount = 9
 
 class HMZPictureSeclectorViewController: UICollectionViewController {
     /// 图片列表
-    lazy var imageList = [UIImage]()
+    lazy var imageList: [UIImage] = {
+        var list = [UIImage]()
+        //list.append(UIImage(named: "compose_camerabutton_background")!)
+        return list
+    }()
     
     init() {
         let layout = UICollectionViewFlowLayout()
@@ -40,11 +44,9 @@ class HMZPictureSeclectorViewController: UICollectionViewController {
     
     // MARK: UICollectionViewDataSource
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //        if imageList.count == 0 {
-        //            return 1
-        //        }
         
-        return imageList.count + 1
+        let delta = imageList.count == maxImageCount ? 0 : 1
+        return imageList.count + delta
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -71,16 +73,29 @@ extension HMZPictureSeclectorViewController: UIImagePickerControllerDelegate,UIN
 
 extension HMZPictureSeclectorViewController: HMZPictureSelectorCellDelegate {
     func userWillChosePicture(cell: HMZPictureSelectorCell) {
-        let pickerVc = UIImagePickerController()
-        pickerVc.delegate = self
-        presentViewController(pickerVc, animated: true, completion: nil)
+        openImagePickerController(.PhotoLibrary)
     }
     func userWillDeletePicture(cell: HMZPictureSelectorCell) {
         //这样写有问题，每次点击删除都是最后一个，是不对的
         //imageList.removeLast()
+        //这样才对
         let indexPath = (collectionView?.indexPathForCell(cell))!
         imageList.removeAtIndex(indexPath.item)
         collectionView?.reloadData()
+    }
+    func userWillChoseCamera(cell: HMZPictureSelectorCell) {
+        openImagePickerController(.Camera)
+    }
+    
+    func openImagePickerController(type: UIImagePickerControllerSourceType) {
+        //如果选择的类型用户不让用，就是没有授权，就返回
+        if !UIImagePickerController.isSourceTypeAvailable(type) {
+            return
+        }
+        let pickerVc = UIImagePickerController()
+        pickerVc.sourceType = type
+        pickerVc.delegate = self
+        presentViewController(pickerVc, animated: true, completion: nil)
     }
 }
 
@@ -92,15 +107,19 @@ extension HMZPictureSeclectorViewController: HMZPictureSelectorCellDelegate {
     optional func userWillChosePicture(cell: HMZPictureSelectorCell)
     /// 将要删除图片
     optional func userWillDeletePicture(cell: HMZPictureSelectorCell)
+    /// 将要选择相机
+    optional func userWillChoseCamera(cell: HMZPictureSelectorCell)
 }
 
 class HMZPictureSelectorCell: UICollectionViewCell {
     /// 代理: 声明一个弱引用的代理
     var delegate: HMZPictureSelectorCellDelegate?
+    
     /// 成功选择的图片
     var image: UIImage? {
         didSet{
             deleteBtn.hidden = image == nil
+
             if image == nil {//如果为空显示添加按钮
                 addBtn.setImage(UIImage(named: "compose_pic_add"), forState: .Normal)
                 addBtn.userInteractionEnabled = true
@@ -116,10 +135,14 @@ class HMZPictureSelectorCell: UICollectionViewCell {
         super.init(frame: frame)
         
         addSubview(addBtn)
+        //addSubview(cameraBtn)
         //设置布局
         addBtn.snp_makeConstraints { (make) -> Void in
             make.edges.equalTo(contentView.snp_edges)
         }
+        //cameraBtn.snp_makeConstraints { (make) -> Void in
+        //    make.edges.equalTo(contentView.snp_edges)
+        //}
         
     }
     
@@ -132,6 +155,9 @@ class HMZPictureSelectorCell: UICollectionViewCell {
     }
     @objc private func deleteBtnDidClick() {
         delegate?.userWillDeletePicture?(self)
+    }
+    @objc private func cameraBtnDidClick() {
+        delegate?.userWillChoseCamera?(self)
     }
     
     ///添加图片按钮
@@ -153,5 +179,13 @@ class HMZPictureSelectorCell: UICollectionViewCell {
         btn.addTarget(self, action: "deleteBtnDidClick", forControlEvents: .TouchUpInside)
         return btn
     }()
+    
+    private lazy var cameraBtn: UIButton = {
+        let btn = UIButton(imageName: "compose_camerabutton_background", backgroundImage: nil)
+        btn.addTarget(self, action: "cameraBtnDidClick", forControlEvents: .TouchUpInside)
+        btn.imageView?.contentMode = .ScaleAspectFill
+        return btn
+    }()
+    
     
 }
