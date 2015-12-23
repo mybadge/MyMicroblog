@@ -33,6 +33,7 @@ class HMZStatusPhotoView: UICollectionView {
         
         super.init(frame: frame, collectionViewLayout: layout)
         dataSource = self
+        delegate = self
         backgroundColor = UIColor(white: 0.9, alpha: 1)
         //注册Cell类型
         registerClass(HMZStatusPhotoCell.self, forCellWithReuseIdentifier: photoCellId)
@@ -89,7 +90,7 @@ class HMZStatusPhotoView: UICollectionView {
 }
 
 //MARK: 数据源
-extension HMZStatusPhotoView:UICollectionViewDataSource {
+extension HMZStatusPhotoView:UICollectionViewDataSource,UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imageURLs?.count ?? 0
     }
@@ -98,6 +99,19 @@ extension HMZStatusPhotoView:UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(photoCellId, forIndexPath: indexPath) as! HMZStatusPhotoCell
         cell.imageURL = imageURLs![indexPath.item]
         return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        // 测试动画转场协议函数
+        //        photoBrowserPresentFromRect(indexPath)
+        //        photoBrowserPresentToRect(indexPath)
+        
+        // 明确问题：传递什么数据？当前 URL 的数组／当前用户选中的索引
+        // 如何传递：通知
+        // 通知：名字(通知中心监听)/object：发送通知的同时传递对象(单值)/ userInfo 传递多值的时候，使用的数据字典 -> Key
+
+        let userInfo = [HMZStatusSelectedPhotoIndexPathKey: indexPath, HMZStatusSelectedPhotoURLsKey: imageURLs!]
+        NSNotificationCenter.defaultCenter().postNotificationName(HMZStatusSelectedPhotoNotification, object: self, userInfo: userInfo)
     }
 }
 

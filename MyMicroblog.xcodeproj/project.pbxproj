@@ -41,6 +41,9 @@
 		DA7E692D1C22BA6A001E7B78 /* HMZEmoticonPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7E692C1C22BA6A001E7B78 /* HMZEmoticonPackage.swift */; };
 		DA7E692F1C22CE62001E7B78 /* HMZEmoticonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7E692E1C22CE62001E7B78 /* HMZEmoticonManager.swift */; };
 		DA8783AA1C1FB11400A411C1 /* HMZStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8783A91C1FB11400A411C1 /* HMZStatusCell.swift */; };
+		DA92A5C31C2A6E5B00EDB552 /* HMZProgressImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92A5C21C2A6E5B00EDB552 /* HMZProgressImageView.swift */; };
+		DA92A5C51C2A742E00EDB552 /* HMZPhotoBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92A5C41C2A742E00EDB552 /* HMZPhotoBrowserViewController.swift */; };
+		DA92A5C71C2A80FF00EDB552 /* HMZPhotoBrowserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92A5C61C2A80FF00EDB552 /* HMZPhotoBrowserCell.swift */; };
 		DA9932501C1BC65300FD69F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99324F1C1BC65300FD69F6 /* AppDelegate.swift */; };
 		DA9932621C1BC77800FD69F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA9932611C1BC77800FD69F6 /* Assets.xcassets */; };
 		DA9B6C671C1E6653005A910A /* HMZNewFeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B6C661C1E6653005A910A /* HMZNewFeatureViewController.swift */; };
@@ -94,6 +97,9 @@
 		DA7E692C1C22BA6A001E7B78 /* HMZEmoticonPackage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZEmoticonPackage.swift; sourceTree = "<group>"; };
 		DA7E692E1C22CE62001E7B78 /* HMZEmoticonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZEmoticonManager.swift; sourceTree = "<group>"; };
 		DA8783A91C1FB11400A411C1 /* HMZStatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZStatusCell.swift; sourceTree = "<group>"; };
+		DA92A5C21C2A6E5B00EDB552 /* HMZProgressImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZProgressImageView.swift; sourceTree = "<group>"; };
+		DA92A5C41C2A742E00EDB552 /* HMZPhotoBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZPhotoBrowserViewController.swift; sourceTree = "<group>"; };
+		DA92A5C61C2A80FF00EDB552 /* HMZPhotoBrowserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZPhotoBrowserCell.swift; sourceTree = "<group>"; };
 		DA99324C1C1BC65300FD69F6 /* MyMicroblog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMicroblog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA99324F1C1BC65300FD69F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA99325B1C1BC65300FD69F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -240,6 +246,7 @@
 		DA6B00D71C1C060E00D362C9 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				DA92A5C11C2A6CB800EDB552 /* PhotoBrowser */,
 				DA7E69191C227E72001E7B78 /* Emoticon */,
 				DA0152EC1C1ECC3F00F4E5E3 /* Extension */,
 				DA6B00EA1C1C5ABD00D362C9 /* HMZCommon.swift */,
@@ -301,6 +308,16 @@
 				DAFBAFB31C2A33EA00A08251 /* HMZRefreshControl.swift */,
 			);
 			path = StatusCell;
+			sourceTree = "<group>";
+		};
+		DA92A5C11C2A6CB800EDB552 /* PhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				DA92A5C21C2A6E5B00EDB552 /* HMZProgressImageView.swift */,
+				DA92A5C41C2A742E00EDB552 /* HMZPhotoBrowserViewController.swift */,
+				DA92A5C61C2A80FF00EDB552 /* HMZPhotoBrowserCell.swift */,
+			);
+			path = PhotoBrowser;
 			sourceTree = "<group>";
 		};
 		DA9932431C1BC65300FD69F6 = {
@@ -507,6 +524,7 @@
 				DAF5B2B81C225AE00021DC2F /* HMZComposeViewController.swift in Sources */,
 				DAF5B2B31C2244FD0021DC2F /* HMZUserViewModel.swift in Sources */,
 				DA74044E1C24E8A000919717 /* HMZPictureSeclectorViewController.swift in Sources */,
+				DA92A5C71C2A80FF00EDB552 /* HMZPhotoBrowserCell.swift in Sources */,
 				DA0282211C1D0C93000416A4 /* HMZOAuthViewController.swift in Sources */,
 				DA18C66E1C1FC31F00C8FCB7 /* HMZStatusOriginalView.swift in Sources */,
 				DAF5B2AD1C213A360021DC2F /* HMZTempWebViewController.swift in Sources */,
@@ -525,8 +543,10 @@
 				DA6B00E51C1C4AF400D362C9 /* HMZBaseTableViewController.swift in Sources */,
 				DA6B00F01C1C691200D362C9 /* HMZVisitorLoginViewController.swift in Sources */,
 				DA9E079A1C23B5880036F444 /* HMZCommentCell.swift in Sources */,
+				DA92A5C51C2A742E00EDB552 /* HMZPhotoBrowserViewController.swift in Sources */,
 				DAFBAFB41C2A33EA00A08251 /* HMZRefreshControl.swift in Sources */,
 				DA7E69231C227EE3001E7B78 /* UIVIew+ViewController.swift in Sources */,
+				DA92A5C31C2A6E5B00EDB552 /* HMZProgressImageView.swift in Sources */,
 				DA7E69271C228478001E7B78 /* HMZEmoticon.swift in Sources */,
 				DA6B00E71C1C4B3D00D362C9 /* HMZMessageViewController.swift in Sources */,
 				DA7E692B1C228B77001E7B78 /* HMZEmoticonAttachment.swift in Sources */,

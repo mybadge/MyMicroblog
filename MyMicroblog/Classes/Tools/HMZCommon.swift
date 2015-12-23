@@ -28,6 +28,13 @@ let HMZAppErrorTip = "哥正忙着呢.....一边玩去"
 /// 选择控制器通知的Key
 let HMZSwitchRootVCNotificationKey = "HMZSwitchRootVCNotificationKey"
 
+/// 选择图片通知
+let HMZStatusSelectedPhotoNotification = "HMZStatusSelectedPhotoNotification"
+/// 选中第几张图片的key
+let HMZStatusSelectedPhotoIndexPathKey = "HMZStatusSelectedPhotoIndexPathKey"
+/// 选中图片URL 的key
+let HMZStatusSelectedPhotoURLsKey = "HMZStatusSelectedPhotoURLsKey"
+
 
 ///  获取随机颜色
 func HMZRandomColor() ->UIColor{

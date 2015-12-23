@@ -11,6 +11,7 @@ import SVProgressHUD
 
 class HMZHomeViewController: HMZBaseTableViewController {
     
+    //MARK: - 属性
     private let homeCellId = "homeCellId"
     ///  添加微博模型数据
     lazy var statuses = [HMZStatus]()
@@ -27,7 +28,7 @@ class HMZHomeViewController: HMZBaseTableViewController {
         tip.textAlignment = .Center
         return tip
     }()
-///  刷新控件
+    ///  刷新控件
     private lazy var refreshView: HMZRefreshControl = HMZRefreshControl()
     
     
@@ -43,6 +44,7 @@ class HMZHomeViewController: HMZBaseTableViewController {
         SVProgressHUD.showWithStatus("哥正在努力加载中", maskType: .Gradient)
         prepareTableView()
         setupNav()
+        registerPhotoNotification()
     }
     
     private func setupNav() {
@@ -77,6 +79,49 @@ class HMZHomeViewController: HMZBaseTableViewController {
         navigationController?.navigationBar.sendSubviewToBack(tipLabel)
         
     }
+    
+    
+    
+    private func showTipAnimation(count:Int) {
+        let tip = count == 0 ? "当前数据已经是最新的了" : "共加载了\(count)条新微博"
+        tipLabel.text = tip
+        //记录原来的位置
+        let rect = tipLabel.frame
+        UIView.animateWithDuration(1, animations: { () -> Void in
+            //修改frame
+            self.tipLabel.frame = CGRect(x: 0, y: 44, width: screenW, height: 44)
+            }) { (_) -> Void in
+                UIView.animateWithDuration(1, delay: 1.2, options: [], animations: { () -> Void in
+                    self.tipLabel.frame = rect
+                    }, completion: { (_) -> Void in
+                        print("ok")
+                })
+        }
+    }
+}
+
+// MARK: - 监听方法
+extension HMZHomeViewController {
+    private func registerPhotoNotification() {
+        NSNotificationCenter.defaultCenter().addObserverForName(HMZStatusSelectedPhotoNotification, object: nil, queue: nil) { [weak self](n) -> Void in
+            guard let indexPath = n.userInfo?[HMZStatusSelectedPhotoIndexPathKey] as? NSIndexPath else {
+                return
+            }
+            guard let urls = n.userInfo?[HMZStatusSelectedPhotoURLsKey] as? [NSURL] else {
+                return
+            }
+            
+            //判断是否遵循转场动画
+            //TODO
+            
+            let vc = HMZPhotoBrowserViewController(urls: urls, indexPath: indexPath)
+            vc.modalPresentationStyle = UIModalPresentationStyle.Custom
+            self?.presentViewController(vc, animated: true, completion: nil)
+        }
+        
+        
+    }
+    
     
     ///用ViewModel 去网络上加载数据
     @objc private func loadData() {
@@ -118,26 +163,10 @@ class HMZHomeViewController: HMZBaseTableViewController {
             self.tableView.reloadData()
         }
     }
-    
-    private func showTipAnimation(count:Int) {
-        let tip = count == 0 ? "当前数据已经是最新的了" : "共加载了\(count)条新微博"
-        tipLabel.text = tip
-        //记录原来的位置
-        let rect = tipLabel.frame
-        UIView.animateWithDuration(1, animations: { () -> Void in
-            //修改frame
-            self.tipLabel.frame = CGRect(x: 0, y: 44, width: screenW, height: 44)
-            }) { (_) -> Void in
-                UIView.animateWithDuration(1, delay: 1.2, options: [], animations: { () -> Void in
-                    self.tipLabel.frame = rect
-                    }, completion: { (_) -> Void in
-                        print("ok")
-                })
-        }
-    }
-    
-    
-    // MARK: - Table view 数据源
+}
+
+// MARK: - TableView 数据源和代理方法
+extension HMZHomeViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return statuses.count
     }

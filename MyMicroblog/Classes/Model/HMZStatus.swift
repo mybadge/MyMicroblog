@@ -65,8 +65,8 @@ class HMZStatus: NSObject {
             imageURLs = [NSURL]()
             for item in urls {
                 let urlString = item["thumbnail_pic"]
-                let largeString = urlString?.stringByReplacingOccurrencesOfString("thumbnail", withString: "bmiddle")
-                let url = NSURL(string: largeString!)!
+//                let largeString = urlString?.stringByReplacingOccurrencesOfString("thumbnail", withString: "bmiddle")
+                let url = NSURL(string: urlString!)!
                 imageURLs?.append(url)
             }
         }

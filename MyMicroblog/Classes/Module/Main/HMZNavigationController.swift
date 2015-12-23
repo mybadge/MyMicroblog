@@ -12,16 +12,12 @@ class HMZNavigationController: UINavigationController,UIGestureRecognizerDelegat
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //添加手势的代理，一旦自定义了返回按钮，系统的手势倒流就会取消，需要手动添加。
         interactivePopGestureRecognizer?.delegate = self
-//        let swipe = UISwipeGestureRecognizer(target: self, action: "back")
-//        swipe.direction = .Left
-//        view.addGestureRecognizer(swipe)
-//        navigationBar.setBackgroundImage(<#T##backgroundImage: UIImage?##UIImage?#>, forBarMetrics: <#T##UIBarMetrics#>)
     }
     
     override func pushViewController(viewController: UIViewController, animated: Bool) {
-        //print("viewController.childViewControllers.count=\(childViewControllers.count)")
-        if childViewControllers.count != 0 {
+            if childViewControllers.count != 0 {
             viewController.hidesBottomBarWhenPushed = true
             viewController.navigationItem.backBarButtonItem = UIBarButtonItem(title: "返回", style: .Plain, target: self, action: "back")
         }
