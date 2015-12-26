@@ -71,6 +71,7 @@ class HMZComposeViewController: UIViewController {
     /// 工具条
     private lazy var toolBar: UIToolbar = UIToolbar()
     ///  表情键盘
+    /// 这里的weak修饰的self ,当self 对象内存回收时，地址会自动置为nil
     private lazy var emoticonKeyBoard: HMZEmoticonKeyboardView = HMZEmoticonKeyboardView { [weak self](em) -> () in
         self?.textView.insertTextWithEmoticon(em)
         

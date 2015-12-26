@@ -11,6 +11,9 @@ import SVProgressHUD
 
 class HMZHomeViewController: HMZBaseTableViewController {
     
+
+    
+    
     //MARK: - 属性
     private let homeCellId = "homeCellId"
     ///  添加微博模型数据
@@ -39,7 +42,7 @@ class HMZHomeViewController: HMZBaseTableViewController {
             visitorLoginView?.setupInfo("关注一些人，回这里看看有什么惊喜", imageName: nil)
             return
         }
-        
+
         loadData()
         SVProgressHUD.showWithStatus("哥正在努力加载中", maskType: .Gradient)
         prepareTableView()

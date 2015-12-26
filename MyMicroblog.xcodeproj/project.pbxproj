@@ -19,6 +19,8 @@
 		DA18C6701C1FEDB800C8FCB7 /* HMZStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA18C66F1C1FEDB800C8FCB7 /* HMZStatusViewModel.swift */; };
 		DA18C6721C20417100C8FCB7 /* HMZStatusToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA18C6711C20417100C8FCB7 /* HMZStatusToolBar.swift */; };
 		DA18C6741C205E1200C8FCB7 /* HMZStatusRetweetedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA18C6731C205E1200C8FCB7 /* HMZStatusRetweetedView.swift */; };
+		DA1ECA571C2D21E50044F814 /* String+Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1ECA561C2D21E50044F814 /* String+Emoji.swift */; };
+		DA1ECA5B1C2D35E00044F814 /* HMZDropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1ECA5A1C2D35E00044F814 /* HMZDropdownMenu.m */; };
 		DA6B00DA1C1C068000D362C9 /* HMZMainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6B00D91C1C068000D362C9 /* HMZMainTabBarController.swift */; };
 		DA6B00DE1C1C08C100D362C9 /* HMZMainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6B00DD1C1C08C100D362C9 /* HMZMainTabBar.swift */; };
 		DA6B00E01C1C4AA300D362C9 /* HMZDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6B00DF1C1C4AA300D362C9 /* HMZDiscoverViewController.swift */; };
@@ -44,6 +46,7 @@
 		DA92A5C31C2A6E5B00EDB552 /* HMZProgressImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92A5C21C2A6E5B00EDB552 /* HMZProgressImageView.swift */; };
 		DA92A5C51C2A742E00EDB552 /* HMZPhotoBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92A5C41C2A742E00EDB552 /* HMZPhotoBrowserViewController.swift */; };
 		DA92A5C71C2A80FF00EDB552 /* HMZPhotoBrowserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92A5C61C2A80FF00EDB552 /* HMZPhotoBrowserCell.swift */; };
+		DA92A5C91C2AAD9A00EDB552 /* HMZPhotoBrowserAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92A5C81C2AAD9A00EDB552 /* HMZPhotoBrowserAnimator.swift */; };
 		DA9932501C1BC65300FD69F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99324F1C1BC65300FD69F6 /* AppDelegate.swift */; };
 		DA9932621C1BC77800FD69F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA9932611C1BC77800FD69F6 /* Assets.xcassets */; };
 		DA9B6C671C1E6653005A910A /* HMZNewFeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9B6C661C1E6653005A910A /* HMZNewFeatureViewController.swift */; };
@@ -75,6 +78,10 @@
 		DA18C66F1C1FEDB800C8FCB7 /* HMZStatusViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZStatusViewModel.swift; sourceTree = "<group>"; };
 		DA18C6711C20417100C8FCB7 /* HMZStatusToolBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZStatusToolBar.swift; sourceTree = "<group>"; };
 		DA18C6731C205E1200C8FCB7 /* HMZStatusRetweetedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZStatusRetweetedView.swift; sourceTree = "<group>"; };
+		DA1ECA561C2D21E50044F814 /* String+Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Emoji.swift"; sourceTree = "<group>"; };
+		DA1ECA581C2D35E00044F814 /* MyMicroblog-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyMicroblog-Bridging-Header.h"; sourceTree = "<group>"; };
+		DA1ECA591C2D35E00044F814 /* HMZDropdownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMZDropdownMenu.h; sourceTree = "<group>"; };
+		DA1ECA5A1C2D35E00044F814 /* HMZDropdownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMZDropdownMenu.m; sourceTree = "<group>"; };
 		DA6B00D91C1C068000D362C9 /* HMZMainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZMainTabBarController.swift; sourceTree = "<group>"; };
 		DA6B00DD1C1C08C100D362C9 /* HMZMainTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZMainTabBar.swift; sourceTree = "<group>"; };
 		DA6B00DF1C1C4AA300D362C9 /* HMZDiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZDiscoverViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +107,7 @@
 		DA92A5C21C2A6E5B00EDB552 /* HMZProgressImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZProgressImageView.swift; sourceTree = "<group>"; };
 		DA92A5C41C2A742E00EDB552 /* HMZPhotoBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZPhotoBrowserViewController.swift; sourceTree = "<group>"; };
 		DA92A5C61C2A80FF00EDB552 /* HMZPhotoBrowserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZPhotoBrowserCell.swift; sourceTree = "<group>"; };
+		DA92A5C81C2AAD9A00EDB552 /* HMZPhotoBrowserAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZPhotoBrowserAnimator.swift; sourceTree = "<group>"; };
 		DA99324C1C1BC65300FD69F6 /* MyMicroblog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMicroblog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA99324F1C1BC65300FD69F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA99325B1C1BC65300FD69F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -146,6 +154,7 @@
 				DA7E691C1C227EE3001E7B78 /* UIButton+Extension.swift */,
 				DA7E691D1C227EE3001E7B78 /* UILabel+Extension.swift */,
 				DA7E691E1C227EE3001E7B78 /* UIVIew+ViewController.swift */,
+				DA1ECA561C2D21E50044F814 /* String+Emoji.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -251,6 +260,9 @@
 				DA0152EC1C1ECC3F00F4E5E3 /* Extension */,
 				DA6B00EA1C1C5ABD00D362C9 /* HMZCommon.swift */,
 				DA02821D1C1D0135000416A4 /* HMZNetWorkTool.swift */,
+				DA1ECA591C2D35E00044F814 /* HMZDropdownMenu.h */,
+				DA1ECA5A1C2D35E00044F814 /* HMZDropdownMenu.m */,
+				DA1ECA581C2D35E00044F814 /* MyMicroblog-Bridging-Header.h */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -316,6 +328,7 @@
 				DA92A5C21C2A6E5B00EDB552 /* HMZProgressImageView.swift */,
 				DA92A5C41C2A742E00EDB552 /* HMZPhotoBrowserViewController.swift */,
 				DA92A5C61C2A80FF00EDB552 /* HMZPhotoBrowserCell.swift */,
+				DA92A5C81C2AAD9A00EDB552 /* HMZPhotoBrowserAnimator.swift */,
 			);
 			path = PhotoBrowser;
 			sourceTree = "<group>";
@@ -414,7 +427,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = HMZ;
-				LastSwiftUpdateCheck = 0710;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "赵志丹";
 				TargetAttributes = {
@@ -536,7 +549,9 @@
 				DA6B00DE1C1C08C100D362C9 /* HMZMainTabBar.swift in Sources */,
 				DA02821E1C1D0135000416A4 /* HMZNetWorkTool.swift in Sources */,
 				DA6B00DA1C1C068000D362C9 /* HMZMainTabBarController.swift in Sources */,
+				DA1ECA5B1C2D35E00044F814 /* HMZDropdownMenu.m in Sources */,
 				DA0152F61C1EE0D200F4E5E3 /* HMZUser.swift in Sources */,
+				DA92A5C91C2AAD9A00EDB552 /* HMZPhotoBrowserAnimator.swift in Sources */,
 				DA7E69201C227EE3001E7B78 /* String+RegEx.swift in Sources */,
 				DA7E69221C227EE3001E7B78 /* UILabel+Extension.swift in Sources */,
 				DA6B00E21C1C4AB500D362C9 /* HMZHomeViewController.swift in Sources */,
@@ -545,6 +560,7 @@
 				DA9E079A1C23B5880036F444 /* HMZCommentCell.swift in Sources */,
 				DA92A5C51C2A742E00EDB552 /* HMZPhotoBrowserViewController.swift in Sources */,
 				DAFBAFB41C2A33EA00A08251 /* HMZRefreshControl.swift in Sources */,
+				DA1ECA571C2D21E50044F814 /* String+Emoji.swift in Sources */,
 				DA7E69231C227EE3001E7B78 /* UIVIew+ViewController.swift in Sources */,
 				DA92A5C31C2A6E5B00EDB552 /* HMZProgressImageView.swift in Sources */,
 				DA7E69271C228478001E7B78 /* HMZEmoticon.swift in Sources */,
@@ -648,6 +664,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MyMicroblog/Info.plist;
@@ -655,6 +672,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cn.Badge.MyMicroblog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyMicroblog/Classes/Tools/MyMicroblog-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -664,6 +683,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MyMicroblog/Info.plist;
@@ -671,6 +691,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cn.Badge.MyMicroblog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyMicroblog/Classes/Tools/MyMicroblog-Bridging-Header.h";
 			};
 			name = Release;
 		};
