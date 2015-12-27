@@ -51,7 +51,7 @@ class HMZPhotoBrowserAnimator: NSObject,UIViewControllerTransitioningDelegate {
     
     // 返回提供modal 展现的"动画对象"
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source:UIViewController) ->UIViewControllerAnimatedTransitioning? {
-        isPresented = false
+        isPresented = true
         return self
     }
     
@@ -60,19 +60,31 @@ class HMZPhotoBrowserAnimator: NSObject,UIViewControllerTransitioningDelegate {
         isPresented = false
         return self
     }
-    
-    
-    
 }
 
 
 extension HMZPhotoBrowserAnimator: UIViewControllerAnimatedTransitioning {
-    //动画时长
+    // 动画时长
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         return 0.5
     }
     
+    /// 实现具体的动画效果 - 一旦实现了此方法，所有的动画代码都交由程序员负责
+    ///
+    /// - parameter transitionContext: 转场动画的上下文 － 提供动画所需要的素材
+    /**
+    1. 容器视图 － 会将 Modal 要展现的视图包装在容器视图中
+    存放的视图要显示－必须自己指定大小！不会通过自动布局填满屏幕
+    2. viewControllerForKey: fromVC / toVC
+    3. viewForKey: fromView / toView
+    4. completeTransition: 无论转场是否被取消，都必须调用
+    否则，系统不做其他事件处理！
+    */
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+        
+        // 自动布局系统不会对根视图做任何约束
+        //        let v = UIView(frame: UIScreen.mainScreen().bounds)
+        //        v.backgroundColor = UIColor.redColor()
         let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)
         print(fromVC)
         
@@ -173,7 +185,6 @@ extension HMZPhotoBrowserAnimator: UIViewControllerAnimatedTransitioning {
                 transitionContext.completeTransition(true)
         }
     }
-    
 }
 
 

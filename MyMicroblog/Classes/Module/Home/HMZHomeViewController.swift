@@ -34,6 +34,8 @@ class HMZHomeViewController: HMZBaseTableViewController {
     ///  刷新控件
     private lazy var refreshView: HMZRefreshControl = HMZRefreshControl()
     
+    private lazy var photoBrowserAnimator = HMZPhotoBrowserAnimator()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,6 +103,12 @@ class HMZHomeViewController: HMZBaseTableViewController {
                 })
         }
     }
+    
+    
+    deinit{
+        //移除通知
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
 }
 
 // MARK: - 监听方法
@@ -116,9 +124,28 @@ extension HMZHomeViewController {
             
             //判断是否遵循转场动画
             //TODO
+            guard let cell = n.object as? HMZPhotoBrowserPresentDelegate else
+            {
+                return
+            }
+            
+            print("选择 照片cell  \(cell)")
             
             let vc = HMZPhotoBrowserViewController(urls: urls, indexPath: indexPath)
-            vc.modalPresentationStyle = UIModalPresentationStyle.Custom
+            //1.设置modal的类型是自定义类型 Transition(转场)
+            vc.modalPresentationStyle = .Custom
+            // 2.设置动画代理
+            vc.transitioningDelegate = self?.photoBrowserAnimator
+            self?.photoBrowserAnimator.setDelegateParams(cell, indexPath: indexPath, dismissDelegate: vc)
+            // 参数设置所有权交给调用方，一旦调用方失误漏传参数，可能造成不必要的麻烦
+            // 会一系列的 ...
+            //                self?.photoBrowserAnimator.presentDelegate = cell
+            //                self?.photoBrowserAnimator.indexPath = indexPath
+            //                self?.photoBrowserAnimator.dismissDelegate = vc
+
+            
+            
+            
             self?.presentViewController(vc, animated: true, completion: nil)
         }
         

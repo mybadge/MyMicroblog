@@ -161,3 +161,22 @@ extension HMZPhotoBrowserViewController {
         SVProgressHUD.showInfoWithStatus(message)
     }
 }
+
+
+extension HMZPhotoBrowserViewController: HMZPhotoBrowserDismissDelegate {
+    func imageViewForDismiss() -> UIImageView {
+        let iv = UIImageView()
+        iv.contentMode = .ScaleAspectFill
+        iv.clipsToBounds = true
+        let cell = collectionView.visibleCells()[0] as! HMZPhotoBrowserCell
+        iv.image = cell.imageView.image
+        iv.frame = cell.scrollView.convertRect(cell.imageView.frame, toCoordinateSpace: UIApplication.sharedApplication().keyWindow!)
+        
+        return iv
+    }
+
+    func indexPathForDismiss() -> NSIndexPath {
+        return collectionView.indexPathsForVisibleItems()[0]
+    }
+
+}
