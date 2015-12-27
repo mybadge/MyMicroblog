@@ -85,17 +85,11 @@ extension HMZPhotoBrowserAnimator: UIViewControllerAnimatedTransitioning {
         // 自动布局系统不会对根视图做任何约束
         //        let v = UIView(frame: UIScreen.mainScreen().bounds)
         //        v.backgroundColor = UIColor.redColor()
-        let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)
-        print(fromVC)
+        //let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)
+        //let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
+        //let fromView = transitionContext.viewForKey(UITransitionContextFromViewKey)
+        //let toView = transitionContext.viewForKey(UITransitionContextToViewKey)
         
-        let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
-        print(toVC)
-        
-        let fromView = transitionContext.viewForKey(UITransitionContextFromViewKey)
-        print(fromView)
-        
-        let toView = transitionContext.viewForKey(UITransitionContextToViewKey)
-        print(toView)
         
         isPresented ? presentAnimation(transitionContext) : dismissAnimation(transitionContext)
     }
