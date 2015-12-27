@@ -73,6 +73,7 @@ extension HMZPictureSeclectorViewController: UIImagePickerControllerDelegate,UIN
 
 extension HMZPictureSeclectorViewController: HMZPictureSelectorCellDelegate {
     func userWillChosePicture(cell: HMZPictureSelectorCell) {
+                
         openImagePickerController(.PhotoLibrary)
     }
     func userWillDeletePicture(cell: HMZPictureSelectorCell) {
@@ -83,9 +84,7 @@ extension HMZPictureSeclectorViewController: HMZPictureSelectorCellDelegate {
         imageList.removeAtIndex(indexPath.item)
         collectionView?.reloadData()
     }
-    func userWillChoseCamera(cell: HMZPictureSelectorCell) {
-        openImagePickerController(.Camera)
-    }
+    
     
     func openImagePickerController(type: UIImagePickerControllerSourceType) {
         //如果选择的类型用户不让用，就是没有授权，就返回
@@ -107,8 +106,8 @@ extension HMZPictureSeclectorViewController: HMZPictureSelectorCellDelegate {
     optional func userWillChosePicture(cell: HMZPictureSelectorCell)
     /// 将要删除图片
     optional func userWillDeletePicture(cell: HMZPictureSelectorCell)
-    /// 将要选择相机
-    optional func userWillChoseCamera(cell: HMZPictureSelectorCell)
+//    /// 将要选择相机
+//    optional func userWillChoseCamera(cell: HMZPictureSelectorCell)
 }
 
 class HMZPictureSelectorCell: UICollectionViewCell {
@@ -151,14 +150,16 @@ class HMZPictureSelectorCell: UICollectionViewCell {
     }
     
     @objc private func addBtnDidClick() {
+       
+    
         delegate?.userWillChosePicture?(self)
     }
     @objc private func deleteBtnDidClick() {
         delegate?.userWillDeletePicture?(self)
     }
-    @objc private func cameraBtnDidClick() {
-        delegate?.userWillChoseCamera?(self)
-    }
+//    @objc private func cameraBtnDidClick() {
+//        delegate?.userWillChoseCamera?(self)
+//    }
     
     ///添加图片按钮
     private lazy var addBtn: UIButton = {
@@ -180,12 +181,12 @@ class HMZPictureSelectorCell: UICollectionViewCell {
         return btn
     }()
     
-    private lazy var cameraBtn: UIButton = {
-        let btn = UIButton(imageName: "compose_camerabutton_background", backgroundImage: nil)
-        btn.addTarget(self, action: "cameraBtnDidClick", forControlEvents: .TouchUpInside)
-        btn.imageView?.contentMode = .ScaleAspectFill
-        return btn
-    }()
+//    private lazy var cameraBtn: UIButton = {
+//        let btn = UIButton(imageName: "compose_camerabutton_background", backgroundImage: nil)
+//        btn.addTarget(self, action: "cameraBtnDidClick", forControlEvents: .TouchUpInside)
+//        btn.imageView?.contentMode = .ScaleAspectFill
+//        return btn
+//    }()
     
     
 }

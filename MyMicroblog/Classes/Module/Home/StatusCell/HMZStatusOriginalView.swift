@@ -26,7 +26,7 @@ class HMZStatusOriginalView: UIView {
             
             //TODO: 后期完善
             timeLabel.text = status?.created_atStr
-            sourceLabel.text = status?.source?.linkText().text
+            sourceLabel.setTitle(status?.source?.linkText().text, forState: .Normal)
             //contentLabel.text = status?.text
             let attrStr = HMZEmoticonManager.shareEmotionManager.emoticonTextToImageText((status?.text) ?? "")
             contentLabel.attributedText = attrStr
@@ -78,7 +78,7 @@ class HMZStatusOriginalView: UIView {
         addSubview(verified_type_image)
         addSubview(timeLabel)
         addSubview(sourceLabel)
-        
+        sourceLabel.addTarget(self, action: "sourceLabelClick", forControlEvents: .TouchUpInside)
         addSubview(contentLabel)
         //指定代理
         contentLabel.labelDelegate = self
@@ -116,12 +116,13 @@ class HMZStatusOriginalView: UIView {
         
         timeLabel.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(iconView.snp_right).offset(StatusCellMargin)
-            make.bottom.equalTo(iconView.snp_bottom)
+            make.top.equalTo(nameLabel.snp_bottom)
         }
         
         sourceLabel.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(timeLabel.snp_right).offset(StatusCellMargin)
             make.bottom.equalTo(timeLabel.snp_bottom)
+            make.height.equalTo(timeLabel.snp_height)
         }
         
         contentLabel.snp_makeConstraints { (make) -> Void in
@@ -158,7 +159,7 @@ class HMZStatusOriginalView: UIView {
     /// 时间
     private lazy var timeLabel: UILabel = UILabel(title: "11.11", color: HMZThemeColor, fontSize: 12)
     /// 来源
-    private lazy var sourceLabel: UILabel = UILabel(title: "火星", color: UIColor.grayColor(), fontSize: 12)
+    private lazy var sourceLabel: UIButton = UIButton(title: "火星",backgroundImage: nil, color: UIColor.grayColor(), fontSize: 12)
     /// 正文内容
     private lazy var contentLabel: FFLabel = FFLabel(title: "hehe", color: UIColor.blackColor(), fontSize: 14, margin: StatusCellMargin)
     /// 相册
@@ -168,9 +169,18 @@ class HMZStatusOriginalView: UIView {
 extension HMZStatusOriginalView:FFLabelDelegate {
     func labelDidSelectedLinkText(label: FFLabel, text: String) {
         if text.hasPrefix("http") {
-            let tempVc = HMZTempWebViewController()
+            let tempVc = HMZWebViewController()
             tempVc.urlString = text
             self.getNavController()?.pushViewController(tempVc, animated: true)
         }
+    }
+    
+    @objc private func sourceLabelClick() {
+        let tempVc = HMZWebViewController()
+        if let url = status?.source?.linkText().url {
+            tempVc.urlString  = url
+            self.getNavController()?.pushViewController(tempVc, animated: true)
+        }
+       
     }
 }

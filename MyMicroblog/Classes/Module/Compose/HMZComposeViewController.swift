@@ -185,7 +185,7 @@ extension HMZComposeViewController:UITextViewDelegate {
         let duration = n.userInfo!["UIKeyboardAnimationDurationUserInfoKey"] as! Double
         let rect = (n.userInfo!["UIKeyboardFrameEndUserInfoKey"] as! NSValue).CGRectValue()
         //不知道他是干啥的
-        //let curve = n.userInfo!["UIKeyboardAnimationCurveUserInfoKey"] as! Int
+        let curve = n.userInfo!["UIKeyboardAnimationCurveUserInfoKey"] as! Int
         
         //更改toolbar的底部约束
         let offset = -screenH + rect.origin.y
@@ -194,8 +194,8 @@ extension HMZComposeViewController:UITextViewDelegate {
         }
         UIView.animateWithDuration(duration) { () -> Void in
             //强制刷新
-            //如果给动画添加动画效果的曲线值 原始值 为 7  对应动画时长失效  ????
-            //UIView.setAnimationCurve(UIViewAnimationCurve(rawValue: curve)!)
+            //如果给动画添加动画效果的曲线值 原始值 为 7  对应动画时长失效  这个方法好使:解决切换表情键盘跳动幅度很大的问题
+            UIView.setAnimationCurve(UIViewAnimationCurve(rawValue: curve)!)
             self.view.layoutIfNeeded()
         }
     }
@@ -203,10 +203,30 @@ extension HMZComposeViewController:UITextViewDelegate {
     @objc private func selectPicture() {
         textView.resignFirstResponder()
         
+        let alertController = UIAlertController(title: nil,
+            message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let cameraAction = UIAlertAction(title: "相机", style: UIAlertActionStyle.Default, handler: { action in
+            print("点击了相机")
+            self.selectorPictureVc.openImagePickerController(.Camera)
+        })
+        
+        let okAction = UIAlertAction(title: "相册", style: UIAlertActionStyle.Default,
+            handler: { action in
+                print("点击了相册")
+                 self.selectorPictureVc.openImagePickerController(.PhotoLibrary)
+        })
+        let cancelAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel, handler: nil)
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        alertController.addAction(cameraAction)
+        presentViewController(alertController, animated: true, completion: nil)
+        
+        
         selectorPictureVc.view.snp_updateConstraints { (make) -> Void in
             make.height.equalTo(226+88+60)
         }
-       
+        
         view.bringSubviewToFront(toolBar)
     }
     

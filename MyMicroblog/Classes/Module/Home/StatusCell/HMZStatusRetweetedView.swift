@@ -101,7 +101,7 @@ extension HMZStatusRetweetedView: FFLabelDelegate {
         print(text)
         if text.hasPrefix("http") {
             //进行页面跳转
-            let temp = HMZTempWebViewController()
+            let temp = HMZWebViewController()
             temp.urlString = text
             self.getNavController()?.pushViewController(temp, animated: true)
             

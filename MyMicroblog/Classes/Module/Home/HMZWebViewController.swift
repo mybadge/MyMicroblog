@@ -1,5 +1,5 @@
 //
-//  HMZTempWebViewController.swift
+//  HMZWebViewController.swift
 //  MyMicroblog
 //
 //  Created by 赵志丹 on 15/12/16.
@@ -9,7 +9,7 @@
 import UIKit
 import SVProgressHUD
 
-class HMZTempWebViewController: UIViewController,UIWebViewDelegate {
+class HMZWebViewController: UIViewController,UIWebViewDelegate {
 
     let webView = UIWebView()
     var urlString: String?
@@ -24,6 +24,7 @@ class HMZTempWebViewController: UIViewController,UIWebViewDelegate {
         if let url = urlString {
             let request = NSURLRequest(URL: NSURL(string: url)!)
             webView.loadRequest(request)
+            webView.sizeToFit()
         }
     }
     

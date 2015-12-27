@@ -19,7 +19,8 @@ class HMZEmoticonManager: NSObject {
     
     
     //重写init方法
-    override init() {
+    //指定创建方法私有化,使单例对象彻底单例化(否则之前是伪单例)
+    private override init() {
         super.init()
         loadPackages()
     }

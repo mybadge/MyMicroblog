@@ -50,6 +50,8 @@ class HMZPhotoBrowserViewController: UIViewController {
         collectionView.scrollToItemAtIndexPath(currentIndexPath, atScrollPosition: .CenteredHorizontally, animated: false)
     }
     
+   
+    
     private func setupUI() {
         view.addSubview(collectionView)
         view.addSubview(closeBtn)
@@ -74,6 +76,7 @@ class HMZPhotoBrowserViewController: UIViewController {
         }
         closeBtn.addTarget(self, action: "close", forControlEvents: .TouchUpInside)
         saveBtn.addTarget(self, action: "save", forControlEvents: .TouchUpInside)
+        
     }
     
     //MARK: - 懒加载控件

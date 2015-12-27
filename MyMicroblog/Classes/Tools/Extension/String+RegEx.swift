@@ -16,8 +16,8 @@ extension String {
         let regex = try! NSRegularExpression(pattern: pattern, options: [])
         //调用 正则表达式的核心方法之一
         guard let result = regex.firstMatchInString(self, options: [], range: NSRange(location: 0, length:characters.count)) else {
-            print("匹配方案有误")
-            return (nil,nil)
+            //print("匹配方案有误")
+            return (nil,"来自火星")
         }
         
         let range1 = result.rangeAtIndex(1)

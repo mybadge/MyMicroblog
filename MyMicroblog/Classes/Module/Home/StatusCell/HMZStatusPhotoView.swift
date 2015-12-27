@@ -34,6 +34,8 @@ class HMZStatusPhotoView: UICollectionView {
         super.init(frame: frame, collectionViewLayout: layout)
         dataSource = self
         delegate = self
+        //禁用滚动到顶部,就可以让tableView(要保证视图中的滚动视图只有一个可以滚动到顶部,需要把其他的滚动视图的这个属性设为false)s 的滚动到顶部可用.
+        scrollsToTop = false
         backgroundColor = UIColor(white: 0.9, alpha: 1)
         //注册Cell类型
         registerClass(HMZStatusPhotoCell.self, forCellWithReuseIdentifier: photoCellId)
