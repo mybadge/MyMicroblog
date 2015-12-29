@@ -27,6 +27,14 @@ class HMZBaseTableViewController: UITableViewController,HMZVisitorLoginViewDeleg
         }
     }
     
+    ///  解决登陆成功后,访客视图还在,加载网络完成后 reloadData时,因为不是UITableView,造成的程序崩溃.
+    @objc private func loginSuccess(n: NSNotification) {
+        let stateStr = n.object as? String
+        print("loginState =" + (stateStr ?? ""))
+        if let state = stateStr where state == "loginSuccess" {
+            view = UITableView()
+        }
+    }
     
     
     func setupVisitorLoginView(){
@@ -51,12 +59,5 @@ class HMZBaseTableViewController: UITableViewController,HMZVisitorLoginViewDeleg
     }
     
     
-    ///  解决登陆成功后,访客视图还在,加载网络完成后 reloadData时,因为不是UITableView,造成的程序崩溃.
-    @objc private func loginSuccess(n: NSNotification) {
-        let stateStr = n.object as? String
-        print("loginState =" + (stateStr ?? ""))
-        if let state = stateStr where state == "loginSuccess" {
-            view = UITableView()
-        }
-    }
+
 }

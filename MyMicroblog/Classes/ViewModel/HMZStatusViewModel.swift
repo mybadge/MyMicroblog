@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+import SDWebImage
 
 class HMZStatusViewModel: NSObject {
     class func loadData(sinceId: Int, maxId: Int, finish: (statuses: [HMZStatus]?) ->()){
@@ -41,10 +42,36 @@ class HMZStatusViewModel: NSObject {
             for dict in arrayList {
                 list.append(HMZStatus(dict: dict))
             }
-            //成功返回数据
+            //缓存图片数据
+            cacheStatusImage(list, finish: finish)
+        }
+    }
+    
+    //下载单张图片
+    class func cacheStatusImage(list: [HMZStatus], finish: (statuses: [HMZStatus]?) ->()){
+        if list.count == 0 {
+            finish(statuses: list)
+            return
+        }
+        //实例化群组任务
+        let group = dispatch_group_create()
+        
+        for status in list {
+            //单张图片下载  开始异步任务之前 先进入群组  有入组 就一定要匹配一个 出组
+            if let urls = status.pictureURLs where urls.count == 1 {
+                dispatch_group_enter(group)//入组
+                SDWebImageManager.sharedManager().downloadImageWithURL(urls.first, options: [], progress: nil, completed: { (_, _, _, _, _) -> Void in
+                    //出组
+                    dispatch_group_leave(group)
+                })
+            }
+        }
+        //开始 统一回调
+        dispatch_group_notify(group, dispatch_get_main_queue()) { () -> Void in
             finish(statuses: list)
         }
     }
+    
     
     
     ///  转发一条微博 https://api.weibo.com/2/statuses/repost.json

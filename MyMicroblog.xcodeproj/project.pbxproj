@@ -21,6 +21,7 @@
 		DA18C6741C205E1200C8FCB7 /* HMZStatusRetweetedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA18C6731C205E1200C8FCB7 /* HMZStatusRetweetedView.swift */; };
 		DA1ECA571C2D21E50044F814 /* String+Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1ECA561C2D21E50044F814 /* String+Emoji.swift */; };
 		DA1ECA5B1C2D35E00044F814 /* HMZDropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1ECA5A1C2D35E00044F814 /* HMZDropdownMenu.m */; };
+		DA6961CC1C3239740069CCB2 /* HMZMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6961CB1C3239740069CCB2 /* HMZMessageCell.swift */; };
 		DA6B00DA1C1C068000D362C9 /* HMZMainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6B00D91C1C068000D362C9 /* HMZMainTabBarController.swift */; };
 		DA6B00DE1C1C08C100D362C9 /* HMZMainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6B00DD1C1C08C100D362C9 /* HMZMainTabBar.swift */; };
 		DA6B00E01C1C4AA300D362C9 /* HMZDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6B00DF1C1C4AA300D362C9 /* HMZDiscoverViewController.swift */; };
@@ -82,6 +83,7 @@
 		DA1ECA581C2D35E00044F814 /* MyMicroblog-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyMicroblog-Bridging-Header.h"; sourceTree = "<group>"; };
 		DA1ECA591C2D35E00044F814 /* HMZDropdownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMZDropdownMenu.h; sourceTree = "<group>"; };
 		DA1ECA5A1C2D35E00044F814 /* HMZDropdownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMZDropdownMenu.m; sourceTree = "<group>"; };
+		DA6961CB1C3239740069CCB2 /* HMZMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZMessageCell.swift; sourceTree = "<group>"; };
 		DA6B00D91C1C068000D362C9 /* HMZMainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZMainTabBarController.swift; sourceTree = "<group>"; };
 		DA6B00DD1C1C08C100D362C9 /* HMZMainTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZMainTabBar.swift; sourceTree = "<group>"; };
 		DA6B00DF1C1C4AA300D362C9 /* HMZDiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMZDiscoverViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				DA6B00E61C1C4B3D00D362C9 /* HMZMessageViewController.swift */,
+				DA6961CB1C3239740069CCB2 /* HMZMessageCell.swift */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -271,9 +274,9 @@
 			isa = PBXGroup;
 			children = (
 				DA0282221C1D1E63000416A4 /* HMZUserAccountViewModel.swift */,
+				DA9E07961C239FCD0036F444 /* HMZStatusCommentViewModel.swift */,
 				DA18C66F1C1FEDB800C8FCB7 /* HMZStatusViewModel.swift */,
 				DAF5B2B21C2244FD0021DC2F /* HMZUserViewModel.swift */,
-				DA9E07961C239FCD0036F444 /* HMZStatusCommentViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				DA8783AA1C1FB11400A411C1 /* HMZStatusCell.swift in Sources */,
 				DA0282231C1D1E63000416A4 /* HMZUserAccountViewModel.swift in Sources */,
 				DA9E07951C239DDD0036F444 /* HMZStatusCommentController.swift in Sources */,
+				DA6961CC1C3239740069CCB2 /* HMZMessageCell.swift in Sources */,
 				DA18C6721C20417100C8FCB7 /* HMZStatusToolBar.swift in Sources */,
 				DA18C6701C1FEDB800C8FCB7 /* HMZStatusViewModel.swift in Sources */,
 				DA18C6741C205E1200C8FCB7 /* HMZStatusRetweetedView.swift in Sources */,
